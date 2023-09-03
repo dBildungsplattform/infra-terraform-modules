@@ -1,0 +1,32 @@
+name: Static Code Analysis
+on:
+  pull_request:
+    branches: 
+      - '*'                            # Trigger the workflow on pull requests to any branch
+jobs:
+  checkov:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+      - name: Test with Checkov
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: infra-terraform-modules/modules
+          framework: terraform
+  tflint:                                     
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+      - name: Set up TFLint
+        uses: terraform-linters/setup-tflint@v3
+  
+      - name: Test with TFLint
+        run:
+          tflint -f compact infra-terraform-modules/modules
