@@ -16,7 +16,7 @@ jobs:
         id: checkov
         uses: bridgecrewio/checkov-action@master
         with:
-          directory: ./infra-terraform-modules/modules
+          directory: ./modules
           framework: terraform
   tflint:                                     
     runs-on: ubuntu-latest
@@ -29,4 +29,4 @@ jobs:
   
       - name: Test with TFLint
         run:
-          tflint -f compact ./infra-terraform-modules/modules
+            tflint --chdir ./modules --format compact
