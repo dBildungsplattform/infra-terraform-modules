@@ -1,6 +1,4 @@
-# Usage
-
-<!--- BEGIN_TF_DOCS --->
+<!-- BEGIN_TF_DOCS -->
 
 ## Providers
 
@@ -11,19 +9,19 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_cidr_workaround"></a> [cidr\_workaround](#module\_cidr\_workaround) | ../sc-ionos-cidr-workaround | n/a |
+| <a name="module_cidr_workaround"></a> [cidr\_workaround](#module\_cidr\_workaround) | ../ionos-cidr-workaround | n/a |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cores"></a> [cores](#input\_cores) | The number of CPU cores per replica. | `number` | n/a | yes |
 | <a name="input_datacenter_id"></a> [datacenter\_id](#input\_datacenter\_id) | The datacenter to connect your cluster to. | `string` | n/a | yes |
-| <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | The physical location where the cluster will be created. This will be where all of your instances live. Property cannot be modified after datacenter creation (disallowed in update requests) | `string` | n/a | yes |
+| <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | The physical location where the cluster will be created. This will be where all of your instances live. | `any` | n/a | yes |
+| <a name="input_display_name"></a> [display\_name](#input\_display\_name) | Display Name of an existing cluster that you want to search for. | `string` | n/a | yes |
 | <a name="input_instances_count"></a> [instances\_count](#input\_instances\_count) | The total number of instances in the cluster (one master and n-1 standbys) | `number` | n/a | yes |
-| <a name="input_k8s_cluster_id"></a> [k8s\_cluster\_id](#input\_k8s\_cluster\_id) | n/a | `string` | n/a | yes |
+| <a name="input_k8s_cluster_id"></a> [k8s\_cluster\_id](#input\_k8s\_cluster\_id) | ID of cluster | `string` | n/a | yes |
 | <a name="input_lan_id"></a> [lan\_id](#input\_lan\_id) | The LAN to connect your cluster to. | `string` | n/a | yes |
 | <a name="input_memory"></a> [memory](#input\_memory) | The amount of memory per instance in megabytes. | `number` | n/a | yes |
-| <a name="input_name"></a> [name](#input\_name) | The friendly name of your cluster. | `string` | n/a | yes |
 | <a name="input_password"></a> [password](#input\_password) | The password for the initial postgres user. | `string` | n/a | yes |
 | <a name="input_postgres_version"></a> [postgres\_version](#input\_postgres\_version) | The PostgreSQL version of your cluster. | `string` | n/a | yes |
 | <a name="input_username"></a> [username](#input\_username) | The username for the initial postgres user. | `string` | n/a | yes |
@@ -50,6 +48,4 @@
 | Name | Type |
 |------|------|
 | [ionoscloud_pg_cluster.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/pg_cluster) | resource |
-
-<!--- END_TF_DOCS --->
-
+<!-- END_TF_DOCS -->
