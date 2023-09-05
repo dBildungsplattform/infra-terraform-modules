@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/**'
       - '.github/templates/**'
+      - 'modules/**'
 jobs:
   create-tf-docs:
     runs-on: ubuntu-latest
