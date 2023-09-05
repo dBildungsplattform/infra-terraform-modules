@@ -1,6 +1,4 @@
-# Usage
-
-<!--- BEGIN_TF_DOCS --->
+<!-- BEGIN_TF_DOCS -->
 
 ## Providers
 
@@ -13,21 +11,22 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_conventions"></a> [conventions](#module\_conventions) | ../sc-conventions-coordinates | n/a |
+| <a name="module_conventions"></a> [conventions](#module\_conventions) | ../conventions-coordinates | n/a |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_coordinates"></a> [coordinates](#input\_coordinates) | n/a | `map(any)` | <pre>{<br>  "index": "<index_ingress>",<br>  "project": "<project_ingress>",<br>  "scope": "<scope_ingress>",<br>  "stage": "<stage_ingress>"<br>}</pre> | no |
+| <a name="input_coordinates"></a> [coordinates](#input\_coordinates) | ## - variables ----------------------------------- | `map(any)` | <pre>{<br>  "index": "<index_ingress>",<br>  "project": "<project_ingress>",<br>  "scope": "<scope_ingress>",<br>  "stage": "<stage_ingress>"<br>}</pre> | no |
 | <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | Location of datacenter cluster shall be created in. | `string` | `""` | no |
-| <a name="input_domain_without_top_level"></a> [domain\_without\_top\_level](#input\_domain\_without\_top\_level) | hpi-schul-cloud | `string` | `"<domain_ingress>"` | no |
+| <a name="input_domain_without_top_level"></a> [domain\_without\_top\_level](#input\_domain\_without\_top\_level) | Example: dBildungsplattform | `string` | `"<domain_ingress>"` | no |
 | <a name="input_ingress_mode"></a> [ingress\_mode](#input\_ingress\_mode) | Set to one of 'sclb' or 'nodeport'. | `string` | `"sclb"` | no |
+| <a name="input_top_level_domain"></a> [top\_level\_domain](#input\_top\_level\_domain) | Top-level domain mapping for environments | `map(string)` | <pre>{<br>  "dev": "de",<br>  "prod": "de",<br>  "staging": "de",<br>  "test": "de"<br>}</pre> | no |
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_loadbalancer_dns"></a> [loadbalancer\_dns](#output\_loadbalancer\_dns) |  |
-| <a name="output_loadbalancer_ip"></a> [loadbalancer\_ip](#output\_loadbalancer\_ip) |  |
+| <a name="output_loadbalancer_dns"></a> [loadbalancer\_dns](#output\_loadbalancer\_dns) | loadbalancer\_dns |
+| <a name="output_loadbalancer_ip"></a> [loadbalancer\_ip](#output\_loadbalancer\_ip) | ## - Outputs -----------------------------------  # The local.loadbalancer\_ip is created by ionoscloud\_ipblock.crip. |
 ## Requirements
 
 | Name | Version |
@@ -42,6 +41,4 @@
 | [opentelekomcloud_dns_recordset_v2.dnsentry](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/resources/dns_recordset_v2) | resource |
 | [time_sleep.crip_destroy_wait](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
 | [opentelekomcloud_dns_zone_v2.dns_zone](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/data-sources/dns_zone_v2) | data source |
-
-<!--- END_TF_DOCS --->
-
+<!-- END_TF_DOCS -->
