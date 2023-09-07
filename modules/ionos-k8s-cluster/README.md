@@ -1,4 +1,6 @@
-<!-- BEGIN_TF_DOCS -->
+# Usage
+
+<!--- BEGIN_TF_DOCS --->
 
 ## Providers
 
@@ -20,7 +22,7 @@ No modules.
 | <a name="input_core_count"></a> [core\_count](#input\_core\_count) | This value overwrites pre-defined environment specific k8s cluster sizing. | `number` | `null` | no |
 | <a name="input_cpu_family"></a> [cpu\_family](#input\_cpu\_family) | Valid cpu family | `string` | `"INTEL_SKYLAKE"` | no |
 | <a name="input_create_public_ip_pools"></a> [create\_public\_ip\_pools](#input\_create\_public\_ip\_pools) | Nodepool Automatically create an IP pool per node pool with node count + 1 ips | `bool` | `false` | no |
-| <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | Via the datacenter location the available CPU type is controlled. The actual location is already is already fixed, because the datacenter\_id is used. | `string` | `""` | no |
+| <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | Via the datacenter location the available CPU type is controlled. The actual location is already is already fixed, because the datacenter\_id is used. | `string` | `"de/txt"` | no |
 | <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | Kubernetes version. | `string` | `"1.24.15"` | no |
 | <a name="input_maintenance_day"></a> [maintenance\_day](#input\_maintenance\_day) | On which day to do the maintenance | `string` | `"Saturday"` | no |
 | <a name="input_maintenance_hour"></a> [maintenance\_hour](#input\_maintenance\_hour) | On which hour to do the maintenance | `number` | `3` | no |
@@ -53,4 +55,6 @@ No modules.
 | [ionoscloud_k8s_cluster.cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/k8s_cluster) | resource |
 | [ionoscloud_k8s_node_pool.nodepool_zone1](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/k8s_node_pool) | resource |
 | [ionoscloud_k8s_node_pool.nodepool_zone2](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/k8s_node_pool) | resource |
-<!-- END_TF_DOCS -->
+
+<!--- END_TF_DOCS --->
+

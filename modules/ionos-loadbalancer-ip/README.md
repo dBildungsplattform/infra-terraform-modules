@@ -1,4 +1,6 @@
-<!-- BEGIN_TF_DOCS -->
+# Usage
+
+<!--- BEGIN_TF_DOCS --->
 
 ## Providers
 
@@ -16,11 +18,11 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_coordinates"></a> [coordinates](#input\_coordinates) | ## - variables ----------------------------------- | `map(any)` | <pre>{<br>  "index": "<index_ingress>",<br>  "project": "<project_ingress>",<br>  "scope": "<scope_ingress>",<br>  "stage": "<stage_ingress>"<br>}</pre> | no |
-| <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | Location of datacenter cluster shall be created in. | `string` | `""` | no |
-| <a name="input_domain_without_top_level"></a> [domain\_without\_top\_level](#input\_domain\_without\_top\_level) | Example: dBildungsplattform | `string` | `"<domain_ingress>"` | no |
+| <a name="input_coordinates"></a> [coordinates](#input\_coordinates) | ## - variables ----------------------------------- | `map(any)` | n/a | yes |
+| <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | Location of datacenter cluster shall be created in. | `string` | n/a | yes |
+| <a name="input_domain_without_top_level"></a> [domain\_without\_top\_level](#input\_domain\_without\_top\_level) | domain\_without\_top\_level Ex:dBildungsplattform | `string` | n/a | yes |
+| <a name="input_top_level_domain"></a> [top\_level\_domain](#input\_top\_level\_domain) | Top-level domain mapping for environments | `map(string)` | n/a | yes |
 | <a name="input_ingress_mode"></a> [ingress\_mode](#input\_ingress\_mode) | Set to one of 'sclb' or 'nodeport'. | `string` | `"sclb"` | no |
-| <a name="input_top_level_domain"></a> [top\_level\_domain](#input\_top\_level\_domain) | Top-level domain mapping for environments | `map(string)` | <pre>{<br>  "dev": "de",<br>  "prod": "de",<br>  "staging": "de",<br>  "test": "de"<br>}</pre> | no |
 ## Outputs
 
 | Name | Description |
@@ -41,4 +43,6 @@
 | [opentelekomcloud_dns_recordset_v2.dnsentry](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/resources/dns_recordset_v2) | resource |
 | [time_sleep.crip_destroy_wait](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
 | [opentelekomcloud_dns_zone_v2.dns_zone](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/data-sources/dns_zone_v2) | data source |
-<!-- END_TF_DOCS -->
+
+<!--- END_TF_DOCS --->
+

@@ -65,7 +65,7 @@ variable "datacenter_id" {
 variable "datacenter_location" {
   type        = string
   description = ""
-  default     = ""
+  default     = "de/txt"
 }
 #
 # The desired number of nodes in the node pool

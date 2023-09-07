@@ -10,7 +10,7 @@ value = local.global_identifier
 }
 # 
 #The name of the Kubernetes cluster in the IONOS DCD.
-#Identical to the global_identifier.*/
+#Identical to the global_identifier.
 #
 output "cluster_name" {
   value = local.cluster_name
@@ -43,4 +43,3 @@ output "cluster_dns" {
 output "top_level_domain" {
   value = local.top_level_domain
 }
-
