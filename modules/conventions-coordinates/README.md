@@ -1,6 +1,4 @@
-# Usage
-
-<!--- BEGIN_TF_DOCS --->
+<!-- BEGIN_TF_DOCS -->
 
 ## Providers
 
@@ -31,6 +29,4 @@ No requirements.
 ## Resources
 
 No resources.
-
-<!--- END_TF_DOCS --->
-
+<!-- END_TF_DOCS -->

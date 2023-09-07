@@ -1,6 +1,4 @@
-# Usage
-
-<!--- BEGIN_TF_DOCS --->
+<!-- BEGIN_TF_DOCS -->
 
 ## Providers
 
@@ -50,6 +48,4 @@
 | Name | Type |
 |------|------|
 | [ionoscloud_pg_cluster.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/pg_cluster) | resource |
-
-<!--- END_TF_DOCS --->
-
+<!-- END_TF_DOCS -->
