@@ -1,6 +1,4 @@
-# Usage
-
-<!--- BEGIN_TF_DOCS --->
+<!-- BEGIN_TF_DOCS -->
 
 ## Providers
 
@@ -55,6 +53,4 @@ No modules.
 | [ionoscloud_k8s_cluster.cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/k8s_cluster) | resource |
 | [ionoscloud_k8s_node_pool.nodepool_zone1](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/k8s_node_pool) | resource |
 | [ionoscloud_k8s_node_pool.nodepool_zone2](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/k8s_node_pool) | resource |
-
-<!--- END_TF_DOCS --->
-
+<!-- END_TF_DOCS -->
