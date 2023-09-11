@@ -16,7 +16,9 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           directory: ./modules
-          framework: terraform     
+          framework: terraform  
+
+
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:

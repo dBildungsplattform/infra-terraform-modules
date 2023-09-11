@@ -1,7 +1,3 @@
-
-#
-#Terraform Configuration Block : Required Providers Block & Required Version Block
-#
 terraform {
   required_providers {
     ionoscloud = {

@@ -19,7 +19,6 @@ resource "ionoscloud_pg_cluster" "pg_cluster" {
     username = var.username
     password = var.password
   }
-
   maintenance_window {
     day_of_the_week = var.maintenance_day
     time            = format("%02d:00:00", var.maintenance_hour)

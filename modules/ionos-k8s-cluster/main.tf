@@ -1,4 +1,3 @@
-
 resource "ionoscloud_k8s_cluster" "cluster" {
   name        = local.cluster_name
   k8s_version = var.k8s_version
@@ -8,11 +7,6 @@ resource "ionoscloud_k8s_cluster" "cluster" {
   }
   api_subnet_allow_list = local.api_subnet_allow_list
 }
-
-
-#
-# Nodepool - Zone1
-#
 resource "ionoscloud_k8s_node_pool" "nodepool_zone1" {
   count = local.nodepool_per_zone_count
   availability_zone = local.availability_zone
@@ -64,10 +58,6 @@ resource "ionoscloud_k8s_node_pool" "nodepool_zone1" {
   storage_size   = local.storage_size
   public_ips     = local.public_ip_pool_zone1 != null ? slice(local.public_ip_pool_zone1[count.index], 0, local.node_count + 1) : []
 }
-
-#
-# Nodepool - Zone2
-#
 resource "ionoscloud_k8s_node_pool" "nodepool_zone2" {
   count = local.nodepool_per_zone_count
 
@@ -122,21 +112,12 @@ resource "ionoscloud_k8s_node_pool" "nodepool_zone2" {
   storage_size   = local.storage_size
   public_ips     = local.public_ip_pool_zone2 != null ? slice(local.public_ip_pool_zone2[count.index], 0, local.node_count + 1) : []
 }
-
-
-#
-# Ippool - Zone1
-#
 resource "ionoscloud_ipblock" "ippools_zone1" {
   count    = var.create_public_ip_pools ? var.nodepool_per_zone_count : 0
   name     = "${local.cluster_name}-zone1-nodepool-${count.index}"
   location = var.datacenter_location
   size     = var.node_count + 1
 }
-
-#
-# Ippool - Zone2
-#
 resource "ionoscloud_ipblock" "ippools_zone2" {
   count    = var.create_public_ip_pools ? var.nodepool_per_zone_count : 0
   name     = "${local.cluster_name}-zone2-nodepool-${count.index}"

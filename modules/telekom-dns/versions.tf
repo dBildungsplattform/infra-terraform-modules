@@ -1,7 +1,3 @@
-
-#
-#Terraform Configuration Block : Required Providers Block & Required Version Block
-#
 terraform {
   required_version = ">= 0.13"
 
