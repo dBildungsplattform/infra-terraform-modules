@@ -11,22 +11,21 @@
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_conventions_coordinates"></a> [conventions\_coordinates](#module\_conventions\_coordinates) | ../conventions-coordinates | n/a |
-| <a name="module_conventions_instances"></a> [conventions\_instances](#module\_conventions\_instances) | ../conventions-instances | n/a |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_coordinates"></a> [coordinates](#input\_coordinates) | n/a | `map(any)` | <pre>{<br>  "index": "<index_ingress>",<br>  "project": "<project_ingress>",<br>  "scope": "<scope_ingress>",<br>  "stage": "<stage_ingress>"<br>}</pre> | no |
-| <a name="input_dns_a_entry"></a> [dns\_a\_entry](#input\_dns\_a\_entry) | The dns A entry this CNAME will point to. | `string` | `""` | no |
+| <a name="input_coordinates"></a> [coordinates](#input\_coordinates) | n/a | `map(any)` | n/a | yes |
+| <a name="input_dns_a_entry"></a> [dns\_a\_entry](#input\_dns\_a\_entry) | The dns A entry this CNAME will point to | `string` | n/a | yes |
+| <a name="input_top_level_domain"></a> [top\_level\_domain](#input\_top\_level\_domain) | Top-level domain mapping for environments | `map(any)` | n/a | yes |
 | <a name="input_dns_aliases"></a> [dns\_aliases](#input\_dns\_aliases) | Extra aliases | `list(string)` | `[]` | no |
-| <a name="input_domain_without_top_level"></a> [domain\_without\_top\_level](#input\_domain\_without\_top\_level) | The domain, without top level | `string` | `"dBildungsplattform"` | no |
-| <a name="input_top_level_domain"></a> [top\_level\_domain](#input\_top\_level\_domain) | Top-level domain mapping for environments | `map(string)` | <pre>{<br>  "dev": "de",<br>  "prod": "de",<br>  "staging": "de",<br>  "test": "de"<br>}</pre> | no |
+| <a name="input_domain_without_top_level"></a> [domain\_without\_top\_level](#input\_domain\_without\_top\_level) | The domain, without top level | `string` | `""` | no |
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_dns_a_entry"></a> [dns\_a\_entry](#output\_dns\_a\_entry) | dns\_a\_entry Example: dBildungsplattform.de. |
-| <a name="output_service_dns"></a> [service\_dns](#output\_service\_dns) | The registered dns CNAME for the service. |
+| <a name="output_dns_a_entry"></a> [dns\_a\_entry](#output\_dns\_a\_entry) | n/a |
+| <a name="output_service_dns"></a> [service\_dns](#output\_service\_dns) | n/a |
 ## Requirements
 
 | Name | Version |

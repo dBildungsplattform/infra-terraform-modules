@@ -16,17 +16,17 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_coordinates"></a> [coordinates](#input\_coordinates) | ## - variables ----------------------------------- | `map(any)` | n/a | yes |
-| <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | Location of datacenter cluster shall be created in. | `string` | n/a | yes |
-| <a name="input_domain_without_top_level"></a> [domain\_without\_top\_level](#input\_domain\_without\_top\_level) | domain\_without\_top\_level Ex:dBildungsplattform | `string` | n/a | yes |
-| <a name="input_top_level_domain"></a> [top\_level\_domain](#input\_top\_level\_domain) | Top-level domain mapping for environments | `map(string)` | n/a | yes |
+| <a name="input_coordinates"></a> [coordinates](#input\_coordinates) | n/a | `map(any)` | n/a | yes |
+| <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | Location of datacenter cluster shall be created in | `string` | n/a | yes |
+| <a name="input_domain_without_top_level"></a> [domain\_without\_top\_level](#input\_domain\_without\_top\_level) | domain without top level | `string` | n/a | yes |
+| <a name="input_top_level_domain"></a> [top\_level\_domain](#input\_top\_level\_domain) | Top-level domain mapping for environments | `map(any)` | n/a | yes |
 | <a name="input_ingress_mode"></a> [ingress\_mode](#input\_ingress\_mode) | Set to one of 'sclb' or 'nodeport'. | `string` | `"sclb"` | no |
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_loadbalancer_dns"></a> [loadbalancer\_dns](#output\_loadbalancer\_dns) | loadbalancer\_dns |
-| <a name="output_loadbalancer_ip"></a> [loadbalancer\_ip](#output\_loadbalancer\_ip) | ## - Outputs -----------------------------------  # The local.loadbalancer\_ip is created by ionoscloud\_ipblock.crip. |
+| <a name="output_loadbalancer_dns"></a> [loadbalancer\_dns](#output\_loadbalancer\_dns) | n/a |
+| <a name="output_loadbalancer_ip"></a> [loadbalancer\_ip](#output\_loadbalancer\_ip) | n/a |
 ## Requirements
 
 | Name | Version |
