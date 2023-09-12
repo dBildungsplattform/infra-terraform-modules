@@ -17,9 +17,9 @@
 |------|-------------|------|---------|:--------:|
 | <a name="input_coordinates"></a> [coordinates](#input\_coordinates) | n/a | `map(any)` | n/a | yes |
 | <a name="input_dns_a_entry"></a> [dns\_a\_entry](#input\_dns\_a\_entry) | The dns A entry this CNAME will point to | `string` | n/a | yes |
+| <a name="input_domain_without_top_level"></a> [domain\_without\_top\_level](#input\_domain\_without\_top\_level) | domain without top level | `string` | n/a | yes |
 | <a name="input_top_level_domain"></a> [top\_level\_domain](#input\_top\_level\_domain) | Top-level domain mapping for environments | `map(any)` | n/a | yes |
 | <a name="input_dns_aliases"></a> [dns\_aliases](#input\_dns\_aliases) | Extra aliases | `list(string)` | `[]` | no |
-| <a name="input_domain_without_top_level"></a> [domain\_without\_top\_level](#input\_domain\_without\_top\_level) | The domain, without top level | `string` | `""` | no |
 ## Outputs
 
 | Name | Description |
