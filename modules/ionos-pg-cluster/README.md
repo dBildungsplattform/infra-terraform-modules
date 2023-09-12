@@ -1,8 +1,12 @@
-<!-- BEGIN_TF_DOCS -->
+# Usage
+
+<!--- BEGIN_TF_DOCS --->
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.3.6 |
 ## Modules
 
 | Name | Source | Version |
@@ -43,5 +47,9 @@ No providers.
 | <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.3.6 |
 ## Resources
 
-No resources.
-<!-- END_TF_DOCS -->
+| Name | Type |
+|------|------|
+| [ionoscloud_pg_cluster.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/pg_cluster) | resource |
+
+<!--- END_TF_DOCS --->
+

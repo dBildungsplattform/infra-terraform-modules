@@ -14,3 +14,4 @@ data "ionoscloud_servers" "k8s_nodes" {
     value = data.ionoscloud_k8s_node_pool.k8s_node_pool.name
   }
 }
+
