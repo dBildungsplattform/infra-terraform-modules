@@ -1,29 +1,19 @@
-# Usage
 
-<!--- BEGIN_TF_DOCS --->
-## Requirements
+ # Infra Terraform Module
 
-No requirements.
+## Overview
+This repository contains our Terraform Modules for managing infrastructure components.
 
-## Providers
+## Usage
 
-No providers.
+To use this module, follow these steps:
 
-## Modules
+1. Clone this repository to your local development environment.
+```
+module "conventions" {
+  
+  source  = "github.com/dBildungsplattform/infra-terraform-modules//modules/conventions-coordinates?ref=v1.0.0"
+}
+```
 
-No modules.
-
-## Resources
-
-No resources.
-
-## Inputs
-
-No inputs.
-
-## Outputs
-
-No outputs.
-
-<!--- END_TF_DOCS --->
 
