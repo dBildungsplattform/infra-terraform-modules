@@ -11,7 +11,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_conventions"></a> [conventions](#module\_conventions) | ../conventions-coordinates | n/a |
+| <a name="module_conventions"></a> [conventions](#module\_conventions) | github.com/dBildungsplattform/infra-terraform-modules//modules/conventions-coordinates | v1.0.0 |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
