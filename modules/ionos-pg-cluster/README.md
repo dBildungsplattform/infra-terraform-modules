@@ -2,9 +2,7 @@
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.3.6 |
+No providers.
 ## Modules
 
 | Name | Source | Version |
@@ -45,7 +43,5 @@
 | <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.3.6 |
 ## Resources
 
-| Name | Type |
-|------|------|
-| [ionoscloud_pg_cluster.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/pg_cluster) | resource |
+No resources.
 <!-- END_TF_DOCS -->
