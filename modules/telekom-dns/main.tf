@@ -5,10 +5,8 @@ module "conventions_coordinates" {
   domain_without_top_level = var.domain_without_top_level
   top_level_domain         = var.top_level_domain
 }
+
 # Registers the given external_ip for the service in DNS. 
-# The DNS name is constructed from the cluster name and the domain.
-# Note:
-# The . at the end of the name.
  resource "opentelekomcloud_dns_recordset_v2" "dnsentry" {
   count   = 1
   zone_id = data.opentelekomcloud_dns_zone_v2.dns_zone.id
@@ -21,8 +19,7 @@ module "conventions_coordinates" {
     ignore_changes = [zone_id]
   }
 }
-# Registers the given external_ip for the service in DNS. 
-# The DNS name is constructed from the cluster name and the domain.
+
  resource "opentelekomcloud_dns_recordset_v2" "dnsaliases" {
   count   = length(var.dns_aliases)
   zone_id = data.opentelekomcloud_dns_zone_v2.dns_zone.id

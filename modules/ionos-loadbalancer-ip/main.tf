@@ -5,17 +5,20 @@ module "conventions" {
   domain_without_top_level = var.domain_without_top_level
   top_level_domain         = var.top_level_domain
 }
+
 resource "ionoscloud_ipblock" "crip" {
   count    = var.ingress_mode == "sclb" ? 1 : 0
   name     = "${module.conventions.global_identifier}-lb"
   location = var.datacenter_location
   size     = 1
 }
+
 resource "time_sleep" "crip_destroy_wait" {
   destroy_duration = "30s"
 
   depends_on = [ionoscloud_ipblock.crip]
 }
+
 resource "opentelekomcloud_dns_recordset_v2" "dnsentry" {
   count   = var.ingress_mode == "sclb" ? 1 : 0
   zone_id = data.opentelekomcloud_dns_zone_v2.dns_zone.id
