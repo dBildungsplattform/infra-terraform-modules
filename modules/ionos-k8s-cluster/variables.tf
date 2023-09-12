@@ -28,8 +28,8 @@ variable "cpu_family" {
 variable "associated_lans" {
   description = "The lans as objects in a list [{lan[0] with id and routes_list, lan[1] with id and routes_list}, ...]"
   type = list(object({
-    id             = number
-    routes_list    = list(any)
+    id          = number
+    routes_list = list(any)
   }))
   default = []
 }
@@ -83,8 +83,8 @@ variable "maintenance_hour" {
 }
 
 variable "api_subnet_allow_list" {
-    type = list(string)
-    default = null
+  type    = list(string)
+  default = null
 }
 
 variable "availability_zone" {
@@ -93,11 +93,11 @@ variable "availability_zone" {
 }
 
 variable "storage_type" {
-    type = string
-    default = "SSD" 
+  type    = string
+  default = "SSD"
 }
 
 variable "storage_size" {
-    type = number
-    default = 100
+  type    = number
+  default = 100
 }

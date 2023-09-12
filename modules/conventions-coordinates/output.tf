@@ -1,6 +1,6 @@
 # <project><-stage><-scope><-index>
 output "global_identifier" {
-value = local.global_identifier
+  value = local.global_identifier
 }
 
 output "cluster_name" {

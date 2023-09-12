@@ -6,7 +6,7 @@ locals {
   minus_scope_or_empty = "${local.scope == "" ? "" : "-"}${local.scope}"
   index                = var.coordinates.index
   minus_index_or_empty = "${local.index == "" ? "" : "-"}${local.index}"
-  
+
   # Output calculatin
   global_identifier = "${local.project}${local.minus_stage_or_empty}${local.minus_scope_or_empty}${local.minus_index_or_empty}"
   cluster_name      = local.global_identifier
