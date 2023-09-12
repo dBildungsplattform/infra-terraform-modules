@@ -19,7 +19,7 @@
 | <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | The physical location where the cluster will be created. This will be where all of your instances live. | `any` | n/a | yes |
 | <a name="input_display_name"></a> [display\_name](#input\_display\_name) | Display Name of an existing cluster that you want to search for. | `string` | n/a | yes |
 | <a name="input_instances_count"></a> [instances\_count](#input\_instances\_count) | The total number of instances in the cluster (one master and n-1 standbys) | `number` | n/a | yes |
-| <a name="input_k8s_cluster_id"></a> [k8s\_cluster\_id](#input\_k8s\_cluster\_id) | ID of cluster | `string` | n/a | yes |
+| <a name="input_k8s_cluster_id"></a> [k8s\_cluster\_id](#input\_k8s\_cluster\_id) | n/a | `string` | n/a | yes |
 | <a name="input_lan_id"></a> [lan\_id](#input\_lan\_id) | The LAN to connect your cluster to. | `string` | n/a | yes |
 | <a name="input_memory"></a> [memory](#input\_memory) | The amount of memory per instance in megabytes. | `number` | n/a | yes |
 | <a name="input_password"></a> [password](#input\_password) | The password for the initial postgres user. | `string` | n/a | yes |
