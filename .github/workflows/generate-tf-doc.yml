@@ -1,4 +1,3 @@
-# https://github.com/terraform-docs/gh-actions
 name: Generate Terraform-Docs
 on:
   pull_request:
