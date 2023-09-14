@@ -1,0 +1,26 @@
+name: Generate Terraform-Docs
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+      - '.github/templates/**'
+      - 'modules/**'
+jobs:
+  create-tf-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out code to Runner
+        uses: actions/checkout@v3  
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      
+      - name: Render Terraform-Docs
+        uses: terraform-docs/gh-actions@v1.0.0
+        with:
+          find-dir: modules
+          config-file: .github/templates/.terraform-docs.yaml
+          output-file: README.md
+          output-method: replace 
+          git-push: true
