@@ -1,6 +1,4 @@
-# Usage
-
-<!--- BEGIN_TF_DOCS --->
+<!-- BEGIN_TF_DOCS -->
 
 ## Providers
 
@@ -60,6 +58,4 @@
 | [ionoscloud_server.server](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/server) | resource |
 | [ionoscloud_private_crossconnect.crossconnect](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/private_crossconnect) | data source |
 | [opentelekomcloud_dns_zone_v2.dns_zone](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/data-sources/dns_zone_v2) | data source |
-
-<!--- END_TF_DOCS --->
-
+<!-- END_TF_DOCS -->

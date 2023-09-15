@@ -1,6 +1,4 @@
-# Usage
-
-<!--- BEGIN_TF_DOCS --->
+<!-- BEGIN_TF_DOCS -->
 
 ## Providers
 
@@ -14,7 +12,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_datacenter_name"></a> [datacenter\_name](#input\_datacenter\_name) | The name of the datacenter | `string` | n/a | yes |
+| <a name="input_datacenter_name"></a> [datacenter\_name](#input\_datacenter\_name) | n/a | `string` | n/a | yes |
 | <a name="input_associated_backend_crossconnect_id"></a> [associated\_backend\_crossconnect\_id](#input\_associated\_backend\_crossconnect\_id) | Specifies whether an existing crossconnect shall be associated. | `string` | `""` | no |
 | <a name="input_associated_frontend_crossconnect_id"></a> [associated\_frontend\_crossconnect\_id](#input\_associated\_frontend\_crossconnect\_id) | Specifies whether an existing crossconnect shall be associated. | `string` | `""` | no |
 | <a name="input_associated_service_crossconnect_id"></a> [associated\_service\_crossconnect\_id](#input\_associated\_service\_crossconnect\_id) | Specifies whether an existing crossconnect shall be associated. | `string` | `""` | no |
@@ -24,7 +22,7 @@ No modules.
 | <a name="input_create_public_lan"></a> [create\_public\_lan](#input\_create\_public\_lan) | Specifies whether a public lan shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_create_service_crossconnect"></a> [create\_service\_crossconnect](#input\_create\_service\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_crossconnect_shared_group_ids"></a> [crossconnect\_shared\_group\_ids](#input\_crossconnect\_shared\_group\_ids) | Specifies which groups crossconnect shall be shared with. Default: []. | `list(string)` | `[]` | no |
-| <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | The location where the datacenter shall be created. de/txl = Berlin de/fra = Frankfurt Default: "de/txl" | `string` | `"de/txl"` | no |
+| <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | n/a | `string` | `"de/txl"` | no |
 | <a name="input_routes_map"></a> [routes\_map](#input\_routes\_map) | map which links based on the lan id to a list in which the routes in form of an object ('network'='###' and 'gateway\_ip'='###') are saved | `any` | `{}` | no |
 ## Outputs
 
@@ -64,6 +62,4 @@ No modules.
 | [ionoscloud_share.backend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/share) | resource |
 | [ionoscloud_share.frontend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/share) | resource |
 | [ionoscloud_share.service_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/share) | resource |
-
-<!--- END_TF_DOCS --->
-
+<!-- END_TF_DOCS -->
