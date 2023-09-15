@@ -1,5 +1,5 @@
 module "conventions_coordinates" {
-  source                   = "github.com/dBildungsplattform/infra-terraform-modules//modules/conventions-coordinates?ref=v1.0.0"
+  source                   = "github.com/dBildungsplattform/infra-terraform-modules//modules/conventions-coordinates?ref=v1.0.1"
   coordinates              = var.coordinates
   domain_without_top_level = var.domain_without_top_level
   top_level_domain         = var.top_level_domain
