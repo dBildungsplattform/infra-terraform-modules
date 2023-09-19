@@ -18,6 +18,7 @@ No modules.
 | <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | n/a | `string` | n/a | yes |
 | <a name="input_node_count"></a> [node\_count](#input\_node\_count) | This value overwrites specific k8s cluster sizing | `number` | n/a | yes |
 | <a name="input_ram_size"></a> [ram\_size](#input\_ram\_size) | This value overwrites pre-defined environment specific k8s cluster sizing | `number` | n/a | yes |
+| <a name="input_allow_node_pool_replacement"></a> [allow\_node\_pool\_replacement](#input\_allow\_node\_pool\_replacement) | When set to true, allows the update of immutable fields by first destroying and then re-creating the node pool. | `bool` | `false` | no |
 | <a name="input_api_subnet_allow_list"></a> [api\_subnet\_allow\_list](#input\_api\_subnet\_allow\_list) | n/a | `list(string)` | `null` | no |
 | <a name="input_associated_lans"></a> [associated\_lans](#input\_associated\_lans) | The lans as objects in a list [{lan[0] with id and routes\_list, lan[1] with id and routes\_list}, ...] | <pre>list(object({<br>    id          = number<br>    routes_list = list(any)<br>  }))</pre> | `[]` | no |
 | <a name="input_availability_zone"></a> [availability\_zone](#input\_availability\_zone) | n/a | `string` | `"ZONE_1"` | no |
