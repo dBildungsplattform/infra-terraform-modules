@@ -9,7 +9,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_cidr_workaround"></a> [cidr\_workaround](#module\_cidr\_workaround) | github.com/dBildungsplattform/infra-terraform-modules//modules/ionos-cidr-workaround | v1.0.1 |
+| <a name="module_cidr_workaround"></a> [cidr\_workaround](#module\_cidr\_workaround) | github.com/dBildungsplattform/infra-terraform-modules//modules/ionos-cidr-workaround | 1.1.0 |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
