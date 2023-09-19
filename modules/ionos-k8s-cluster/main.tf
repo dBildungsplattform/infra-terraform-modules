@@ -13,7 +13,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_zone1" {
   availability_zone = "ZONE_1"
   name              = "${local.cluster_name}-zone1-nodepool-${count.index}"
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
-
+  allow_replace     = var.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
   # it iterates through the list of var.associated_lans and sets the appropriate lan id
   # it also sets one or multiple route to the lan, if a not empty entry exists in routes_list(var.associated_lans)
@@ -66,7 +66,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_zone2" {
   availability_zone = "ZONE_2"
   name              = "${local.cluster_name}-zone2-nodepool-${count.index}"
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
-
+  allow_replace     = var.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
   # it iterates through the list of var.associated_lans and sets the appropriate lan id
   # it also sets one or multiple route to the lan, if a not empty entry exists in routes_list(var.associated_lans)

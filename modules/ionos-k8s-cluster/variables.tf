@@ -70,6 +70,12 @@ variable "create_public_ip_pools" {
   default = false
 }
 
+variable "allow_node_pool_replacement" {
+  type    = bool
+  description = "When set to true, allows the update of immutable fields by first destroying and then re-creating the node pool."
+  default = false
+}
+
 variable "maintenance_day" {
   type        = string
   description = "On which day to do the maintenance"

@@ -1,14 +1,9 @@
-
- # Infra Terraform Module
+# Infra Terraform Module
 
 ## Overview
 This repository contains our Terraform Modules for managing infrastructure components.
 
 ## Usage
-
-To use this module, follow these steps:
-
-1. Clone this repository to your local development environment.
 ```
 module "conventions" {
   
