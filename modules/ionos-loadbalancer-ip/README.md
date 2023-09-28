@@ -11,7 +11,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_conventions"></a> [conventions](#module\_conventions) | ../../conventions-coordinates | n/a |
+| <a name="module_conventions"></a> [conventions](#module\_conventions) | ../../modules/conventions-coordinates | n/a |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
