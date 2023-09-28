@@ -9,7 +9,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_cidr_workaround"></a> [cidr\_workaround](#module\_cidr\_workaround) | ./ionos-cidr-workaround | n/a |
+| <a name="module_cidr_workaround"></a> [cidr\_workaround](#module\_cidr\_workaround) | ../../ionos-cidr-workaround | n/a |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
