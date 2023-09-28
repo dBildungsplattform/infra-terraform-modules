@@ -1,5 +1,5 @@
 module "cidr_workaround" {
-  source         = "github.com/dBildungsplattform/infra-terraform-modules//modules/ionos-cidr-workaround?ref=v1.1.0"
+  source         = "./ionos-cidr-workaround"
   k8s_cluster_id = var.k8s_cluster_id
   lan_id         = var.lan_id
 }
