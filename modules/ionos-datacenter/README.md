@@ -12,7 +12,6 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_create_postgres_lan"></a> [create\_postgres\_lan](#input\_create\_postgres\_lan) | Specifies whether a private lan to connect Postgres shall be created. | `bool` | n/a | yes |
 | <a name="input_datacenter_name"></a> [datacenter\_name](#input\_datacenter\_name) | n/a | `string` | n/a | yes |
 | <a name="input_associated_backend_crossconnect_id"></a> [associated\_backend\_crossconnect\_id](#input\_associated\_backend\_crossconnect\_id) | Specifies whether an existing crossconnect shall be associated. | `string` | `""` | no |
 | <a name="input_associated_frontend_crossconnect_id"></a> [associated\_frontend\_crossconnect\_id](#input\_associated\_frontend\_crossconnect\_id) | Specifies whether an existing crossconnect shall be associated. | `string` | `""` | no |
@@ -20,6 +19,7 @@ No modules.
 | <a name="input_create_backend_crossconnect"></a> [create\_backend\_crossconnect](#input\_create\_backend\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_create_frontend_crossconnect"></a> [create\_frontend\_crossconnect](#input\_create\_frontend\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_create_nfs_server_lan"></a> [create\_nfs\_server\_lan](#input\_create\_nfs\_server\_lan) | Specifies whether a private lan to connect an NFS server shall be created. | `bool` | `false` | no |
+| <a name="input_create_postgres_lan"></a> [create\_postgres\_lan](#input\_create\_postgres\_lan) | Specifies whether a private lan to connect Postgres shall be created. | `bool` | `false` | no |
 | <a name="input_create_public_lan"></a> [create\_public\_lan](#input\_create\_public\_lan) | Specifies whether a public lan shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_create_service_crossconnect"></a> [create\_service\_crossconnect](#input\_create\_service\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_crossconnect_shared_group_ids"></a> [crossconnect\_shared\_group\_ids](#input\_crossconnect\_shared\_group\_ids) | Specifies which groups crossconnect shall be shared with. Default: []. | `list(string)` | `[]` | no |
