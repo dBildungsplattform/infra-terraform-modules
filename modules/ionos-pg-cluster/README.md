@@ -20,9 +20,9 @@
 | <a name="input_display_name"></a> [display\_name](#input\_display\_name) | Display Name of an existing cluster that you want to search for. | `string` | n/a | yes |
 | <a name="input_instances_count"></a> [instances\_count](#input\_instances\_count) | The total number of instances in the cluster (one master and n-1 standbys) | `number` | n/a | yes |
 | <a name="input_k8s_cluster_id"></a> [k8s\_cluster\_id](#input\_k8s\_cluster\_id) | n/a | `string` | n/a | yes |
+| <a name="input_lan_id"></a> [lan\_id](#input\_lan\_id) | The LAN to connect your cluster to. | `string` | n/a | yes |
 | <a name="input_memory"></a> [memory](#input\_memory) | The amount of memory per instance in megabytes. | `number` | n/a | yes |
 | <a name="input_password"></a> [password](#input\_password) | The password for the initial postgres user. | `string` | n/a | yes |
-| <a name="input_postgres_lan_id"></a> [postgres\_lan\_id](#input\_postgres\_lan\_id) | The LAN to connect your cluster to. | `string` | n/a | yes |
 | <a name="input_postgres_version"></a> [postgres\_version](#input\_postgres\_version) | The PostgreSQL version of your cluster. | `string` | n/a | yes |
 | <a name="input_username"></a> [username](#input\_username) | The username for the initial postgres user. | `string` | n/a | yes |
 | <a name="input_volume_size"></a> [volume\_size](#input\_volume\_size) | The amount of storage per instance in MB. | `number` | n/a | yes |
