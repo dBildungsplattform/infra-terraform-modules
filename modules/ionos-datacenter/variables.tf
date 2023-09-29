@@ -72,4 +72,5 @@ variable "create_nfs_server_lan" {
 variable "create_postgres_lan" {
   description = "Specifies whether a private lan to connect Postgres shall be created."
   type        = bool
+  default = false
 }
