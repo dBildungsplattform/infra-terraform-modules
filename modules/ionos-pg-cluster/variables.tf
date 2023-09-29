@@ -38,7 +38,7 @@ variable "k8s_cluster_id" {
   description = ""
   type        = string
 }
-variable "postgres_lan_id" {
+variable "lan_id" {
   description = "The LAN to connect your cluster to."
   type        = string
 }
