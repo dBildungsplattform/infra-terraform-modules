@@ -12,6 +12,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_create_postgres_lan"></a> [create\_postgres\_lan](#input\_create\_postgres\_lan) | Specifies whether a private lan to connect Postgres shall be created. | `bool` | n/a | yes |
 | <a name="input_datacenter_name"></a> [datacenter\_name](#input\_datacenter\_name) | n/a | `string` | n/a | yes |
 | <a name="input_associated_backend_crossconnect_id"></a> [associated\_backend\_crossconnect\_id](#input\_associated\_backend\_crossconnect\_id) | Specifies whether an existing crossconnect shall be associated. | `string` | `""` | no |
 | <a name="input_associated_frontend_crossconnect_id"></a> [associated\_frontend\_crossconnect\_id](#input\_associated\_frontend\_crossconnect\_id) | Specifies whether an existing crossconnect shall be associated. | `string` | `""` | no |
@@ -37,8 +38,10 @@ No modules.
 | <a name="output_lan_backend"></a> [lan\_backend](#output\_lan\_backend) | n/a |
 | <a name="output_lan_frontend"></a> [lan\_frontend](#output\_lan\_frontend) | n/a |
 | <a name="output_lan_nfs_server"></a> [lan\_nfs\_server](#output\_lan\_nfs\_server) | n/a |
+| <a name="output_lan_postgres"></a> [lan\_postgres](#output\_lan\_postgres) | n/a |
 | <a name="output_lan_service"></a> [lan\_service](#output\_lan\_service) | n/a |
 | <a name="output_nfs_server_lan_id"></a> [nfs\_server\_lan\_id](#output\_nfs\_server\_lan\_id) | n/a |
+| <a name="output_postgres_lan_id"></a> [postgres\_lan\_id](#output\_postgres\_lan\_id) | n/a |
 | <a name="output_service_crossconnect_id"></a> [service\_crossconnect\_id](#output\_service\_crossconnect\_id) | n/a |
 ## Requirements
 
@@ -54,6 +57,7 @@ No modules.
 | [ionoscloud_lan.backend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.frontend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.nfs_server_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
+| [ionoscloud_lan.postgres_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.public_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.service_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_private_crossconnect.backend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/private_crossconnect) | resource |
