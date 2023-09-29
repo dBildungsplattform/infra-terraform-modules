@@ -11,7 +11,7 @@ resource "ionoscloud_pg_cluster" "pg_cluster" {
 
   connections {
     datacenter_id = var.datacenter_id
-    lan_id        = var.lan_id
+    lan_id        = var.postgres_lan_id
     cidr          = local.cidr
   }
 

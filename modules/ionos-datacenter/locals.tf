@@ -10,7 +10,8 @@ locals {
   frontend_crossconnect_shared_group_ids = (length(var.crossconnect_shared_group_ids) > 0 && local.create_frontend_crossconnect == true) ? var.crossconnect_shared_group_ids : []
   backend_crossconnect_shared_group_ids  = (length(var.crossconnect_shared_group_ids) > 0 && local.create_backend_crossconnect == true) ? var.crossconnect_shared_group_ids : []
   service_crossconnect_shared_group_ids  = (length(var.crossconnect_shared_group_ids) > 0 && local.create_frontend_crossconnect == true) ? var.crossconnect_shared_group_ids : []
-  routes_map = var.routes_map 
+  routes_map                             = var.routes_map 
+  create_postgres_lan                    = var.create_postgres_lan
   # this saves the service/backend/frontend lans as an object in a list
   # Example of an object:
   # > type({"id" = "id", "routes_list" = [{"network" = "10.0.0.0/24", gateway_ip="10.0.0.0"}]})
@@ -28,4 +29,5 @@ locals {
   lan_backend = flatten([ for id in ionoscloud_lan.backend_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
   lan_frontend = flatten([ for id in ionoscloud_lan.frontend_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
   lan_nfs_server = flatten([ for id in ionoscloud_lan.nfs_server_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
+  lan_postgres = flatten([ for id in ionoscloud_lan.postgres_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
 }
