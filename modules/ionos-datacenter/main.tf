@@ -82,3 +82,10 @@ resource "ionoscloud_lan" "nfs_server_lan" {
   datacenter_id = ionoscloud_datacenter.datacenter.id
   public        = false
 }
+
+resource "ionoscloud_lan" "postgres_lan" {
+  count         = local.create_postgres_lan ? 1 : 0
+  name          = "${var.datacenter_name}-postgres-lan"
+  datacenter_id = ionoscloud_datacenter.datacenter.id
+  public        = false
+}

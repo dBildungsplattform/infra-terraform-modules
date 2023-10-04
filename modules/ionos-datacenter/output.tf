@@ -46,3 +46,11 @@ output "nfs_server_lan_id" {
 output "lan_nfs_server" {
   value = local.lan_nfs_server
 }
+
+output "postgres_lan_id" {
+  value = join("", ionoscloud_lan.postgres_lan.*.id)
+}
+
+output "lan_postgres" {
+  value = local.lan_postgres
+}
