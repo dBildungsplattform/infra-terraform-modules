@@ -1,6 +1,6 @@
-resource "opentelekomcloud_dns_recordset_v2" "email_hpi_schul_cloud_de" {
+resource "opentelekomcloud_dns_recordset_v2" "records" {
 
-  for_each = { for record in csvdecode(file(var.file_path)) : record.domain => record }
+  for_each = { for record in csvdecode(file(var.csv_file_path)) : record.domain => record }
 
   zone_id = var.zone_id
   name    = lower("${each.value.domain}")

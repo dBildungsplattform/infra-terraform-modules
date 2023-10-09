@@ -1,4 +1,4 @@
-variable "file_path" {
+variable "csv_file_path" {
     type = string
     description = "Path to the CSV file containing the records to create, expected fields are domain, type and record."
 }
