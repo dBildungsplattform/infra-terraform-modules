@@ -19,7 +19,6 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_nicIndex"></a> [nicIndex](#output\_nicIndex) | n/a |
-| <a name="output_node_lan_ips"></a> [node\_lan\_ips](#output\_node\_lan\_ips) | n/a |
 | <a name="output_prefix"></a> [prefix](#output\_prefix) | n/a |
 ## Requirements
 
