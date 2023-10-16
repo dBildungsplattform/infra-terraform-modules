@@ -18,11 +18,6 @@ variable "alb_target_lan_id" {
   description = "The LAN to connect your Application Loadbalancer to"
 }
 
-variable "dns_record_name" {
-  type        = string
-  description = "DNS record name that points to Application Loadbalancer"
-}
-
 variable "coordinates" {
   type = map(any)
 }
@@ -44,5 +39,23 @@ variable "node_alb_lan_ips" {
 
 variable "ssl_cert_ids" {
   type        = list
-  description = "List of cert ids of wildcard certificates"
+  description = "Array of certificate ids. You can create certificates with the certificate resource"
+}
+
+variable "alb_client_timeout" {
+  type        = number
+  description = "The maximum time in milliseconds to wait for the client to acknowledge or send data; default is 50,000 (50 seconds)"
+  default     = 60000
+}
+
+variable "alb_listener_port" {
+  type        = number
+  description = "Listening (inbound) port number; valid range is 1 to 65535"
+  default     = 443
+}
+
+variable "alb_tg_target_port" {
+  type        = string
+  description = "The port of the balanced target service; valid range is 1 to 65535 used in target group"
+  default     = 30080
 }
