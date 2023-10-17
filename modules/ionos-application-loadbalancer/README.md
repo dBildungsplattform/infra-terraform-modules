@@ -5,7 +5,6 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.3.6 |
-| <a name="provider_opentelekomcloud"></a> [opentelekomcloud](#provider\_opentelekomcloud) | 1.24.6 |
 ## Modules
 
 | Name | Source | Version |
@@ -26,7 +25,7 @@
 | <a name="input_top_level_domain"></a> [top\_level\_domain](#input\_top\_level\_domain) | Top-level domain mapping for environments | `map(any)` | n/a | yes |
 | <a name="input_alb_client_timeout"></a> [alb\_client\_timeout](#input\_alb\_client\_timeout) | The maximum time in milliseconds to wait for the client to acknowledge or send data; default is 50,000 (50 seconds) | `number` | `60000` | no |
 | <a name="input_alb_listener_port"></a> [alb\_listener\_port](#input\_alb\_listener\_port) | Listening (inbound) port number; valid range is 1 to 65535 | `number` | `443` | no |
-| <a name="input_alb_tg_target_port"></a> [alb\_tg\_target\_port](#input\_alb\_tg\_target\_port) | The port of the balanced target service; valid range is 1 to 65535 used in target group | `string` | `30080` | no |
+| <a name="input_alb_target_port"></a> [alb\_target\_port](#input\_alb\_target\_port) | The port of the balanced target service; valid range is 1 to 65535 used in target group | `string` | `30080` | no |
 ## Outputs
 
 | Name | Description |
@@ -47,5 +46,4 @@
 | [ionoscloud_ipblock.alb](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/ipblock) | resource |
 | [ionoscloud_lan.alb_listener_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_target_group.k8s_node_pools](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/target_group) | resource |
-| [opentelekomcloud_dns_zone_v2.dns_zone](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/1.24.6/docs/data-sources/dns_zone_v2) | data source |
 <!-- END_TF_DOCS -->
