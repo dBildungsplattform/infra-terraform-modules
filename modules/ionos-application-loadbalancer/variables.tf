@@ -54,7 +54,7 @@ variable "alb_listener_port" {
   default     = 443
 }
 
-variable "alb_tg_target_port" {
+variable "alb_target_port" {
   type        = string
   description = "The port of the balanced target service; valid range is 1 to 65535 used in target group"
   default     = 30080

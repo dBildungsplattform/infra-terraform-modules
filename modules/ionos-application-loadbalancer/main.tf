@@ -54,9 +54,9 @@ resource "ionoscloud_target_group" "k8s_node_pools" {
       for_each = var.node_alb_lan_ips
       content { 
         ip                    = "${targets.value}"
-        port                  = var.alb_tg_target_port
+        port                  = var.alb_target_port
         weight                = "1"
-        health_check_enabled  = false
+        health_check_enabled  = true
         maintenance_enabled   = false
       }
       }
