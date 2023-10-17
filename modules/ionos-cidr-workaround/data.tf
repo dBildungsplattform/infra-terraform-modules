@@ -14,7 +14,8 @@ data "ionoscloud_servers" "k8s_node" {
     value = data.ionoscloud_k8s_node_pool.k8s_node_pool.name
   }
 }
-
+# all servers in the datacenter that include the name "nodepool" are extracted 
+# if servers/node_pools with a different naming convention should be in or excluded this value needs to get adjusted 
 data "ionoscloud_servers" "k8s_nodes" {
   datacenter_id = data.ionoscloud_k8s_node_pool.k8s_node_pool.datacenter_id
 
