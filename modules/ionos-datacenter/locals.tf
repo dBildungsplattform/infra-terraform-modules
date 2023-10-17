@@ -26,10 +26,10 @@ locals {
   #     ]),
   # })
   # if no routes_map is provided, a default value of [{}] is given (just empty), to comply with type requirements in further processing
-  lan_service = flatten([ for id in ionoscloud_lan.service_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
+  lan_service = flatten([ for id in ionoscloud_lan.service_lan.*.id: { id = id, routes_list = [{}] }])
   lan_backend = flatten([ for id in ionoscloud_lan.backend_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
   lan_frontend = flatten([ for id in ionoscloud_lan.frontend_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
-  lan_nfs_server = flatten([ for id in ionoscloud_lan.nfs_server_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
-  lan_postgres = flatten([ for id in ionoscloud_lan.postgres_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
-  lan_alb_target = flatten([ for id in ionoscloud_lan.alb_target_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
+  lan_nfs_server = flatten([ for id in ionoscloud_lan.nfs_server_lan.*.id: { id = id, routes_list = [{}] }])
+  lan_postgres = flatten([ for id in ionoscloud_lan.postgres_lan.*.id: { id = id, routes_list = [{}] }])
+  lan_alb_target = flatten([ for id in ionoscloud_lan.alb_target_lan.*.id: { id = id, routes_list =[{}] }])
 }
