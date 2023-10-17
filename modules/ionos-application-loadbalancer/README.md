@@ -36,7 +36,6 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.3.6 |
-| <a name="requirement_opentelekomcloud"></a> [opentelekomcloud](#requirement\_opentelekomcloud) | 1.24.6 |
 ## Resources
 
 | Name | Type |
