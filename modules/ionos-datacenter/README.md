@@ -16,6 +16,7 @@ No modules.
 | <a name="input_associated_backend_crossconnect_id"></a> [associated\_backend\_crossconnect\_id](#input\_associated\_backend\_crossconnect\_id) | Specifies whether an existing crossconnect shall be associated. | `string` | `""` | no |
 | <a name="input_associated_frontend_crossconnect_id"></a> [associated\_frontend\_crossconnect\_id](#input\_associated\_frontend\_crossconnect\_id) | Specifies whether an existing crossconnect shall be associated. | `string` | `""` | no |
 | <a name="input_associated_service_crossconnect_id"></a> [associated\_service\_crossconnect\_id](#input\_associated\_service\_crossconnect\_id) | Specifies whether an existing crossconnect shall be associated. | `string` | `""` | no |
+| <a name="input_create_alb_target_lan"></a> [create\_alb\_target\_lan](#input\_create\_alb\_target\_lan) | Specifies whether a private target for the Application Load Balancer shall be created. | `bool` | `false` | no |
 | <a name="input_create_backend_crossconnect"></a> [create\_backend\_crossconnect](#input\_create\_backend\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_create_frontend_crossconnect"></a> [create\_frontend\_crossconnect](#input\_create\_frontend\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_create_nfs_server_lan"></a> [create\_nfs\_server\_lan](#input\_create\_nfs\_server\_lan) | Specifies whether a private lan to connect an NFS server shall be created. | `bool` | `false` | no |
@@ -29,12 +30,14 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_alb_target_lan_id"></a> [alb\_target\_lan\_id](#output\_alb\_target\_lan\_id) | n/a |
 | <a name="output_backend_crossconnect_id"></a> [backend\_crossconnect\_id](#output\_backend\_crossconnect\_id) | n/a |
 | <a name="output_datacenter_id"></a> [datacenter\_id](#output\_datacenter\_id) | n/a |
 | <a name="output_datacenter_location"></a> [datacenter\_location](#output\_datacenter\_location) | n/a |
 | <a name="output_datacenter_name"></a> [datacenter\_name](#output\_datacenter\_name) | n/a |
 | <a name="output_frontend_crossconnect_id"></a> [frontend\_crossconnect\_id](#output\_frontend\_crossconnect\_id) | n/a |
 | <a name="output_frontend_lan_id"></a> [frontend\_lan\_id](#output\_frontend\_lan\_id) | n/a |
+| <a name="output_lan_alb_target"></a> [lan\_alb\_target](#output\_lan\_alb\_target) | n/a |
 | <a name="output_lan_backend"></a> [lan\_backend](#output\_lan\_backend) | n/a |
 | <a name="output_lan_frontend"></a> [lan\_frontend](#output\_lan\_frontend) | n/a |
 | <a name="output_lan_nfs_server"></a> [lan\_nfs\_server](#output\_lan\_nfs\_server) | n/a |
@@ -54,6 +57,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [ionoscloud_datacenter.datacenter](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/datacenter) | resource |
+| [ionoscloud_lan.alb_target_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.backend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.frontend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.nfs_server_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |

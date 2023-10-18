@@ -19,6 +19,7 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_nicIndex"></a> [nicIndex](#output\_nicIndex) | n/a |
+| <a name="output_node_lan_ips"></a> [node\_lan\_ips](#output\_node\_lan\_ips) | n/a |
 | <a name="output_prefix"></a> [prefix](#output\_prefix) | n/a |
 ## Requirements
 
@@ -32,5 +33,6 @@ No modules.
 |------|------|
 | [ionoscloud_k8s_cluster.k8s_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/k8s_cluster) | data source |
 | [ionoscloud_k8s_node_pool.k8s_node_pool](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/k8s_node_pool) | data source |
+| [ionoscloud_servers.k8s_node](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/servers) | data source |
 | [ionoscloud_servers.k8s_nodes](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/servers) | data source |
 <!-- END_TF_DOCS -->

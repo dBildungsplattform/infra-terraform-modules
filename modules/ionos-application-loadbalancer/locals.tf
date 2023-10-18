@@ -1,0 +1,5 @@
+locals {
+    parts_of_node_ip = split(".", var.node_alb_lan_ips[0])
+    # shorten ip from <num>.<num>.<num>.<num> to <num>.<num>.<num>
+    node_ip_part = join(".", slice(local.parts_of_node_ip, 0, length(local.parts_of_node_ip) - 1))
+}
