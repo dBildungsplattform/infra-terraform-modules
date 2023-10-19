@@ -44,7 +44,7 @@ variable "ssl_cert_ids" {
 
 variable "alb_client_timeout" {
   type        = number
-  description = "The maximum time in milliseconds to wait for the client to acknowledge or send data; default is 50,000 (50 seconds)"
+  description = "The maximum time in milliseconds to wait for the client to acknowledge or send data"
   default     = 6000
 }
 
@@ -62,12 +62,12 @@ variable "alb_target_port" {
 
 variable "alb_target_health_check_timeout" {
   type        = string
-  description = "The maximum time in milliseconds to wait for the client to acknowledge or send data; default is 50,000 (50 seconds)"
+  description = "The maximum time in milliseconds to wait for the client to acknowledge or send data"
   default     = 6000
 }
 
 variable "alb_target_http_health_check_path" {
   type        = string
-  description = "The maximum time in milliseconds to wait for the client to acknowledge or send data; default is 50,000 (50 seconds)"
+  description = "The path (destination URL) for the HTTP health check request"
   default     = "/healthz"
 }
