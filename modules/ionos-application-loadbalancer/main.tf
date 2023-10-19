@@ -61,13 +61,13 @@ resource "ionoscloud_target_group" "k8s_node_pools" {
       }
       }
     health_check {
-        check_timeout         = 5000
-        check_interval        = 50000
+        check_timeout         = var.alb_target_health_check_timeout
+        check_interval        = var.alb_target_health_check_timeout
         retries               = 2
     }
     http_health_check {
-        path                  = "/"
-        method                = "GET"
+        path                  = var.alb_target_http_health_check_path
+        method                = "HEAD"
         match_type            = "STATUS_CODE"
         response              = "200"
     }
