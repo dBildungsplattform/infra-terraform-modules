@@ -23,10 +23,10 @@
 | <a name="input_node_alb_lan_ips"></a> [node\_alb\_lan\_ips](#input\_node\_alb\_lan\_ips) | List of node and application load balancer lan ips | `list` | n/a | yes |
 | <a name="input_ssl_cert_ids"></a> [ssl\_cert\_ids](#input\_ssl\_cert\_ids) | Array of certificate ids. You can create certificates with the certificate resource | `list` | n/a | yes |
 | <a name="input_top_level_domain"></a> [top\_level\_domain](#input\_top\_level\_domain) | Top-level domain mapping for environments | `map(any)` | n/a | yes |
-| <a name="input_alb_client_timeout"></a> [alb\_client\_timeout](#input\_alb\_client\_timeout) | The maximum time in milliseconds to wait for the client to acknowledge or send data; default is 50,000 (50 seconds) | `number` | `6000` | no |
+| <a name="input_alb_client_timeout"></a> [alb\_client\_timeout](#input\_alb\_client\_timeout) | The maximum time in milliseconds to wait for the client to acknowledge or send data | `number` | `6000` | no |
 | <a name="input_alb_listener_port"></a> [alb\_listener\_port](#input\_alb\_listener\_port) | Listening (inbound) port number; valid range is 1 to 65535 | `number` | `443` | no |
-| <a name="input_alb_target_health_check_timeout"></a> [alb\_target\_health\_check\_timeout](#input\_alb\_target\_health\_check\_timeout) | The maximum time in milliseconds to wait for the client to acknowledge or send data; default is 50,000 (50 seconds) | `string` | `6000` | no |
-| <a name="input_alb_target_http_health_check_path"></a> [alb\_target\_http\_health\_check\_path](#input\_alb\_target\_http\_health\_check\_path) | The maximum time in milliseconds to wait for the client to acknowledge or send data; default is 50,000 (50 seconds) | `string` | `"/healthz"` | no |
+| <a name="input_alb_target_health_check_timeout"></a> [alb\_target\_health\_check\_timeout](#input\_alb\_target\_health\_check\_timeout) | The maximum time in milliseconds to wait for the client to acknowledge or send data | `string` | `6000` | no |
+| <a name="input_alb_target_http_health_check_path"></a> [alb\_target\_http\_health\_check\_path](#input\_alb\_target\_http\_health\_check\_path) | The path (destination URL) for the HTTP health check request | `string` | `"/healthz"` | no |
 | <a name="input_alb_target_port"></a> [alb\_target\_port](#input\_alb\_target\_port) | The port of the balanced target service; valid range is 1 to 65535 used in target group | `string` | `30080` | no |
 ## Outputs
 
