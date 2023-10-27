@@ -107,3 +107,21 @@ variable "storage_size" {
   type    = number
   default = 100
 }
+
+variable "auto_scaling" {
+  type        = bool
+  description = "This value is used activate auto scaling the k8s cluster node pools."
+  default     = false
+}
+
+variable "min_node_count" {
+  type        = number
+  description = "This value is used to set the minimum number of nodes for auto scaling the k8s cluster node pools."
+  default     = null
+}
+
+variable "max_node_count" {
+  type        = number
+  description = "This value is used to set the maximum number of nodes for auto scaling the k8s cluster node pools."
+  default     = null
+}
