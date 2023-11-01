@@ -9,6 +9,8 @@ on:
       - 'modules/**'
 jobs:
   create-tf-docs:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checking out code to Runner
