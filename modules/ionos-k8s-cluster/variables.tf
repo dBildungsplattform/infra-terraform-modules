@@ -108,51 +108,52 @@ variable "storage_size" {
   default = 100
 }
 
-variable "auto_scaling" {
-  type        = bool
-  description = "This value is used activate auto scaling the k8s cluster node pools."
-  default     = false
-}
 
-variable "min_node_count" {
-  type        = number
-  description = "This value is used to set the minimum number of nodes for auto scaling the k8s cluster node pools."
-  default     = null
-}
+# variable "auto_scaling" {
+#   type        = bool
+#   description = "This value is used activate auto scaling the k8s cluster node pools."
+#   default     = false
+# }
+
+# variable "min_node_count" {
+#   type        = number
+#   description = "This value is used to set the minimum number of nodes for auto scaling the k8s cluster node pools."
+#   default     = null
+# }
 
 variable "custom_nodepools" {
   type = list(object({
     name          = string
-    auto_scaling  = optional(bool)
+    auto_scaling  = optional(bool, false)
     node_count = number
-    min_node_count= number
-    max_node_count= number
+    nodepool_per_zone_count = optional(number, 1)
+    zone_count = number
+    min_node_count= optional(number, null)
+    max_node_count= optional(number, null)
     ram_size      = number
     core_count    = number
     purpose       = string
     availability_zone = string
     ignore_changes = string
-    count          = optional(number, 1)
     })
   )
   description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
   default = list(object({
-      auto_scaling = false
-      min_node_count = null
-      max_node_count = null
-      count = var.nodepool_per_zone_count
+      nodepool_per_zone_count = var.nodepool_per_zone_count
       node_count = var.node_count
       ram_size = var.ram_size != null ? var.ram_size : 16384
+      zone_count = var.zone_count
       core_count = var.core_count
+      purpose = "legacy"
       availability_zone = var.availability_zone
-      ignore_changes = var.auto_scaling ? [node_count] : []
+      ignore_changes = []
       node_count = var.node_count != null ? var.node_count : 1
     })
   )
 }
 
-variable "max_node_count" {
-  type        = number
-  description = "This value is used to set the maximum number of nodes for auto scaling the k8s cluster node pools."
-  default     = null
-}
+# variable "max_node_count" {
+#   type        = number
+#   description = "This value is used to set the maximum number of nodes for auto scaling the k8s cluster node pools."
+#   default     = null
+# }

@@ -6,8 +6,8 @@ locals {
   # Number of nodes per nodepool. 
   # Note that one nodepool is created in each availability zone.
   # Example: With 2 zones, the actual total node count is twice as high as the number stated here.
-  #node_count = var.node_count
-  node_count = var.custom_nodepools != null ? (var.min_node_count - 1) : (var.node_count != null ? var.node_count : 1) #What should the default node count be?
+  node_count = var.node_count
+  #node_count = var.custom_nodepools != null ? (var.min_node_count - 1) : (var.node_count != null ? var.node_count : 1) #What should the default node count be?
   # This cannot be changed, after the nodepool is created, because all worker nodes must be equal at any time.
   core_count = var.core_count
   # This cannot be changed, after the nodepool is created, because all worker nodes must be equal at any time.
