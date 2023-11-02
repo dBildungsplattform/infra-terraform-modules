@@ -8,16 +8,14 @@ resource "ionoscloud_k8s_cluster" "cluster" {
   api_subnet_allow_list = local.api_subnet_allow_list
 }
 
-
 #----
-#Test Pool 1
+#Test Pool 1 scaling
 #----
 
-resource "ionoscloud_k8s_node_pool" "nodepool_zone1_scalingtest" {
-  for_each = {for i, pool in var.custom_nodepools : i => custom_nodepools }
-  count = each.value.nodepool_per_zone_count 
-  availability_zone = "ZONE_1"
-  name              = "${local.cluster_name}-zone1-nodepool${count.index}-${each.value.purpose}"
+resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
+  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}${np.nodepool_index}" => np if np.auto_scaling == true}
+  availability_zone = each.value.availabilityzone
+  name              = each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
   allow_replace     = var.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
@@ -56,28 +54,29 @@ resource "ionoscloud_k8s_node_pool" "nodepool_zone1_scalingtest" {
   storage_size   = 100
   public_ips     = local.public_ip_pool_zone1 != null ? slice(local.public_ip_pool_zone1[count.index], 0, local.node_count + 1) : []
 
-  dynamic "auto_scaling" {
-    for_each = each.value.auto_scaling == true ? [1] : []
-    content {
+  auto_scaling {
       min_node_count = each.value.min_node_count
       max_node_count = each.value.max_node_count 
-    }
   }
 
   lifecycle {
-    ignore_changes = each.value.ignore_changes
+    ignore_changes = [ node_count ]
   }
 }
 
 #----
-#Test Pool 2
+#Test Pool 2 legacy
 #----
 
-resource "ionoscloud_k8s_node_pool" "nodepool_zone2_scalingtest" {
-  for_each = {for i, pool in var.custom_nodepools : i => custom_nodepools }
-  count = each.value.nodepool_per_zone_count 
-  availability_zone = "ZONE_2"
-  name              = "${local.cluster_name}-zone2-nodepool${count.index}-${each.value.purpose}"
+resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
+  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}${np.nodepool_index}" => np if np.auto_scaling == true}
+  availability_zone = each.value.availabilityzone
+  #for_each = { for k, v in var.custom_nodepools : k => v if var.auto_scaling }
+  #for_each = { for k in compact([for k, v in var.mymap: v.condition ? k : ""]): k => var.mymap[k] }
+  #conditional create is just another count, if auto_scaling=true set count to nodepools_per_zone_count
+  #for_each = { for pool in var.custom_nodepools : pool.site_name => pool if var.environment != "prod"}
+  #count = each.value.nodepool_per_zone_count 
+  name              = "${local.cluster_name}-${each.value.availability_zone}-nodepool${count.index}-${each.value.purpose}"
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
   allow_replace     = var.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
@@ -115,18 +114,6 @@ resource "ionoscloud_k8s_node_pool" "nodepool_zone2_scalingtest" {
   ram_size       = each.value.ram_size
   storage_size   = 100
   public_ips     = local.public_ip_pool_zone1 != null ? slice(local.public_ip_pool_zone1[count.index], 0, local.node_count + 1) : []
-
-  dynamic "auto_scaling" {
-    for_each = each.value.auto_scaling == true ? [1] : []
-    content {
-      min_node_count = each.value.min_node_count
-      max_node_count = each.value.max_node_count 
-    }
-  }
-
-  lifecycle {
-    ignore_changes = each.value.ignore_changes
-  }
 }
 
 #----

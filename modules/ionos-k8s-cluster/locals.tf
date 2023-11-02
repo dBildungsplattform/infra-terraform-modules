@@ -19,5 +19,8 @@ locals {
   maintenance_day         = var.maintenance_day
   maintenance_hour        = var.maintenance_hour
   api_subnet_allow_list   = var.api_subnet_allow_list
+  #if n.auto_scaling == true
+  availabilityzone_split = toset(flatten([for n in var.custom_nodepools : [for x in n.availabilityzones : merge(n,{availabilityzone = x})] ]))
+  nodepool_per_zone_creator = toset(flatten([for n in local.availabilityzone_split : [for x in range(nodepool_per_zone_count) : merge(n,{nodepool_index = x})] ]))
 }
 

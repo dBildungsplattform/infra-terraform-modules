@@ -121,13 +121,13 @@ variable "storage_size" {
 #   default     = null
 # }
 
+#It is required to define each resource per availability zone on it's own (One definition for zone 1 and one definition for zone 2)
 variable "custom_nodepools" {
   type = list(object({
     name          = string
     auto_scaling  = optional(bool, false)
     node_count = number
     nodepool_per_zone_count = optional(number, 1)
-    zone_count = number
     min_node_count= optional(number, null)
     max_node_count= optional(number, null)
     ram_size      = number
@@ -135,19 +135,20 @@ variable "custom_nodepools" {
     purpose       = string
     availability_zone = string
     ignore_changes = string
+    availabilityzones = list(string)
     })
   )
   description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
   default = list(object({
       nodepool_per_zone_count = var.nodepool_per_zone_count
       node_count = var.node_count
-      ram_size = var.ram_size != null ? var.ram_size : 16384
-      zone_count = var.zone_count
+      ram_size = var.ram_size
       core_count = var.core_count
       purpose = "legacy"
       availability_zone = var.availability_zone
-      ignore_changes = []
-      node_count = var.node_count != null ? var.node_count : 1
+      node_count = var.node_count
+      availabilityzones = ["ZONE_1", "ZONE_2"]
+      allow_node_pool_replacement = var.allow_node_pool_replacement
     })
   )
 }
