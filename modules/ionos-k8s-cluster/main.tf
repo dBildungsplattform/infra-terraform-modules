@@ -40,8 +40,8 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
   }
   #TODO we cant use count.index anymore
   maintenance_window {
-    day_of_the_week = (each.value.maintenance_hour + 1 + count.index * 4) < 24 ? each.value.maintenance_day : lookup({ "Monday" = "Tuesday", "Tuesday" = "Wednesday", "Wednesday" = "Thursday", "Thursday" = "Friday", "Friday" = "Saturday", "Saturday" = "Sunday", "Sunday" = "Monday" }, each.value.maintenance_day, null)
-    time            = format("%02d:00:00Z", (each.value.maintenance_hour + 1 + count.index * 4) % 24)
+    day_of_the_week = (each.value.maintenance_hour + 1 + 1 * 4) < 24 ? each.value.maintenance_day : lookup({ "Monday" = "Tuesday", "Tuesday" = "Wednesday", "Wednesday" = "Thursday", "Thursday" = "Friday", "Friday" = "Saturday", "Saturday" = "Sunday", "Sunday" = "Monday" }, each.value.maintenance_day, null)
+    time            = format("%02d:00:00Z", (each.value.maintenance_hour + 1 + 1 * 4) % 24)
   }
 
   datacenter_id  = var.datacenter_id
@@ -101,8 +101,8 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   }
 
   maintenance_window {
-    day_of_the_week = (each.value.maintenance_hour + 1 + count.index * 4) < 24 ? each.value.maintenance_day : lookup({ "Monday" = "Tuesday", "Tuesday" = "Wednesday", "Wednesday" = "Thursday", "Thursday" = "Friday", "Friday" = "Saturday", "Saturday" = "Sunday", "Sunday" = "Monday" }, each.value.maintenance_day, null)
-    time            = format("%02d:00:00Z", (each.value.maintenance_hour + 1 + 2 + count.index * 4) % 24)
+    day_of_the_week = (each.value.maintenance_hour + 1 + 1 * 4) < 24 ? each.value.maintenance_day : lookup({ "Monday" = "Tuesday", "Tuesday" = "Wednesday", "Wednesday" = "Thursday", "Thursday" = "Friday", "Friday" = "Saturday", "Saturday" = "Sunday", "Sunday" = "Monday" }, each.value.maintenance_day, null)
+    time            = format("%02d:00:00Z", (each.value.maintenance_hour + 1 + 2 * 4) % 24)
   }
 
   datacenter_id  = var.datacenter_id
