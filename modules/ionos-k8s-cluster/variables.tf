@@ -140,7 +140,6 @@ variable "custom_nodepools" {
     purpose       = string
     availabilityzones = list(string)
     allow_node_pool_replacement = bool
-    public_ip_pool = list(list(string))
     associated_lans = list(object({
       id          = number
       routes_list = list(any)
@@ -151,7 +150,7 @@ variable "custom_nodepools" {
   )
   description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
   default = [{
-      name = "Test"
+      name = "Legacy"
       nodepool_per_zone_count = null
       node_count = null
       ram_size = null
