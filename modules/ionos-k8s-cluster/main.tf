@@ -372,7 +372,7 @@ resource "ionoscloud_ipblock" "ippools_scaling" {
   for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}${np.nodepool_index}" => np }
   name     = each.key
   location = var.datacenter_location
-  size     = value.each.auto_scaling ? each.value.max_node_count + 1 : each.value.node_count + 1
+  size     = each.value.auto_scaling ? each.value.max_node_count + 1 : each.value.node_count + 1
 }
 
 # resource "ionoscloud_ipblock" "ippools_legacy" {
