@@ -145,7 +145,8 @@ variable "custom_nodepools" {
     })
   )
   description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
-  default = list(object({
+  default = [{
+      name = "Test"
       nodepool_per_zone_count = null
       node_count = null
       ram_size = null
@@ -157,8 +158,8 @@ variable "custom_nodepools" {
       associated_lans = null
       maintenance_day = null
       maintenance_hour = null
-    })
-  )
+  }]
+
 }
 
 # variable "max_node_count" {
