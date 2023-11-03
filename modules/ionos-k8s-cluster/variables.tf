@@ -136,7 +136,10 @@ variable "custom_nodepools" {
     availabilityzones = list(string)
     datacenter_location = string
     allow_node_pool_replacement = bool
-    associated_lans = list(object)
+    associated_lans = list(object({
+      id          = number
+      routes_list = list(any)
+    }))
     maintenance_day = string
     maintenance_hour = number
     })
