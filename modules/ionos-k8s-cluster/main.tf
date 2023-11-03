@@ -2,8 +2,8 @@ resource "ionoscloud_k8s_cluster" "cluster" {
   name        = local.cluster_name
   k8s_version = var.k8s_version
   maintenance_window {
-    day_of_the_week = local.maintenance_day
-    time            = format("%02d:00:00Z", local.maintenance_hour)
+    day_of_the_week = var.maintenance_day
+    time            = format("%02d:00:00Z", var.maintenance_hour)
   }
   api_subnet_allow_list = local.api_subnet_allow_list
 }
@@ -52,7 +52,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
   cores_count    = each.value.core_count
   ram_size       = each.value.ram_size
   storage_size   = 100
-  public_ips     = local.public_ip_pool_zone1 != null ? slice(local.public_ip_pool_zone1[count.index], 0, local.node_count + 1) : []
+  public_ips     = local.public_ip_pools != null ? local.public_ip_pools[each.key] : []
 
   auto_scaling {
       min_node_count = each.value.min_node_count
@@ -69,14 +69,14 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
-  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}${np.nodepool_index}" => np if np.auto_scaling == true}
+  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}${np.nodepool_index}" => np if np.auto_scaling == false}
   availability_zone = each.value.availabilityzone
   #for_each = { for k, v in var.custom_nodepools : k => v if var.auto_scaling }
   #for_each = { for k in compact([for k, v in var.mymap: v.condition ? k : ""]): k => var.mymap[k] }
   #conditional create is just another count, if auto_scaling=true set count to nodepools_per_zone_count
   #for_each = { for pool in var.custom_nodepools : pool.site_name => pool if var.environment != "prod"}
   #count = each.value.nodepool_per_zone_count 
-  name              = "${local.cluster_name}-${each.value.availability_zone}-nodepool${count.index}-${each.value.purpose}"
+  name              = each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
   allow_replace     = var.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
@@ -101,8 +101,8 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   }
 
   maintenance_window {
-    day_of_the_week = (local.maintenance_hour + 1 + count.index * 4) < 24 ? local.maintenance_day : lookup({ "Monday" = "Tuesday", "Tuesday" = "Wednesday", "Wednesday" = "Thursday", "Thursday" = "Friday", "Friday" = "Saturday", "Saturday" = "Sunday", "Sunday" = "Monday" }, local.maintenance_day, null)
-    time            = format("%02d:00:00Z", (local.maintenance_hour + 1 + 2 + count.index * 4) % 24)
+    day_of_the_week = (each.value.maintenance_hour + 1 + count.index * 4) < 24 ? each.value.maintenance_day : lookup({ "Monday" = "Tuesday", "Tuesday" = "Wednesday", "Wednesday" = "Thursday", "Thursday" = "Friday", "Friday" = "Saturday", "Saturday" = "Sunday", "Sunday" = "Monday" }, each.value.maintenance_day, null)
+    time            = format("%02d:00:00Z", (each.value.maintenance_hour + 1 + 2 + count.index * 4) % 24)
   }
 
   datacenter_id  = var.datacenter_id
@@ -113,7 +113,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   cores_count    = each.value.core_count
   ram_size       = each.value.ram_size
   storage_size   = 100
-  public_ips     = local.public_ip_pool_zone1 != null ? slice(local.public_ip_pool_zone1[count.index], 0, local.node_count + 1) : []
+  public_ips     = local.public_ip_pools != null ? local.public_ip_pools[each.key] : []
 }
 
 #----
@@ -359,7 +359,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
 #   cores_count    = local.core_count
 #   ram_size       = local.ram_size
 #   storage_size   = 100
-#   public_ips     = local.public_ip_pool_zone2 != null ? slice(local.public_ip_pool_zone2[count.index], 0, local.node_count + 1) : []
+#   public_ips     = local.public_ip_pool_legacy != null ? slice(local.public_ip_pool_legacy[index(keys(local.nodepool_per_zone_creator), each.key)], 0, each.value.node_count + 1) : []
 #   #Ignore node count changes because of autoscaling to avoid unneeded updates
 #   lifecycle {
 #     ignore_changes = [
@@ -368,16 +368,17 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
 #   }
 # }
 
-resource "ionoscloud_ipblock" "ippools_zone1" {
-  count    = var.create_public_ip_pools ? var.nodepool_per_zone_count : 0
-  name     = "${local.cluster_name}-zone1-nodepool-${count.index}"
+resource "ionoscloud_ipblock" "ippools_scaling" {
+  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}${np.nodepool_index}" => np }
+  name     = each.key
   location = var.datacenter_location
-  size     = var.node_count + 1
+  size     = value.each.auto_scaling ? each.value.max_node_count + 1 : each.value.node_count + 1
 }
 
-resource "ionoscloud_ipblock" "ippools_zone2" {
-  count    = var.create_public_ip_pools ? var.nodepool_per_zone_count : 0
-  name     = "${local.cluster_name}-zone2-nodepool-${count.index}"
-  location = var.datacenter_location
-  size     = var.node_count + 1
-}
+# resource "ionoscloud_ipblock" "ippools_legacy" {
+#   for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}${np.nodepool_index}" => np if np.auto_scaling == false}
+#   #count    = var.create_public_ip_pools ? var.nodepool_per_zone_count : 0
+#   name     = each.key
+#   location = var.datacenter_location
+#   size     = each.value.node_count + 1
+# }

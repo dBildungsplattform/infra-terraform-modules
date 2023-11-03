@@ -55,6 +55,11 @@ variable "nodepool_per_zone_count" {
   default     = 0
 }
 
+variable "public_ip_pools" {
+  type    = list(list(string))
+  default = null
+}
+
 variable "public_ip_pool_zone1" {
   type    = list(list(string))
   default = null
@@ -134,8 +139,8 @@ variable "custom_nodepools" {
     core_count    = number
     purpose       = string
     availabilityzones = list(string)
-    datacenter_location = string
     allow_node_pool_replacement = bool
+    public_ip_pool = list(list(string))
     associated_lans = list(object({
       id          = number
       routes_list = list(any)
@@ -154,7 +159,6 @@ variable "custom_nodepools" {
       purpose = "legacy"
       availabilityzones = ["ZONE_1", "ZONE_2"]
       allow_node_pool_replacement = null
-      datacenter_location = null
       associated_lans = null
       maintenance_day = null
       maintenance_hour = null
