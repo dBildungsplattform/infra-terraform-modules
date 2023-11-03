@@ -17,18 +17,18 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
   availability_zone = each.value.availabilityzone
   name              = each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
-  allow_replace     = var.allow_node_pool_replacement
+  allow_replace     = each.value.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
   # it iterates through the list of var.associated_lans and sets the appropriate lan id
   # it also sets one or multiple route to the lan, if a not empty entry exists in routes_list(var.associated_lans)
   dynamic "lans" {
-    for_each = var.associated_lans
+    for_each = each.value.associated_lans
     content {
       id = lans.value["id"]
       dynamic "routes" {
         # if there is an entry in the routes_list, iterate through the values in the routes_list to create the routes 
         # lans.key = works like count.index, returns the iteration number of current lan -> 0,1,2,3,4...
-        for_each = var.associated_lans[lans.key].routes_list == null || length(var.associated_lans[lans.key].routes_list[0]) == 0 ? [] : var.associated_lans[lans.key].routes_list
+        for_each = each.value.associated_lans[lans.key].routes_list == null || length(each.value.associated_lans[lans.key].routes_list[0]) == 0 ? [] : each.value.associated_lans[lans.key].routes_list
 
         content {
           # graps the values from the objects of the routes_list 
@@ -38,10 +38,10 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
       }
     }
   }
-
+  #TODO we cant use count.index anymore
   maintenance_window {
-    day_of_the_week = (local.maintenance_hour + 1 + count.index * 4) < 24 ? local.maintenance_day : lookup({ "Monday" = "Tuesday", "Tuesday" = "Wednesday", "Wednesday" = "Thursday", "Thursday" = "Friday", "Friday" = "Saturday", "Saturday" = "Sunday", "Sunday" = "Monday" }, local.maintenance_day, null)
-    time            = format("%02d:00:00Z", (local.maintenance_hour + 1 + count.index * 4) % 24)
+    day_of_the_week = (each.value.maintenance_hour + 1 + count.index * 4) < 24 ? each.value.maintenance_day : lookup({ "Monday" = "Tuesday", "Tuesday" = "Wednesday", "Wednesday" = "Thursday", "Thursday" = "Friday", "Friday" = "Saturday", "Saturday" = "Sunday", "Sunday" = "Monday" }, each.value.maintenance_day, null)
+    time            = format("%02d:00:00Z", (each.value.maintenance_hour + 1 + count.index * 4) % 24)
   }
 
   datacenter_id  = var.datacenter_id

@@ -133,22 +133,27 @@ variable "custom_nodepools" {
     ram_size      = number
     core_count    = number
     purpose       = string
-    availability_zone = string
-    ignore_changes = string
     availabilityzones = list(string)
+    datacenter_location = string
+    allow_node_pool_replacement = bool
+    associated_lans = list(object)
+    maintenance_day = string
+    maintenance_hour = number
     })
   )
   description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
   default = list(object({
-      nodepool_per_zone_count = var.nodepool_per_zone_count
-      node_count = var.node_count
-      ram_size = var.ram_size
-      core_count = var.core_count
+      nodepool_per_zone_count = null
+      node_count = null
+      ram_size = null
+      core_count = null
       purpose = "legacy"
-      availability_zone = var.availability_zone
-      node_count = var.node_count
       availabilityzones = ["ZONE_1", "ZONE_2"]
-      allow_node_pool_replacement = var.allow_node_pool_replacement
+      allow_node_pool_replacement = null
+      datacenter_location = null
+      associated_lans = null
+      maintenance_day = null
+      maintenance_hour = null
     })
   )
 }

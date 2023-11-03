@@ -19,8 +19,24 @@ locals {
   maintenance_day         = var.maintenance_day
   maintenance_hour        = var.maintenance_hour
   api_subnet_allow_list   = var.api_subnet_allow_list
+
+  #Loop through our nodepool list to detect empty values and fill them with legacy values
+  custom_nodepools =  {for np in var.custom_nodepools : np => {
+    np.nodepool_per_zone_count = np.nodepool_per_zone_count != null ? np.nodepool_per_zone_count : var.nodepool_per_zone_count
+    np.node_count = np.node_count != null ? np.node_count : var.node_count
+    np.ram_size = np.ram_size != null ? np.ram_size : var.ram_size
+    np.core_count = np.core_count != null ? np.core_count : var.core_count
+    np.allow_node_pool_replacement = np.allow_node_pool_replacement != null ? np.allow_node_pool_replacement : var.allow_node_pool_replacement
+    np.datacenter_location = np.datacenter_location != null ? np.datacenter_location : var.datacenter_location
+    np.associated_lans = np.associated_lans != null ? np.associated_lans : var.associated_lans
+    np.maintenance_day = np.maintenance_day != null ? np.maintenance_day : var.maintenance_day
+    np.maintenance_hour = np.maintenance_hour != null ? np.maintenance_hour : var.maintenance_hour
+  }
+    
+  }
+
   #if n.auto_scaling == true
-  availabilityzone_split = toset(flatten([for n in var.custom_nodepools : [for x in n.availabilityzones : merge(n,{availabilityzone = x})] ]))
+  availabilityzone_split = toset(flatten([for n in local.custom_nodepools : [for x in n.availabilityzones : merge(n,{availabilityzone = x})] ]))
   nodepool_per_zone_creator = toset(flatten([for n in local.availabilityzone_split : [for x in range(nodepool_per_zone_count) : merge(n,{nodepool_index = x})] ]))
 }
 
