@@ -14,7 +14,7 @@ resource "ionoscloud_k8s_cluster" "cluster" {
 
 resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
   for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}${np.nodepool_index}" => np if np.auto_scaling == true}
-  availability_zone = each.value.availabilityzone
+  availability_zone = each.value.availability_zone
   name              = each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
   allow_replace     = each.value.allow_node_pool_replacement
@@ -70,7 +70,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
 
 resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}${np.nodepool_index}" => np if np.auto_scaling == false}
-  availability_zone = each.value.availabilityzone
+  availability_zone = each.value.availability_zone
   #for_each = { for k, v in var.custom_nodepools : k => v if var.auto_scaling }
   #for_each = { for k in compact([for k, v in var.mymap: v.condition ? k : ""]): k => var.mymap[k] }
   #conditional create is just another count, if auto_scaling=true set count to nodepools_per_zone_count

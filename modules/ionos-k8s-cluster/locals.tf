@@ -41,7 +41,7 @@ locals {
 
 
   #availabilityzone_split duplicates objects with each of their Availability zones once. if [ZONE1, ZONE2] we get 2 objects with one of those each.
-  availabilityzone_split = toset(flatten([for n in local.custom_nodepools : [for x in n.availability_zones : merge(n,{availabilityzone = x})] ]))
+  availabilityzone_split = toset(flatten([for n in local.custom_nodepools : [for x in n.availability_zones : merge(n,{availability_zone = x})] ]))
   #nodepool_per_zone_creator this duplicates the objects in each availability zone to the amount of nodepool_per_zone_count
   nodepool_per_zone_creator = toset(flatten([for n in local.availabilityzone_split : [for x in range(n.nodepool_per_zone_count) : merge(n,{nodepool_index = x})] ]))
 }
