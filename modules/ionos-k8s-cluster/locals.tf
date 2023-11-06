@@ -14,7 +14,7 @@ locals {
   ram_size = var.ram_size != null ? var.ram_size : 16384
   # The number of nodepools per zone.
   nodepool_per_zone_count = var.nodepool_per_zone_count
-  public_ip_pools    = var.create_public_ip_pools ? ionoscloud_ipblock.ippools_scaling[*].ips : var.public_ip_pools
+  public_ip_pools    = var.create_public_ip_pools ? ionoscloud_ipblock.ippools[*].ips : var.public_ip_pools
   #maintenance_day         = var.maintenance_day
   #maintenance_hour        = var.maintenance_hour
   api_subnet_allow_list   = var.api_subnet_allow_list
