@@ -22,20 +22,26 @@ locals {
   #Loop through our nodepool list to detect empty values and fill them with legacy values
   #Only required for downward compatibility and legacy nodepools
   custom_nodepools =  {for np in var.custom_nodepools : np => {
-      np.nodepool_per_zone_count = np.nodepool_per_zone_count != null ? np.nodepool_per_zone_count : var.nodepool_per_zone_count
-      np.node_count = np.node_count != null ? np.node_count : var.node_count
-      np.ram_size = np.ram_size != null ? np.ram_size : var.ram_size
-      np.core_count = np.core_count != null ? np.core_count : var.core_count
-      np.allow_node_pool_replacement = np.allow_node_pool_replacement != null ? np.allow_node_pool_replacement : var.allow_node_pool_replacement
-      np.associated_lans = np.associated_lans != null ? np.associated_lans : var.associated_lans
-      np.maintenance_day = np.maintenance_day != null ? np.maintenance_day : var.maintenance_day
-      np.maintenance_hour = np.maintenance_hour != null ? np.maintenance_hour : var.maintenance_hour
+      name = np.name
+      purpose = np.purpose
+      auto_scaling = np.auto_scaling
+      min_node_count = np.min_node_count
+      max_node_count = np.max_node_count
+      availability_zones = np.availability_zones
+      nodepool_per_zone_count = np.nodepool_per_zone_count != null ? np.nodepool_per_zone_count : var.nodepool_per_zone_count
+      node_count = np.node_count != null ? np.node_count : var.node_count
+      ram_size = np.ram_size != null ? np.ram_size : var.ram_size
+      core_count = np.core_count != null ? np.core_count : var.core_count
+      allow_node_pool_replacement = np.allow_node_pool_replacement != null ? np.allow_node_pool_replacement : var.allow_node_pool_replacement
+      associated_lans = np.associated_lans != null ? np.associated_lans : var.associated_lans
+      maintenance_day = np.maintenance_day != null ? np.maintenance_day : var.maintenance_day
+      maintenance_hour = np.maintenance_hour != null ? np.maintenance_hour : var.maintenance_hour
     }  
   }
 
 
   #availabilityzone_split duplicates objects with each of their Availability zones once. if [ZONE1, ZONE2] we get 2 objects with one of those each.
-  availabilityzone_split = toset(flatten([for n in local.custom_nodepools : [for x in n.availabilityzones : merge(n,{availabilityzone = x})] ]))
+  availabilityzone_split = toset(flatten([for n in local.custom_nodepools : [for x in n.availability_zones : merge(n,{availabilityzone = x})] ]))
   #nodepool_per_zone_creator this duplicates the objects in each availability zone to the amount of nodepool_per_zone_count
   nodepool_per_zone_creator = toset(flatten([for n in local.availabilityzone_split : [for x in range(n.nodepool_per_zone_count) : merge(n,{nodepool_index = x})] ]))
 }

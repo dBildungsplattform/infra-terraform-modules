@@ -60,15 +60,15 @@ variable "public_ip_pools" {
   default = null
 }
 
-variable "public_ip_pool_zone1" {
-  type    = list(list(string))
-  default = null
-}
+# variable "public_ip_pool_zone1" {
+#   type    = list(list(string))
+#   default = null
+# }
 
-variable "public_ip_pool_zone2" {
-  type    = list(list(string))
-  default = null
-}
+# variable "public_ip_pool_zone2" {
+#   type    = list(list(string))
+#   default = null
+# }
 
 variable "create_public_ip_pools" {
   type    = bool
@@ -113,19 +113,6 @@ variable "storage_size" {
   default = 100
 }
 
-
-# variable "auto_scaling" {
-#   type        = bool
-#   description = "This value is used activate auto scaling the k8s cluster node pools."
-#   default     = false
-# }
-
-# variable "min_node_count" {
-#   type        = number
-#   description = "This value is used to set the minimum number of nodes for auto scaling the k8s cluster node pools."
-#   default     = null
-# }
-
 #It is required to define each resource per availability zone on it's own (One definition for zone 1 and one definition for zone 2)
 variable "custom_nodepools" {
   type = list(object({
@@ -138,7 +125,7 @@ variable "custom_nodepools" {
     ram_size      = number
     core_count    = number
     purpose       = string
-    availabilityzones = list(string)
+    availability_zones = list(string)
     allow_node_pool_replacement = bool
     associated_lans = list(object({
       id          = number
@@ -156,7 +143,7 @@ variable "custom_nodepools" {
       ram_size = null
       core_count = null
       purpose = "legacy"
-      availabilityzones = ["ZONE_1", "ZONE_2"]
+      availability_zones = ["ZONE_1", "ZONE_2"]
       allow_node_pool_replacement = null
       associated_lans = null
       maintenance_day = null
@@ -164,9 +151,3 @@ variable "custom_nodepools" {
   }]
 
 }
-
-# variable "max_node_count" {
-#   type        = number
-#   description = "This value is used to set the maximum number of nodes for auto scaling the k8s cluster node pools."
-#   default     = null
-# }
