@@ -117,7 +117,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
 }
 
 
-resource "ionoscloud_ipblock" "ippools_scaling" {
+resource "ionoscloud_ipblock" "ippools" {
   for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}${np.nodepool_index}" => np }
   name     = each.key
   location = var.datacenter_location
