@@ -21,7 +21,7 @@ locals {
 
   #Loop through our nodepool list to detect empty values and fill them with legacy values
   #Only required for downward compatibility and legacy nodepools
-  custom_nodepools =  {for np in var.custom_nodepools : np => {
+  custom_nodepools =  [ for np in var.custom_nodepools : {
       name = np.name
       purpose = np.purpose
       auto_scaling = np.auto_scaling
@@ -37,7 +37,7 @@ locals {
       maintenance_day = np.maintenance_day != null ? np.maintenance_day : var.maintenance_day
       maintenance_hour = np.maintenance_hour != null ? np.maintenance_hour : var.maintenance_hour
     }  
-  }
+  ]
 
 
   #availabilityzone_split duplicates objects with each of their Availability zones once. if [ZONE1, ZONE2] we get 2 objects with one of those each.
