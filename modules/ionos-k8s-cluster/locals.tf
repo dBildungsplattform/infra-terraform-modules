@@ -25,7 +25,7 @@ locals {
   #check if both legacy and scaling should be used, if so merge legacy object into the object list if needed
   #if false: No need to do anything because it is either legacy or scaling
   #if true: check if first object is legacy, if not only scaling objects are in the list => merge legacy into it
-  legacy_check = var.enable_legacy_and_scaling == false ? var.custom_nodepools : (var.custom_nodepools[0].purpose != "legacy" ? merge(var.custom_nodepools, local.legacy_onject) : var.custom_nodepools)
+  legacy_check = var.enable_legacy_and_scaling == false ? var.custom_nodepools : (var.custom_nodepools[0].purpose != "legacy" ? merge(var.custom_nodepools, tolist(local.legacy_onject)) : var.custom_nodepools)
 
   #Loop through our nodepool list to detect empty values and fill them with legacy values
   #Only required for downward compatibility and legacy nodepools (If no downward compatibility is required just use var.custom_nodepools to loop over)
