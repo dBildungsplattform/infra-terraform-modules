@@ -10,8 +10,12 @@ locals {
   #Create legacy object for possible merging into the nodepool list
   legacy_object = tolist([{
     name = "Legacy"
+    auto_scaling = false
     nodepool_per_zone_count = null
     node_count = null
+    nodepool_per_zone_count = null
+    min_node_count= null
+    max_node_count= null
     ram_size = null
     core_count = null
     purpose = "legacy"
