@@ -113,6 +113,11 @@ variable "storage_size" {
   default = 100
 }
 
+variable "enable_legacy_and_scaling" {
+  type = bool
+  default = false
+}
+
 #It is required to define each resource per availability zone on it's own (One definition for zone 1 and one definition for zone 2)
 variable "custom_nodepools" {
   type = list(object({

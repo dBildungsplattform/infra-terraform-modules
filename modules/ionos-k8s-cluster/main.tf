@@ -123,17 +123,3 @@ resource "ionoscloud_ipblock" "ippools" {
   location = var.datacenter_location
   size     = each.value.auto_scaling ? each.value.max_node_count + 1 : each.value.node_count + 1
 }
-
-# resource "ionoscloud_ipblock" "ippools_zone1" {
-#   count    = var.create_public_ip_pools ? var.nodepool_per_zone_count : 0
-#   name     = "${local.cluster_name}-zone1-nodepool-${count.index}"
-#   location = var.datacenter_location
-#   size     = var.node_count + 1
-# }
-
-# resource "ionoscloud_ipblock" "ippools_zone2" {
-#   count    = var.create_public_ip_pools ? var.nodepool_per_zone_count : 0
-#   name     = "${local.cluster_name}-zone2-nodepool-${count.index}"
-#   location = var.datacenter_location
-#   size     = var.node_count + 1
-# }

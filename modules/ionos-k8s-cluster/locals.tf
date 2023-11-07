@@ -3,25 +3,33 @@ locals {
   # Valid choices depend on the datacenter location:
   # de/txl, de/fra: INTEL_SKYLAKE
   cpu_family = var.cpu_family
-  # Number of nodes per nodepool. 
-  # Note that one nodepool is created in each availability zone.
-  # Example: With 2 zones, the actual total node count is twice as high as the number stated here.
-  node_count = var.node_count
-  #node_count = var.custom_nodepools != null ? (var.min_node_count - 1) : (var.node_count != null ? var.node_count : 1) #What should the default node count be?
-  # This cannot be changed, after the nodepool is created, because all worker nodes must be equal at any time.
-  #core_count = var.core_count
-  # This cannot be changed, after the nodepool is created, because all worker nodes must be equal at any time.
-  ram_size = var.ram_size != null ? var.ram_size : 16384
-  # The number of nodepools per zone.
-  nodepool_per_zone_count = var.nodepool_per_zone_count
+
   public_ip_pools    = var.create_public_ip_pools ? ionoscloud_ipblock.ippools[*].ips : var.public_ip_pools
-  #maintenance_day         = var.maintenance_day
-  #maintenance_hour        = var.maintenance_hour
   api_subnet_allow_list   = var.api_subnet_allow_list
 
+  #Create legacy object for possible merging into the nodepool list
+  legacy_onject = [{
+    name = "Legacy"
+    nodepool_per_zone_count = null
+    node_count = null
+    ram_size = null
+    core_count = null
+    purpose = "legacy"
+    availability_zones = ["ZONE_1", "ZONE_2"]
+    allow_node_pool_replacement = null
+    associated_lans = null
+    maintenance_day = null
+    maintenance_hour = null
+  }]
+
+  #check if both legacy and scaling should be used, if so merge legacy object into the object list if needed
+  #if false: No need to do anything because it is either legacy or scaling
+  #if true: check if first object is legacy, if not only scaling objects are in the list => merge legacy into it
+  legacy_check = enable_legacy_and_scaling == false ? var.custom_nodepools : (var.custom_nodepools[0].purpose != "legacy" ? merge(var.custom_nodepools, legacy_onject) : var.custom_nodepools)
+
   #Loop through our nodepool list to detect empty values and fill them with legacy values
-  #Only required for downward compatibility and legacy nodepools
-  custom_nodepools =  [ for np in var.custom_nodepools : {
+  #Only required for downward compatibility and legacy nodepools (If no downward compatibility is required just use var.custom_nodepools to loop over)
+  custom_nodepools =  [ for np in local.legacy_check : {
       name = np.name
       purpose = np.purpose
       auto_scaling = np.auto_scaling
