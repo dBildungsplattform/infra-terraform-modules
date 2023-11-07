@@ -21,7 +21,7 @@ locals {
     purpose = "legacy"
     availability_zones = ["ZONE_1", "ZONE_2"]
     allow_node_pool_replacement = null
-    associated_lans = null
+    associated_lans = var.associated_lans
     maintenance_day = null
     maintenance_hour = null
   }])
