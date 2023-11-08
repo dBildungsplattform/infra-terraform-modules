@@ -7,7 +7,7 @@ locals {
   public_ip_pools    = var.create_public_ip_pools ? ionoscloud_ipblock.ippools[*].ips : var.public_ip_pools
   api_subnet_allow_list   = var.api_subnet_allow_list
 
-  #Create legacy object for possible merging into the nodepool list
+  #Create legacy object for possible merging into the nodepool list(Only used when both legacy and custom nodespools are in use)
   legacy_object = tolist([{
     name = "Legacy"
     auto_scaling = false
@@ -26,7 +26,7 @@ locals {
     maintenance_hour = null
   }])
 
-  #check if both legacy and scaling should be used, if so merge legacy object into the object list if needed
+  #check if both legacy and scaling should be used, if so merge legacy object into the object list if needed (default = false)
   #if false: No need to do anything because it is either legacy or scaling
   #if true: check if first object is legacy, if not only scaling objects are in the list => merge legacy into it
   legacy_check = var.enable_legacy_and_scaling == false ? var.custom_nodepools : (var.custom_nodepools[0].purpose != "legacy" ? tolist(concat(var.custom_nodepools, local.legacy_object)) : var.custom_nodepools)
@@ -52,7 +52,7 @@ locals {
   ]
 
 
-  #availabilityzone_split duplicates objects with each of their Availability zones once. if [ZONE1, ZONE2] we get 2 objects with one of those each.
+  #availabilityzone_split duplicates objects with each of their Availability zones once. if [ZONE1, ZONE2] we get 2 objects with one of those zones each.
   availabilityzone_split = toset(flatten([for n in local.custom_nodepools : [for x in n.availability_zones : merge(n,{availability_zone = x})] ]))
   #nodepool_per_zone_creator this duplicates the objects in each availability zone to the amount of nodepool_per_zone_count
   nodepool_per_zone_creator = toset(flatten([for n in local.availabilityzone_split : [for x in range(n.nodepool_per_zone_count) : merge(n,{nodepool_index = x})] ]))

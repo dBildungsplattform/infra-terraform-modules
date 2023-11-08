@@ -98,6 +98,7 @@ variable "api_subnet_allow_list" {
   default = null
 }
 
+#Not needed anymore, we work with a list of zones now
 variable "availability_zone" {
   type    = string
   default = "ZONE_1"
@@ -113,6 +114,7 @@ variable "storage_size" {
   default = 100
 }
 
+#Determins if both should be used, otherwise only one will be used where custom_nodepools overwrite legacy ones
 variable "enable_legacy_and_scaling" {
   type = bool
   default = false
