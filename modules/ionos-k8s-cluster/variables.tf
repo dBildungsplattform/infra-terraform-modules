@@ -147,20 +147,23 @@ variable "custom_nodepools" {
   )
   description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
   default = [{
-      name = "Legacy"
-      nodepool_per_zone_count = null
-      node_count = null
-      ram_size = null
-      core_count = null
-      purpose = "legacy"
-      availability_zones = ["ZONE_1", "ZONE_2"]
-      allow_node_pool_replacement = null
-      associated_lans = null
-      maintenance_day = null
-      maintenance_hour = null
-      storage_type = null
-      storage_size = null
-      cpu_family = null
+    name = "Legacy"
+    auto_scaling = false
+    nodepool_per_zone_count = null
+    node_count = null
+    min_node_count= null
+    max_node_count= null
+    ram_size = null
+    core_count = null
+    purpose = "legacy"
+    availability_zones = ["ZONE_1", "ZONE_2"]
+    allow_node_pool_replacement = null
+    associated_lans = null
+    maintenance_day = null
+    maintenance_hour = null
+    storage_type = null
+    storage_size = null
+    cpu_family = null
   }]
 
 }
