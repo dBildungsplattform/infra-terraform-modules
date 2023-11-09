@@ -124,7 +124,7 @@ variable "enable_legacy_and_scaling" {
 variable "custom_nodepools" {
   type = list(object({
     name          = string
-    auto_scaling  = optional(bool, true)
+    auto_scaling  = optional(bool, false)
     node_count = number
     nodepool_per_zone_count = optional(number, 1)
     min_node_count= optional(number, null)
@@ -148,7 +148,7 @@ variable "custom_nodepools" {
   description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
   default = [{
       name = "Legacy"
-      auto_scaling = true
+      auto_scaling = false
       nodepool_per_zone_count = null
       min_node_count= null
       max_node_count= null

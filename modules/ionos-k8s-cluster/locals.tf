@@ -10,10 +10,9 @@ locals {
   #Create legacy object for possible merging into the nodepool list(Only used when both legacy and custom nodespools are in use)
   legacy_object = tolist([{
     name = "Legacy"
-    auto_scaling = true
+    auto_scaling = false
     nodepool_per_zone_count = null
-    node_count = var.node_count
-    nodepool_per_zone_count = null
+    node_count = null
     min_node_count= null
     max_node_count= null
     ram_size = null
@@ -40,8 +39,8 @@ locals {
       name = np.name
       purpose = np.purpose
       auto_scaling = np.auto_scaling
-      min_node_count = np.purpose == "legacy" ? np.node_count : np.min_node_count
-      max_node_count = np.purpose == "legacy" ? np.node_count : np.max_node_count
+      min_node_count = np.min_node_count
+      max_node_count = np.max_node_count
       availability_zones = np.availability_zones
       nodepool_per_zone_count = np.nodepool_per_zone_count != null ? np.nodepool_per_zone_count : var.nodepool_per_zone_count
       node_count = np.node_count != null ? np.node_count : var.node_count
