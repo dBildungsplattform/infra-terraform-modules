@@ -10,9 +10,9 @@ locals {
   #Create legacy object for possible merging into the nodepool list(Only used when both legacy and custom nodespools are in use)
   legacy_object = tolist([{
     name = "Legacy"
-    auto_scaling = false
+    auto_scaling = true
     nodepool_per_zone_count = null
-    node_count = null
+    node_count = var.node_count
     nodepool_per_zone_count = null
     min_node_count= null
     max_node_count= null
@@ -24,6 +24,9 @@ locals {
     associated_lans = var.associated_lans
     maintenance_day = null
     maintenance_hour = null
+    storage_type = null
+    storage_size = null
+    cpu_family = null
   }])
 
   #check if both legacy and scaling should be used, if so merge legacy object into the object list if needed (default = false)
@@ -37,8 +40,8 @@ locals {
       name = np.name
       purpose = np.purpose
       auto_scaling = np.auto_scaling
-      min_node_count = np.min_node_count
-      max_node_count = np.max_node_count
+      min_node_count = np.purpose == "legacy" ? np.node_count : np.min_node_count
+      max_node_count = np.purpose == "legacy" ? np.node_count : np.max_node_count
       availability_zones = np.availability_zones
       nodepool_per_zone_count = np.nodepool_per_zone_count != null ? np.nodepool_per_zone_count : var.nodepool_per_zone_count
       node_count = np.node_count != null ? np.node_count : var.node_count
@@ -48,6 +51,9 @@ locals {
       associated_lans = np.associated_lans != null ? np.associated_lans : var.associated_lans
       maintenance_day = np.maintenance_day != null ? np.maintenance_day : var.maintenance_day
       maintenance_hour = np.maintenance_hour != null ? np.maintenance_hour : var.maintenance_hour
+      storage_type = np.storage_type != null ? np.storage_type : var.storage_type
+      storage_size = np.storage_size != null ? np.storage_size : var.storage_size
+      cpu_family = np.cpu_family != null ? np.cpu_family : var.cpu_family
     }  
   ]
 

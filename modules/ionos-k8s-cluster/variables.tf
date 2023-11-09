@@ -124,7 +124,7 @@ variable "enable_legacy_and_scaling" {
 variable "custom_nodepools" {
   type = list(object({
     name          = string
-    auto_scaling  = optional(bool, false)
+    auto_scaling  = optional(bool, true)
     node_count = number
     nodepool_per_zone_count = optional(number, 1)
     min_node_count= optional(number, null)
@@ -140,12 +140,18 @@ variable "custom_nodepools" {
     }))
     maintenance_day = string
     maintenance_hour = number
+    storage_type = string
+    storage_size = number
+    cpu_family = string
     })
   )
   description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
   default = [{
       name = "Legacy"
+      auto_scaling = true
       nodepool_per_zone_count = null
+      min_node_count= null
+      max_node_count= null
       node_count = null
       ram_size = null
       core_count = null
@@ -155,6 +161,9 @@ variable "custom_nodepools" {
       associated_lans = null
       maintenance_day = null
       maintenance_hour = null
+      storage_type = null
+      storage_size = null
+      cpu_family = null
   }]
 
 }

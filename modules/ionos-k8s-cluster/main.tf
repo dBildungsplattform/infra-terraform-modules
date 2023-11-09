@@ -47,11 +47,11 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
   datacenter_id  = var.datacenter_id
   k8s_cluster_id = ionoscloud_k8s_cluster.cluster.id
   cpu_family     = local.cpu_family
-  storage_type   = "SSD"
+  storage_type   = each.value.storage_type
   node_count     = each.value.node_count
   cores_count    = each.value.core_count
   ram_size       = each.value.ram_size
-  storage_size   = 100
+  storage_size   = each.value.storage_size
   public_ips     = local.public_ip_pools != null ? local.public_ip_pools[each.key] : []
 
   auto_scaling {
@@ -78,18 +78,18 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   #count = each.value.nodepool_per_zone_count 
   name              = each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
-  allow_replace     = var.allow_node_pool_replacement
+  allow_replace     = each.value.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
   # it iterates through the list of var.associated_lans and sets the appropriate lan id
   # it also sets one or multiple route to the lan, if a not empty entry exists in routes_list(var.associated_lans)
   dynamic "lans" {
-    for_each = var.associated_lans
+    for_each = each.value.associated_lans
     content {
       id = lans.value["id"]
       dynamic "routes" {
         # if there is an entry in the routes_list, iterate through the values in the routes_list to create the routes 
         # lans.key = works like count.index, returns the iteration number of current lan -> 0,1,2,3,4...
-        for_each = var.associated_lans[lans.key].routes_list == null || length(var.associated_lans[lans.key].routes_list[0]) == 0 ? [] : var.associated_lans[lans.key].routes_list
+        for_each = each.value.associated_lans[lans.key].routes_list == null || length(each.value.associated_lans[lans.key].routes_list[0]) == 0 ? [] : each.value.associated_lans[lans.key].routes_list
 
         content {
           # graps the values from the objects of the routes_list 
@@ -108,11 +108,11 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   datacenter_id  = var.datacenter_id
   k8s_cluster_id = ionoscloud_k8s_cluster.cluster.id
   cpu_family     = local.cpu_family
-  storage_type   = "SSD"
+  storage_type   = each.value.storage_type
   node_count     = each.value.node_count
   cores_count    = each.value.core_count
   ram_size       = each.value.ram_size
-  storage_size   = 100
+  storage_size   = each.value.storage_size
   public_ips     = local.public_ip_pools != null ? local.public_ip_pools[each.key] : []
 }
 
