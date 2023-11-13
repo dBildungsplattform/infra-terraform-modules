@@ -13,7 +13,7 @@ resource "ionoscloud_k8s_cluster" "cluster" {
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
-  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-purpose-${np.purpose}-${np.nodepool_index}" => np if np.auto_scaling == true}
+  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np if np.auto_scaling == true}
   availability_zone = each.value.availability_zone
   name              = each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
