@@ -80,7 +80,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   #conditional create is just another count, if auto_scaling=true set count to nodepools_per_zone_count
   #for_each = { for pool in var.custom_nodepools : pool.site_name => pool if var.environment != "prod"}
   #count = each.value.nodepool_per_zone_count 
-  name              = each.key
+  name              = each.value.availability_zone == "ZONE_1" ? "${local.cluster_name}-zone1-nodepool-0":"${local.cluster_name}-zone2-nodepool-0" #each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
   allow_replace     = each.value.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
