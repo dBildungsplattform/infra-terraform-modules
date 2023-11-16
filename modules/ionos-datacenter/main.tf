@@ -4,6 +4,14 @@ resource "ionoscloud_datacenter" "datacenter" {
   description = ""
 }
 
+resource "ionoscloud_share" "datacenter_permissions" {
+  for_each = { for share in var.var.datacenter_shares : share.group => share}
+  group_id        = each.key
+  resource_id     = ionoscloud_datacenter.datacenter.id
+  edit_privilege  = each.value.edit
+  share_privilege = each.value.share
+}
+
 resource "ionoscloud_private_crossconnect" "frontend_cc" {
   count = local.create_frontend_crossconnect ? 1 : 0
   name  = "${var.datacenter_name}-frontend-lan-cc"
