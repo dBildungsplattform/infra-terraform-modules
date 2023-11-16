@@ -5,7 +5,7 @@ resource "ionoscloud_datacenter" "datacenter" {
 }
 
 resource "ionoscloud_share" "datacenter_permissions" {
-  for_each = { for share in var.var.datacenter_shares : share.group => share}
+  for_each = { for share in var.datacenter_shares : share.group => share}
   group_id        = each.key
   resource_id     = ionoscloud_datacenter.datacenter.id
   edit_privilege  = each.value.edit
