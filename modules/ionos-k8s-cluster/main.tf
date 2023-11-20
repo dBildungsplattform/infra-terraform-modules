@@ -73,14 +73,14 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
-  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np if np.auto_scaling == false}
+  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np if np.auto_scaling == false} # & zone = 1 // zone =2 
   availability_zone = each.value.availability_zone
   #for_each = { for k, v in var.custom_nodepools : k => v if var.auto_scaling }
   #for_each = { for k in compact([for k, v in var.mymap: v.condition ? k : ""]): k => var.mymap[k] }
   #conditional create is just another count, if auto_scaling=true set count to nodepools_per_zone_count
   #for_each = { for pool in var.custom_nodepools : pool.site_name => pool if var.environment != "prod"}
   #count = each.value.nodepool_per_zone_count 
-  name              = each.value.availability_zone == "ZONE_1" ? "${local.cluster_name}-zone1-nodepool-0":"${local.cluster_name}-zone2-nodepool-0" #each.key
+  name              = each.value.availability_zone == "ZONE_1" ? "${local.cluster_name}-zone1-nodepool-000000000":"${local.cluster_name}-zone2-nodepool-0000000000000" #each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
   allow_replace     = each.value.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
