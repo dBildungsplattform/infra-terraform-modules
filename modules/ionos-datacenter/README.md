@@ -25,6 +25,7 @@ No modules.
 | <a name="input_create_service_crossconnect"></a> [create\_service\_crossconnect](#input\_create\_service\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_crossconnect_shared_group_ids"></a> [crossconnect\_shared\_group\_ids](#input\_crossconnect\_shared\_group\_ids) | Specifies which groups crossconnect shall be shared with. Default: []. | `list(string)` | `[]` | no |
 | <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | n/a | `string` | `"de/txl"` | no |
+| <a name="input_datacenter_shares"></a> [datacenter\_shares](#input\_datacenter\_shares) | Which groups have access to the datacenter | <pre>list(object({<br>    group  = string<br>    edit   = optional(bool, false)<br>    share  = optional(bool, false)<br>  }))</pre> | `[]` | no |
 | <a name="input_routes_map"></a> [routes\_map](#input\_routes\_map) | map which links based on the lan id to a list in which the routes in form of an object ('network'='###' and 'gateway\_ip'='###') are saved | `any` | `{}` | no |
 ## Outputs
 
@@ -68,6 +69,7 @@ No modules.
 | [ionoscloud_private_crossconnect.frontend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/private_crossconnect) | resource |
 | [ionoscloud_private_crossconnect.service_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/private_crossconnect) | resource |
 | [ionoscloud_share.backend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/share) | resource |
+| [ionoscloud_share.datacenter_permissions](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/share) | resource |
 | [ionoscloud_share.frontend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/share) | resource |
 | [ionoscloud_share.service_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/share) | resource |
 <!-- END_TF_DOCS -->
