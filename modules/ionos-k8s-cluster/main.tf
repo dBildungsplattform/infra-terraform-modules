@@ -120,16 +120,6 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   public_ips     = local.public_ip_pools != null ? local.public_ip_pools[each.key] : []
 }
 
-moved {
-  from  = module.ionos_k8s_cluster.ionoscloud_k8s_node_pool.nodepool_zone1[0]
-  to    = module.ionos_k8s_cluster.ionoscloud_k8s_node_pool.nodepool_legacy["infra-dev-schulcloud-ops-5426-ZONE_1-legacy-0"]
-}
-
-moved {
-  from  = module.ionos_k8s_cluster.ionoscloud_k8s_node_pool.nodepool_zone2[0]
-  to    = module.ionos_k8s_cluster.ionoscloud_k8s_node_pool.nodepool_legacy["infra-dev-schulcloud-ops-5426-ZONE_2-legacy-0"]
-}
-
 resource "ionoscloud_ipblock" "ippools" {
   for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np }
   name     = each.key
