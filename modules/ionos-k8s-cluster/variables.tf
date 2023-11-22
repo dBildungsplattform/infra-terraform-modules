@@ -60,15 +60,15 @@ variable "public_ip_pools" {
   default = null
 }
 
-variable "public_ip_pool_zone1" {
-  type    = list(list(string))
-  default = null
-}
+# variable "public_ip_pool_zone1" {
+#   type    = list(list(string))
+#   default = null
+# }
 
-variable "public_ip_pool_zone2" {
-  type    = list(list(string))
-  default = null
-}
+# variable "public_ip_pool_zone2" {
+#   type    = list(list(string))
+#   default = null
+# }
 
 variable "create_public_ip_pools" {
   type    = bool
