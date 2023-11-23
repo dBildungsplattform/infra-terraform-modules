@@ -59,7 +59,7 @@ locals {
       storage_size = np.storage_size != null ? np.storage_size : var.storage_size
       cpu_family = np.cpu_family != null ? np.cpu_family : var.cpu_family
       create_public_ip_pools = np.create_public_ip_pools != null ? np.create_public_ip_pools : var.create_public_ip_pools
-      public_ips = np.create_public_ip_pools == false ? [] : np.purpose == "legacy" ? (np.availability_zone == "ZONE_1" ? var.public_ip_pool_zone1 : var.public_ip_pool_zone2) : np.public_ips
+      public_ips = np.create_public_ip_pools == false ? [] : np.purpose == "legacy" ? np.availability_zone == "ZONE_1" ? var.public_ip_pool_zone1 : var.public_ip_pool_zone2 : np.public_ips
     }  
   ]
 
