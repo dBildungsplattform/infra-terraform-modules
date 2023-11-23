@@ -45,7 +45,7 @@ locals {
       auto_scaling = np.auto_scaling
       min_node_count = np.min_node_count
       max_node_count = np.max_node_count
-      availability_zones = np.availability_zones
+      availability_zone = np.availability_zone
       nodepool_per_zone_count = np.nodepool_per_zone_count != null ? np.nodepool_per_zone_count : var.nodepool_per_zone_count
       node_count = np.node_count != null ? np.node_count : var.node_count
       ram_size = np.ram_size != null ? np.ram_size : var.ram_size
@@ -58,7 +58,7 @@ locals {
       storage_size = np.storage_size != null ? np.storage_size : var.storage_size
       cpu_family = np.cpu_family != null ? np.cpu_family : var.cpu_family
       create_public_ip_pools = np.create_public_ip_pools != null ? np.create_public_ip_pools : var.create_public_ip_pools
-      public_ips = np.create_public_ip_pools == false ? [[]] : np.purpose == "legacy" ? np.availability_zones == "ZONE_1" ? var.public_ip_pool_zone1 : var.public_ip_pool_zone2 : np.public_ips
+      public_ips = np.create_public_ip_pools == false ? [[]] : np.purpose == "legacy" ? np.availability_zone == "ZONE_1" ? var.public_ip_pool_zone1 : var.public_ip_pool_zone2 : np.public_ips
     }  
   ]
 
