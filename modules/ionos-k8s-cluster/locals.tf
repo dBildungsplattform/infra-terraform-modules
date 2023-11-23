@@ -27,7 +27,7 @@ locals {
     storage_size = null
     cpu_family = null
     create_public_ip_pools = null
-    public_ips = []
+    public_ips = null
   }])
 
   #check if both legacy and scaling should be used, if so merge legacy object into the object list if needed (default = false)
