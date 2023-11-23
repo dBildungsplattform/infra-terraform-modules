@@ -9,7 +9,7 @@ resource "ionoscloud_k8s_cluster" "cluster" {
 }
 
 #----
-#Test Pool 1 scaling
+# Scaling Nodepool Definition
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
@@ -52,7 +52,8 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
   cores_count    = each.value.core_count
   ram_size       = each.value.ram_size
   storage_size   = each.value.storage_size
-  public_ips     = local.public_ip_pools != null ? local.public_ip_pools[each.key] : []
+  public_ips     = each.value.create_public_ip_pools ? ionoscloud_ipblock.ippools[each.key].ips : each.value.public_ips
+
 
   auto_scaling {
       min_node_count = each.value.min_node_count
@@ -69,17 +70,13 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
 }
 
 #----
-#Test Pool 2 legacy
+# Non-Scaling Nodepool Definition
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np if np.auto_scaling == false} # & zone = 1 // zone =2 
   availability_zone = each.value.availability_zone
-  #for_each = { for k, v in var.custom_nodepools : k => v if var.auto_scaling }
-  #for_each = { for k in compact([for k, v in var.mymap: v.condition ? k : ""]): k => var.mymap[k] }
-  #conditional create is just another count, if auto_scaling=true set count to nodepools_per_zone_count
-  #for_each = { for pool in var.custom_nodepools : pool.site_name => pool if var.environment != "prod"}
-  #count = each.value.nodepool_per_zone_count 
+
   name              = each.value.availability_zone == "ZONE_1" ? "${local.cluster_name}-zone1-nodepool-0":"${local.cluster_name}-zone2-nodepool-0" #each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
   allow_replace     = each.value.allow_node_pool_replacement
@@ -117,11 +114,11 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   cores_count    = each.value.core_count
   ram_size       = each.value.ram_size
   storage_size   = each.value.storage_size
-  public_ips     = local.public_ip_pools != null ? local.public_ip_pools[each.key] : []
+  public_ips     = each.value.create_public_ip_pools ? ionoscloud_ipblock.ippools[each.key].ips : each.value.public_ips
 }
 
 resource "ionoscloud_ipblock" "ippools" {
-  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np }
+  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np  if np.create_public_ip_pools == true}
   name     = each.key
   location = var.datacenter_location
   size     = each.value.auto_scaling ? each.value.max_node_count + 1 : each.value.node_count + 1

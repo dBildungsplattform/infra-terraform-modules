@@ -26,6 +26,8 @@ locals {
     storage_type = null
     storage_size = null
     cpu_family = null
+    create_public_ip_pools = null
+    public_ips = []
   }])
 
   #check if both legacy and scaling should be used, if so merge legacy object into the object list if needed (default = false)
@@ -53,13 +55,22 @@ locals {
       storage_type = np.storage_type != null ? np.storage_type : var.storage_type
       storage_size = np.storage_size != null ? np.storage_size : var.storage_size
       cpu_family = np.cpu_family != null ? np.cpu_family : var.cpu_family
+      create_public_ip_pools = np.create_public_ip_pools != null ? np.create_public_ip_pools : var.create_public_ip_pools
+      public_ips = np.public_ips != [] ? np.public_ips : []
     }  
   ]
 
 
   #availabilityzone_split duplicates objects with each of their Availability zones once. if [ZONE1, ZONE2] we get 2 objects with one of those zones each.
   availabilityzone_split = toset(flatten([for n in local.custom_nodepools : [for x in n.availability_zones : merge(n,{availability_zone = x})] ]))
+
+  #Does this work as copy?
+  nodepools_with_ips = [ for np in local.availabilityzone_split : {
+    public_ips = np.create_public_ip_pools == false ? [] : np.availability_zone == "ZONE_1" ? var.public_ip_pool_zone1 : var.public_ip_pool_zone2
+    }
+  ]
+
   #nodepool_per_zone_creator this duplicates the objects in each availability zone to the amount of nodepool_per_zone_count
-  nodepool_per_zone_creator = toset(flatten([for n in local.availabilityzone_split : [for x in range(n.nodepool_per_zone_count) : merge(n,{nodepool_index = x})] ]))
+  nodepool_per_zone_creator = toset(flatten([for n in local.nodepools_with_ips : [for x in range(n.nodepool_per_zone_count) : merge(n,{nodepool_index = x})] ]))
 }
 
