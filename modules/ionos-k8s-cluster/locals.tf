@@ -35,9 +35,12 @@ locals {
   #if true: check if first object is legacy, if not only scaling objects are in the list => merge legacy into it
   legacy_check = var.enable_legacy_and_scaling == false ? var.custom_nodepools : (var.custom_nodepools[0].purpose != "legacy" ? tolist(concat(var.custom_nodepools, local.legacy_object)) : var.custom_nodepools)
 
+  #availabilityzone_split duplicates objects with each of their Availability zones once. if [ZONE1, ZONE2] we get 2 objects with one of those zones each.
+  availabilityzone_split = toset(flatten([for n in local.legacy_check : [for x in n.availability_zones : merge(n,{availability_zone = x})] ]))
+
   #Loop through our nodepool list to detect empty values and fill them with legacy values
   #Only required for downward compatibility and legacy nodepools (If no downward compatibility is required just use var.custom_nodepools to loop over)
-  custom_nodepools =  [ for np in local.legacy_check : {
+  custom_nodepools =  [ for np in local.availabilityzone_split : {
       name = np.name
       purpose = np.purpose
       auto_scaling = np.auto_scaling
@@ -56,21 +59,11 @@ locals {
       storage_size = np.storage_size != null ? np.storage_size : var.storage_size
       cpu_family = np.cpu_family != null ? np.cpu_family : var.cpu_family
       create_public_ip_pools = np.create_public_ip_pools != null ? np.create_public_ip_pools : var.create_public_ip_pools
-      public_ips = np.public_ips != [] ? np.public_ips : []
+      public_ips = np.create_public_ip_pools == false ? [] : np.purpose == "legacy" ? (np.availability_zone == "ZONE_1" ? var.public_ip_pool_zone1 : var.public_ip_pool_zone2) : np.public_ips
     }  
   ]
 
-
-  #availabilityzone_split duplicates objects with each of their Availability zones once. if [ZONE1, ZONE2] we get 2 objects with one of those zones each.
-  availabilityzone_split = toset(flatten([for n in local.custom_nodepools : [for x in n.availability_zones : merge(n,{availability_zone = x})] ]))
-
-  #Does this work as copy?
-  nodepools_with_ips = [ for np in local.availabilityzone_split : {
-    public_ips = np.create_public_ip_pools == false ? [] : np.availability_zone == "ZONE_1" ? var.public_ip_pool_zone1 : var.public_ip_pool_zone2
-    }
-  ]
-
   #nodepool_per_zone_creator this duplicates the objects in each availability zone to the amount of nodepool_per_zone_count
-  nodepool_per_zone_creator = toset(flatten([for n in local.nodepools_with_ips : [for x in range(n.nodepool_per_zone_count) : merge(n,{nodepool_index = x})] ]))
+  nodepool_per_zone_creator = toset(flatten([for n in local.custom_nodepools : [for x in range(n.nodepool_per_zone_count) : merge(n,{nodepool_index = x})] ]))
 }
 
