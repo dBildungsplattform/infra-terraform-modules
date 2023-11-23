@@ -144,7 +144,7 @@ variable "custom_nodepools" {
     storage_size = number
     cpu_family = string
     create_public_ip_pools = bool
-    public_ips = optional(list(string), [])
+    public_ips = optional(list(list(string)), null)
     })
   )
   description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
@@ -167,7 +167,7 @@ variable "custom_nodepools" {
     storage_size = null
     cpu_family = null
     create_public_ip_pools = null
-    public_ips = []
+    public_ips = null
   }]
 
 }
