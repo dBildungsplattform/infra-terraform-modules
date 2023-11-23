@@ -114,7 +114,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   cores_count    = each.value.core_count
   ram_size       = each.value.ram_size
   storage_size   = each.value.storage_size
-  public_ips     = each.value.create_public_ip_pools ? ionoscloud_ipblock.ippools[each.key].ips : each.value.public_ips
+  public_ips     = each.value.create_public_ip_pools ? ionoscloud_ipblock.ippools[each.key].ips : each.value.public_ips[0]
 }
 
 resource "ionoscloud_ipblock" "ippools" {
