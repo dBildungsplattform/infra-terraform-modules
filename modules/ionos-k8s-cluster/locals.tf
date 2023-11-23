@@ -4,7 +4,6 @@ locals {
   # de/txl, de/fra: INTEL_SKYLAKE
   cpu_family = var.cpu_family
 
-  public_ip_pools    = var.create_public_ip_pools ? ionoscloud_ipblock.ippools[*].ips : var.public_ip_pools
   api_subnet_allow_list   = var.api_subnet_allow_list
 
   #Create legacy object for possible merging into the nodepool list(Only used when both legacy and custom nodespools are in use)
@@ -27,7 +26,7 @@ locals {
     storage_size = null
     cpu_family = null
     create_public_ip_pools = null
-    public_ips = null
+    public_ips = [[]]
   }])
 
   #check if both legacy and scaling should be used, if so merge legacy object into the object list if needed (default = false)
@@ -59,7 +58,7 @@ locals {
       storage_size = np.storage_size != null ? np.storage_size : var.storage_size
       cpu_family = np.cpu_family != null ? np.cpu_family : var.cpu_family
       create_public_ip_pools = np.create_public_ip_pools != null ? np.create_public_ip_pools : var.create_public_ip_pools
-      public_ips = np.create_public_ip_pools == false ? null : np.purpose == "legacy" ? np.availability_zone == "ZONE_1" ? var.public_ip_pool_zone1 : var.public_ip_pool_zone2 : np.public_ips
+      public_ips = np.create_public_ip_pools == false ? [[]] : np.purpose == "legacy" ? np.availability_zone == "ZONE_1" ? var.public_ip_pool_zone1 : var.public_ip_pool_zone2 : np.public_ips
     }  
   ]
 

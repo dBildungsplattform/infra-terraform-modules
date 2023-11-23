@@ -55,11 +55,6 @@ variable "nodepool_per_zone_count" {
   default     = 0
 }
 
-variable "public_ip_pools" {
-  type    = list(list(string))
-  default = null
-}
-
 variable "public_ip_pool_zone1" {
   type    = list(list(string))
   default = null
@@ -144,7 +139,7 @@ variable "custom_nodepools" {
     storage_size = number
     cpu_family = string
     create_public_ip_pools = bool
-    public_ips = optional(list(list(string)), null)
+    public_ips = list(list(string))
     })
   )
   description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
@@ -167,7 +162,6 @@ variable "custom_nodepools" {
     storage_size = null
     cpu_family = null
     create_public_ip_pools = null
-    public_ips = null
+    public_ips = [[]]
   }]
-
 }
