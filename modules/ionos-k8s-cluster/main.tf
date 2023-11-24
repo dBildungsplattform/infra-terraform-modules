@@ -74,7 +74,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
-  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}-${each.value.nodepool_index}" => np if np.auto_scaling == false}
+  for_each = {for np in local.nodepool_per_zone_creator : "${np.availability_zone}-${np.purpose}-${each.value.nodepool_index}" => np if np.auto_scaling == false}
   availability_zone = each.value.availability_zone
   #The name needs to be changed, not only legacy pools have auto_scaling= false and thus we need an additional check
   name              = each.value.purpose != "legacy" ? each.key : each.value.availability_zone == "ZONE_1" ? "${local.cluster_name}-zone1-nodepool-${each.value.nodepool_index}":"${local.cluster_name}-zone2-nodepool-${each.value.nodepool_index}"
