@@ -9,6 +9,16 @@ variable "datacenter_location" {
   default     = "de/txl"
 }
 
+variable "datacenter_shares" {
+  type        = list(object({
+    group  = string
+    edit   = optional(bool, false)
+    share  = optional(bool, false)
+  }))
+  description = "Which groups have access to the datacenter"
+  default     = []
+}
+
 variable "create_frontend_crossconnect" {
   type        = bool
   description = "Specifies whether crossconnect shall be created. Default: false."
