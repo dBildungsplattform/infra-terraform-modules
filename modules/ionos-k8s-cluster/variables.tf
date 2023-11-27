@@ -121,7 +121,7 @@ variable "custom_nodepools" {
     name          = string
     auto_scaling  = optional(bool, false)
     node_count = number
-    nodepool_per_zone_count = optional(number, 1)
+    nodepool_per_zone_count = number
     min_node_count= optional(number, null)
     max_node_count= optional(number, null)
     ram_size      = number
