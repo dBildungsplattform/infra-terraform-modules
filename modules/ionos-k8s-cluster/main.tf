@@ -13,7 +13,7 @@ resource "ionoscloud_k8s_cluster" "cluster" {
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
-  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np if np.auto_scaling == true}
+  for_each = {for np in local.nodepool_per_zone_creator : "${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np if np.auto_scaling == true}
   availability_zone = each.value.availability_zone
   name              = each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
@@ -118,7 +118,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
 }
 
 resource "ionoscloud_ipblock" "ippools" {
-  for_each = {for np in local.nodepool_per_zone_creator : "${local.cluster_name}-${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np  if np.create_public_ip_pools == true}
+  for_each = {for np in local.nodepool_per_zone_creator : "${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np  if np.create_public_ip_pools == true}
   name     = each.key
   location = var.datacenter_location
   size     = each.value.auto_scaling ? each.value.max_node_count + 1 : each.value.node_count + 1
