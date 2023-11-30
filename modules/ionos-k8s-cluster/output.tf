@@ -13,3 +13,6 @@ output "nodepool_zone1_id" {
 output "nodepool_zone1_ips" {
   value = concat(values(ionoscloud_ipblock.ippools)[*].ips)
 }
+output "nodepool_legacy" {
+  value = ionoscloud_k8s_node_pool.nodepool_legacy
+}
