@@ -93,6 +93,7 @@ variable "api_subnet_allow_list" {
   default = null
 }
 
+#Not needed anymore, we work with a list of zones now
 variable "availability_zone" {
   type    = string
   default = "ZONE_1"
@@ -106,4 +107,61 @@ variable "storage_type" {
 variable "storage_size" {
   type    = number
   default = 100
+}
+
+#Determins if both should be used, otherwise only one will be used where custom_nodepools overwrite legacy ones
+variable "enable_legacy_and_scaling" {
+  type = bool
+  default = false
+}
+
+#It is required to define each resource per availability zone on it's own (One definition for zone 1 and one definition for zone 2)
+variable "custom_nodepools" {
+  type = list(object({
+    name          = string
+    auto_scaling  = optional(bool, false)
+    node_count = number
+    nodepool_per_zone_count = number
+    min_node_count= optional(number, null)
+    max_node_count= optional(number, null)
+    ram_size      = number
+    core_count    = number
+    purpose       = string
+    availability_zones = list(string)
+    allow_node_pool_replacement = bool
+    associated_lans = list(object({
+      id          = number
+      routes_list = list(any)
+    }))
+    maintenance_day = string
+    maintenance_hour = number
+    storage_type = string
+    storage_size = number
+    cpu_family = string
+    create_public_ip_pools = bool
+    public_ips = map(list(list(string)))
+    })
+  )
+  description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
+  default = [{
+    name = "Legacy"
+    auto_scaling = false
+    nodepool_per_zone_count = null
+    node_count = null
+    min_node_count= null
+    max_node_count= null
+    ram_size = null
+    core_count = null
+    purpose = "legacy"
+    availability_zones = ["ZONE_1", "ZONE_2"]
+    allow_node_pool_replacement = null
+    associated_lans = null
+    maintenance_day = null
+    maintenance_hour = null
+    storage_type = null
+    storage_size = null
+    cpu_family = null
+    create_public_ip_pools = null
+    public_ips = {ZONE_1=[[""]], ZONE_2=[[""]]}
+  }]
 }

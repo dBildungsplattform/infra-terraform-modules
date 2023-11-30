@@ -8,14 +8,14 @@ output "cluster_id" {
   value = ionoscloud_k8s_cluster.cluster.id
 }
 output "nodepool_zone1_id" {
-  value = ionoscloud_k8s_node_pool.nodepool_zone1[*].id
+  value = concat(values(ionoscloud_k8s_node_pool.nodepool_legacy)[*].id, values(ionoscloud_k8s_node_pool.nodepool_scaling)[*].id)
 }
 output "nodepool_zone2_id" {
-  value = ionoscloud_k8s_node_pool.nodepool_zone2[*].id
+  value = []
 }
 output "nodepool_zone1_ips" {
-  value = concat(ionoscloud_ipblock.ippools_zone1[*].ips)
+  value = concat(values(ionoscloud_k8s_node_pool.nodepool_legacy)[*].public_ips,values(ionoscloud_k8s_node_pool.nodepool_scaling)[*].id)
 }
 output "nodepool_zone2_ips" {
-  value = concat(ionoscloud_ipblock.ippools_zone2[*].ips)
+  value = []
 }
