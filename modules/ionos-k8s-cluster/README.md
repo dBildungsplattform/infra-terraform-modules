@@ -41,7 +41,6 @@ No modules.
 | <a name="output_cluster_id"></a> [cluster\_id](#output\_cluster\_id) | n/a |
 | <a name="output_cluster_k8s_version"></a> [cluster\_k8s\_version](#output\_cluster\_k8s\_version) | n/a |
 | <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | n/a |
-| <a name="output_nodepool_legacy"></a> [nodepool\_legacy](#output\_nodepool\_legacy) | n/a |
 | <a name="output_nodepool_zone1_id"></a> [nodepool\_zone1\_id](#output\_nodepool\_zone1\_id) | n/a |
 | <a name="output_nodepool_zone1_ips"></a> [nodepool\_zone1\_ips](#output\_nodepool\_zone1\_ips) | n/a |
 ## Requirements
