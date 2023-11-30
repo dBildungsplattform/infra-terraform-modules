@@ -8,7 +8,7 @@ output "cluster_id" {
   value = ionoscloud_k8s_cluster.cluster.id
 }
 output "nodepool_zone1_id" {
-  value = values(ionoscloud_k8s_node_pool.nodepool_legacy)[*].id
+  value = concat(values(ionoscloud_k8s_node_pool.nodepool_legacy)[*].id, values(ionoscloud_k8s_node_pool.nodepool_scaling)[*].id)
 }
 # output "nodepool_zone2_id" {
 #   value = ionoscloud_k8s_node_pool.nodepool_zone2[*].id
