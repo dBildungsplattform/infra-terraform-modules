@@ -38,7 +38,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
       }
     }
   }
-  #TODO we cant use count.index anymore and need a proper solution: + 1 + count.index * 4
+  
   maintenance_window {
     day_of_the_week = (each.value.maintenance_hour + 1 + 1 * 4) < 24 ? each.value.maintenance_day : lookup({ "Monday" = "Tuesday", "Tuesday" = "Wednesday", "Wednesday" = "Thursday", "Thursday" = "Friday", "Friday" = "Saturday", "Saturday" = "Sunday", "Sunday" = "Monday" }, each.value.maintenance_day, null)
     time            = format("%02d:00:00Z", (each.value.maintenance_hour + 1 + each.value.nodepool_index * 4) % 24)

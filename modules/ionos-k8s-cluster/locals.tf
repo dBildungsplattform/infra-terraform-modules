@@ -6,7 +6,7 @@ locals {
 
   api_subnet_allow_list   = var.api_subnet_allow_list
 
-  #Create legacy object for possible merging into the nodepool list(Only used when both legacy and custom nodespools are in use)
+  # Create legacy object for possible merging into the nodepool list(Only used when both legacy and custom nodespools are in use)
   legacy_object = tolist([{
     name = "Legacy"
     auto_scaling = false
@@ -29,16 +29,16 @@ locals {
     public_ips = {ZONE_1=[[]], ZONE_2=[[]]}
   }])
 
-  #check if both legacy and scaling should be used, if so merge legacy object into the object list if needed (default = false)
-  #if false: No need to do anything because it is either legacy or scaling
-  #if true: check if first object is legacy, if not only scaling objects are in the list => merge legacy into it
+  # check if both legacy and scaling should be used, if so merge legacy object into the object list if needed (default = false)
+  # if false: No need to do anything because it is either legacy or scaling
+  # if true: check if first object is legacy, if not only scaling objects are in the list => merge legacy into it
   legacy_check = var.enable_legacy_and_scaling == false ? var.custom_nodepools : (var.custom_nodepools[0].purpose != "legacy" ? tolist(concat(var.custom_nodepools, local.legacy_object)) : var.custom_nodepools)
 
-  #availability_zone_split duplicates objects with each of their Availability zones once. if [ZONE1, ZONE2] we get 2 objects with one of those zones each.
+  # availability_zone_split duplicates objects with each of their Availability zones once. if [ZONE1, ZONE2] we get 2 objects with one of those zones each.
   availability_zone_split = toset(flatten([for n in local.legacy_check : [for x in n.availability_zones : merge(n,{availability_zone = x})] ]))
 
-  #Loop through our nodepool list to detect empty values and fill them with legacy values
-  #Only required for downward compatibility and legacy nodepools (If no downward compatibility is required just use var.custom_nodepools to loop over)
+  # Loop through our nodepool list to detect empty values and fill them with legacy values
+  # Only required for downward compatibility and legacy nodepools (If no downward compatibility is required just use var.custom_nodepools to loop over)
   custom_nodepools =  [ for np in local.availability_zone_split : {
       name = np.name
       purpose = np.purpose
@@ -62,7 +62,6 @@ locals {
     }  
   ]
 
-  #nodepool_per_zone_creator this duplicates the objects in each availability zone to the amount of nodepool_per_zone_count
+  # nodepool_per_zone_creator this duplicates the objects in each availability zone to the amount of nodepool_per_zone_count
   nodepool_per_zone_creator = toset(flatten([for n in local.custom_nodepools : [for x in range(0, n.nodepool_per_zone_count) : merge(n,{nodepool_index = x})] ]))
 }
-
