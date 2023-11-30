@@ -113,7 +113,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   cores_count    = each.value.core_count
   ram_size       = each.value.ram_size
   storage_size   = each.value.storage_size
-  public_ips     = each.value.create_public_ip_pools ? ionoscloud_ipblock.ippools[each.key].ips : each.value.public_ips == null ? [] : each.value.node_count > length(each.value.public_ips) ? [] : slice(each.value.public_ips[each.value.nodepool_index], 0, each.value.node_count+1)
+  public_ips     = each.value.create_public_ip_pools ? ionoscloud_ipblock.ippools[each.key].ips : each.value.public_ips == null ? [] : each.value.node_count > length(each.value.public_ips) ? [] : slice(each.value.public_ips[each.value.nodepool_index], 0, each.value.node_count) #slice(public_ips[0] = [""],0,2)
 }
 
 resource "ionoscloud_ipblock" "ippools" {
