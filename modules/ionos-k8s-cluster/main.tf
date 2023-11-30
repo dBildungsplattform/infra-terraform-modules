@@ -52,7 +52,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
   cores_count    = each.value.core_count
   ram_size       = each.value.ram_size
   storage_size   = each.value.storage_size
-  public_ips     = each.value.create_public_ip_pools == true ? ionoscloud_ipblock.ippools[each.key].ips : (each.value.max_node_count > length(each.value.public_ips) ? [] : slice(each.value.public_ips[each.value.nodepool_index], 0, each.value.max_node_count+1))
+  public_ips     = each.value.create_public_ip_pools == true ? ionoscloud_ipblock.ippools[each.key].ips : (each.value.max_node_count > length(each.value.public_ips) ? [] : slice(each.value.public_ips[each.value.nodepool_index], 0, each.value.max_node_count))
 
   auto_scaling {
       min_node_count = each.value.min_node_count
