@@ -20,6 +20,7 @@ No modules.
 | <a name="input_create_backend_crossconnect"></a> [create\_backend\_crossconnect](#input\_create\_backend\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_create_frontend_crossconnect"></a> [create\_frontend\_crossconnect](#input\_create\_frontend\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_create_nfs_server_lan"></a> [create\_nfs\_server\_lan](#input\_create\_nfs\_server\_lan) | Specifies whether a private lan to connect an NFS server shall be created. | `bool` | `false` | no |
+| <a name="input_create_nlb_target_lan"></a> [create\_nlb\_target\_lan](#input\_create\_nlb\_target\_lan) | Specifies whether a private target for the Network Load Balancer shall be created. | `bool` | `false` | no |
 | <a name="input_create_postgres_lan"></a> [create\_postgres\_lan](#input\_create\_postgres\_lan) | Specifies whether a private lan to connect Postgres shall be created. | `bool` | `false` | no |
 | <a name="input_create_public_lan"></a> [create\_public\_lan](#input\_create\_public\_lan) | Specifies whether a public lan shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_create_service_crossconnect"></a> [create\_service\_crossconnect](#input\_create\_service\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
@@ -42,9 +43,11 @@ No modules.
 | <a name="output_lan_backend"></a> [lan\_backend](#output\_lan\_backend) | n/a |
 | <a name="output_lan_frontend"></a> [lan\_frontend](#output\_lan\_frontend) | n/a |
 | <a name="output_lan_nfs_server"></a> [lan\_nfs\_server](#output\_lan\_nfs\_server) | n/a |
+| <a name="output_lan_nlb_target"></a> [lan\_nlb\_target](#output\_lan\_nlb\_target) | n/a |
 | <a name="output_lan_postgres"></a> [lan\_postgres](#output\_lan\_postgres) | n/a |
 | <a name="output_lan_service"></a> [lan\_service](#output\_lan\_service) | n/a |
 | <a name="output_nfs_server_lan_id"></a> [nfs\_server\_lan\_id](#output\_nfs\_server\_lan\_id) | n/a |
+| <a name="output_nlb_target_lan_id"></a> [nlb\_target\_lan\_id](#output\_nlb\_target\_lan\_id) | n/a |
 | <a name="output_postgres_lan_id"></a> [postgres\_lan\_id](#output\_postgres\_lan\_id) | n/a |
 | <a name="output_service_crossconnect_id"></a> [service\_crossconnect\_id](#output\_service\_crossconnect\_id) | n/a |
 ## Requirements
@@ -62,6 +65,7 @@ No modules.
 | [ionoscloud_lan.backend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.frontend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.nfs_server_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
+| [ionoscloud_lan.nlb_target_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.postgres_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.public_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.service_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
