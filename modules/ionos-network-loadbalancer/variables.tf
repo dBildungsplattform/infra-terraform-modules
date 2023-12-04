@@ -40,13 +40,11 @@ variable "node_nlb_lan_ips" {
 variable "nlb_listener_port" {
   type        = number
   description = "Listening (inbound) port number"
-  default     = 22
 }
 
 variable "nlb_target_port" {
   type        = string
   description = "The port of the balanced target service; valid range is 1 to 65535 used in target group"
-  default     = 30022
 }
 
 variable "nlb_target_health_check_timeout" {
