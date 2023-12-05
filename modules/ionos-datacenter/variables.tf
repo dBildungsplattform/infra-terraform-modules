@@ -90,3 +90,9 @@ variable "create_alb_target_lan" {
   description = "Specifies whether a private target for the Application Load Balancer shall be created."
   default = false
 }
+
+variable "create_nlb_target_lan" {
+  type = bool
+  description = "Specifies whether a private target for the Network Load Balancer shall be created."
+  default = false
+}

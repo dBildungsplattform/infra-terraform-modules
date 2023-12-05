@@ -104,3 +104,10 @@ resource "ionoscloud_lan" "alb_target_lan" {
   datacenter_id = ionoscloud_datacenter.datacenter.id
   public        = false
 }
+
+resource "ionoscloud_lan" "nlb_target_lan" {
+  count         = local.create_nlb_target_lan ? 1 : 0
+  name          = "${var.datacenter_name}-nlb-target-lan"
+  datacenter_id = ionoscloud_datacenter.datacenter.id
+  public        = false
+}

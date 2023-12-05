@@ -62,3 +62,11 @@ output "alb_target_lan_id" {
 output "lan_alb_target" {
   value = local.lan_alb_target
 }
+
+output "nlb_target_lan_id" {
+  value = join("", ionoscloud_lan.nlb_target_lan.*.id)
+}
+
+output "lan_nlb_target" {
+  value = local.lan_nlb_target
+}
