@@ -13,7 +13,7 @@ resource "ionoscloud_k8s_cluster" "cluster" {
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
-  for_each = {for np in local.nodepool_per_zone_creator : lower("${local.cluster_name}-${replace(np.availability_zone, "_", "")}-${np.purpose}-nodepool-${np.nodepool_index}") => np if np.auto_scaling == true}
+  for_each = {for np in local.nodepool_per_zone_creator : lower("${local.cluster_name}-${replace(np.availability_zone, "_", "")}-(${length(np.purpose)} > 0 ? (${np.purpose} + '-') : '')nodepool-${np.nodepool_index}") => np if np.auto_scaling == true}
   availability_zone = each.value.availability_zone
   name              = each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
@@ -73,7 +73,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
-  for_each = {for np in local.nodepool_per_zone_creator : lower("${local.cluster_name}-${replace(np.availability_zone, "_", "")}-${np.purpose}-nodepool-${np.nodepool_index}") => np if np.auto_scaling == false}
+  for_each = {for np in local.nodepool_per_zone_creator : lower("${local.cluster_name}-${replace(np.availability_zone, "_", "")}-(${length(np.purpose)} > 0 ? (${np.purpose} + '-') : '')nodepool-${np.nodepool_index}") => np if np.auto_scaling == false}
   availability_zone = each.value.availability_zone
   #The name needs to be changed, not only legacy pools have auto_scaling= false and thus we need an additional check
   name              = each.value.purpose != "legacy" ? each.key : lower("${local.cluster_name}-${replace(each.value.availability_zone, "_", "")}-nodepool-${each.value.nodepool_index}")
@@ -117,7 +117,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
 }
 
 resource "ionoscloud_ipblock" "ippools" {
-  for_each = {for np in local.nodepool_per_zone_creator : "${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np  if np.create_public_ip_pools == true}
+  for_each = {for np in local.nodepool_per_zone_creator : lower("${local.cluster_name}-${replace(np.availability_zone, "_", "")}-(${length(np.purpose)} > 0 ? ${np.purpose} + '-' : '')nodepool-${np.nodepool_index}") => np  if np.create_public_ip_pools == true}
   name     = each.key
   location = var.datacenter_location
   size     = each.value.auto_scaling ? each.value.max_node_count + 1 : each.value.node_count + 1
