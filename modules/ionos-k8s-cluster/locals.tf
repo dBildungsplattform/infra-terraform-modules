@@ -29,6 +29,7 @@ locals {
     public_ips = {ZONE_1=[[]], ZONE_2=[[]]}
   }])
 
+  cleaned_availability_zone = tr(var.availability_zone, "_", "")
   # check if both legacy and scaling should be used, if so merge legacy object into the object list if needed (default = false)
   # if false: No need to do anything because it is either legacy or scaling
   # if true: check if first object is legacy, if not only scaling objects are in the list => merge legacy into it

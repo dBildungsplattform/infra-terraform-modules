@@ -13,7 +13,7 @@ resource "ionoscloud_k8s_cluster" "cluster" {
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
-  for_each = {for np in local.nodepool_per_zone_creator : "${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np if np.auto_scaling == true}
+  for_each = {for np in local.nodepool_per_zone_creator : lower("${local.cluster_name}-${tr(np.availability_zone, "-", "_")}-${np.purpose}-nodepool-${np.nodepool_index}") => np if np.auto_scaling == true}
   availability_zone = each.value.availability_zone
   name              = each.key
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
@@ -73,10 +73,10 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
-  for_each = {for np in local.nodepool_per_zone_creator : "${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np if np.auto_scaling == false}
+  for_each = {for np in local.nodepool_per_zone_creator : lower("${local.cluster_name}-${tr(np.availability_zone, "-", "_")}-${np.purpose}-nodepool-${np.nodepool_index}") => np if np.auto_scaling == false}
   availability_zone = each.value.availability_zone
   #The name needs to be changed, not only legacy pools have auto_scaling= false and thus we need an additional check
-  name              = each.value.purpose != "legacy" ? each.key : each.value.availability_zone == "ZONE_1" ? "${local.cluster_name}-zone1-nodepool-${each.value.nodepool_index}":"${local.cluster_name}-zone2-nodepool-${each.value.nodepool_index}"
+  name              = each.value.purpose != "legacy" ? each.key : lower("${local.cluster_name}-${tr(each.value.availability_zone, "-", "_")}-nodepool-${each.value.nodepool_index}")
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
   allow_replace     = each.value.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
