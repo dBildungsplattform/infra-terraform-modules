@@ -13,9 +13,9 @@ resource "ionoscloud_k8s_cluster" "cluster" {
 #----
 
 resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
-  for_each = {for np in local.nodepool_per_zone_creator : lower("${local.cluster_name}-${replace(np.availability_zone, "_", "")}-${length(np.purpose) > 0 ? "${np.purpose}-" : ""}nodepool-${np.nodepool_index}") => np if np.auto_scaling == true}
+  for_each = {for np in local.nodepool_per_zone_creator : "${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np if np.auto_scaling == true}
   availability_zone = each.value.availability_zone
-  name              = each.key
+  name              = lower("${local.cluster_name}-${replace(each.value.availability_zone, "_", "")}-${length(each.value.purpose) > 0 ? "${each.value.purpose}-" : ""}nodepool-${each.value.nodepool_index}")
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
   allow_replace     = each.value.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
@@ -119,8 +119,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
 
 resource "ionoscloud_ipblock" "ippools" {
   for_each = {for np in local.nodepool_per_zone_creator : "${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np if np.create_public_ip_pools == true}
-  # for_each = {for np in local.nodepool_per_zone_creator : lower("${local.cluster_name}-${replace(np.availability_zone, "_", "")}-${length(np.purpose) > 0 ? "${np.purpose}-" : ""}nodepool-${np.nodepool_index}") => np  if np.create_public_ip_pools == true}
-  name     = each.key
+  name     = lower("${local.cluster_name}-${replace(each.key, "_", "")}-nodepool")
   location = var.datacenter_location
   size     = each.value.auto_scaling ? each.value.max_node_count + 1 : each.value.node_count + 1
 }
