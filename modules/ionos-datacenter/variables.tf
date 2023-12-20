@@ -99,6 +99,6 @@ variable "create_nlb_target_lan" {
 
 variable "create_nat_lan" {
   type = bool
-  description = "Specifies whether a private lan to connect NAT shall be created."
+  description = "Specifies whether a private lan to connect a NAT gateway shall be created."
   default = false
 }
