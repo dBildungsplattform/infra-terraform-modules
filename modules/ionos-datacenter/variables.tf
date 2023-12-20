@@ -96,3 +96,9 @@ variable "create_nlb_target_lan" {
   description = "Specifies whether a private target for the Network Load Balancer shall be created."
   default = false
 }
+
+variable "create_nat_lan" {
+  type = bool
+  description = "Specifies whether a private lan to connect a NAT gateway shall be created."
+  default = false
+}

@@ -111,3 +111,10 @@ resource "ionoscloud_lan" "nlb_target_lan" {
   datacenter_id = ionoscloud_datacenter.datacenter.id
   public        = false
 }
+
+resource "ionoscloud_lan" "nat_lan" {
+  count         = local.create_nat_lan ? 1 : 0
+  name          = "${var.datacenter_name}-nat-lan"
+  datacenter_id = ionoscloud_datacenter.datacenter.id
+  public        = false
+}
