@@ -10,7 +10,7 @@ resource "ionoscloud_natgateway" "natgateway" {
 
 resource "ionoscloud_natgateway_rule" "natgateway_rule" {
   datacenter_id           = var.datacenter_id
-  natgateway_id           = ionoscloud_natgateway.gateway.id
+  natgateway_id           = ionoscloud_natgateway.natgateway.id
   name                    = var.natgateway_rule_name
   type                    = "SNAT"
   protocol                = "TCP"
