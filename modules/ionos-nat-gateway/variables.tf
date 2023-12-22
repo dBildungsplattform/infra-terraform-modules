@@ -23,7 +23,7 @@ variable "lan_id" {
   type        = string
 }
 
-variable "gateway_host_num" {
+variable "natgateway_host_num" {
   description = "The number to be set in the last ip block. (Default: 8)"
   type        = number
   default     = 8

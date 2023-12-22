@@ -6,6 +6,6 @@ module "cidr_workaround" {
 
 locals {
   prefix = module.cidr_workaround.prefix
-  gateway_ip = "${cidrhost(local.prefix, var.gateway_host_num)}"
+  gateway_ip = "${cidrhost(local.prefix, var.natgateway_host_num)}"
   gateway_subnet = "${cidrhost(local.prefix, 0)}/24"
 }
