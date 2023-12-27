@@ -3,5 +3,5 @@ output "natgateway_id" {
 }
 
 output "public_ips" {
-  value = ionoscloud_ipblock.natgateway[0].ips
+  value = ionoscloud_natgateway.natgateway.public_ips
 }
