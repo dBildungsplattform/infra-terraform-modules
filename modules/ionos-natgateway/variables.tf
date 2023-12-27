@@ -3,11 +3,6 @@ variable "datacenter_id" {
   type        = string
 }
 
-variable "datacenter_location" {
-  description = ""
-  type        = string
-}
-
 variable "natgateway_name" {
   description = ""
   type        = string
@@ -42,16 +37,23 @@ variable "natgateway_rule_name" {
 variable "create_ipblock" {
   description = "Specifies whether an ipblock should be created. Default: true."
   type        = bool
-  default     = true
+  default     = false
+}
+
+variable "datacenter_location" {
+  description = ""
+  type        = string
+  default     = null
 }
 
 variable "ipblock_name" {
   description = ""
   type        = string 
+  default     = null
 } 
 
 variable "ipblock_size" {
   description = ""
   type        = number
-  default     = 1
+  default     = null
 }
