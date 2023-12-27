@@ -20,9 +20,9 @@ resource "ionoscloud_natgateway_rule" "natgateway_rule" {
 
 resource "ionoscloud_ipblock" "natgateway" {
   count                   = var.create_ipblock ? 1 : 0
-  location                = var.datacenter_location
-  size                    = var.ipblock_size
-  name                    = var.ipblock_name
+  location                = var.create_ipblock ? var.datacenter_location : null
+  size                    = var.create_ipblock ? var.ipblock_size : null
+  name                    = var.create_ipblock ? var.ipblock_name : null
   lifecycle {
     prevent_destroy = true
   }
