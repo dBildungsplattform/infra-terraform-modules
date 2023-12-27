@@ -35,7 +35,7 @@ variable "natgateway_rule_name" {
 }
 
 variable "create_ipblock" {
-  description = "Specifies whether an ipblock should be created. Default: true."
+  description = "Specifies whether an ipblock should be created. Default: false."
   type        = bool
   default     = false
 }
