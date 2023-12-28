@@ -11,6 +11,7 @@ variable "natgateway_name" {
 variable "natgateway_public_ips" {
   description = "Specifies the list of public ips of the NAT gateway."
   type        = list(string)
+  default     = null
 }
 
 variable "k8s_cluster_id" {
