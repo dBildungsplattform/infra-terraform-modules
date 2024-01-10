@@ -13,7 +13,7 @@ resource "ionoscloud_natgateway_rule" "natgateway_rule" {
   natgateway_id           = ionoscloud_natgateway.natgateway.id
   name                    = var.natgateway_rule_name
   type                    = "SNAT"
-  protocol                = "TCP"
+  protocol                = var.natgateway_rule_protocol
   source_subnet           = local.gateway_subnet
   public_ip               = var.create_ipblock ? ionoscloud_ipblock.natgateway[0].ips[0] : var.natgateway_public_ips[0]
 }
