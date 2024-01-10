@@ -23,8 +23,9 @@
 | <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | n/a | `string` | `null` | no |
 | <a name="input_ipblock_name"></a> [ipblock\_name](#input\_ipblock\_name) | n/a | `string` | `null` | no |
 | <a name="input_ipblock_size"></a> [ipblock\_size](#input\_ipblock\_size) | n/a | `number` | `null` | no |
-| <a name="input_natgateway_host_num"></a> [natgateway\_host\_num](#input\_natgateway\_host\_num) | The number to be set in the last ip block. (Default: 8) | `number` | `8` | no |
+| <a name="input_natgateway_host_num"></a> [natgateway\_host\_num](#input\_natgateway\_host\_num) | The number to be set in the last ip block. Default: 8. | `number` | `8` | no |
 | <a name="input_natgateway_public_ips"></a> [natgateway\_public\_ips](#input\_natgateway\_public\_ips) | Specifies the list of public ips of the NAT gateway. | `list(string)` | `null` | no |
+| <a name="input_natgateway_rule_protocol"></a> [natgateway\_rule\_protocol](#input\_natgateway\_rule\_protocol) | Specifies the protocol of the NAT gateway rule. Default: ALL. | `string` | `"ALL"` | no |
 ## Outputs
 
 | Name | Description |
