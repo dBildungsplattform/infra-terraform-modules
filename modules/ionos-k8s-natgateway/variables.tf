@@ -25,7 +25,7 @@ variable "lan_id" {
 }
 
 variable "natgateway_host_num" {
-  description = "The number to be set in the last ip block. (Default: 8)"
+  description = "The number to be set in the last ip block. Default: 8."
   type        = number
   default     = 8
 }
@@ -33,6 +33,12 @@ variable "natgateway_host_num" {
 variable "natgateway_rule_name" {
   description = ""
   type        = string
+}
+
+variable "natgateway_rule_protocol" {
+  description = "Specifies the protocol of the NAT gateway rule. Default: ALL."
+  type        = string
+  default     = "ALL"
 }
 
 variable "create_ipblock" {
