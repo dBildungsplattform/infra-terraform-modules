@@ -49,7 +49,7 @@ resource "ionoscloud_firewall" "range_rule" {
 }
 
 module "conventions_coordinates" {
-  source                   = "../../../../terraform-modules/modules/conventions-coordinates"
+  source                   = "../conventions-coordinates"
   coordinates              = var.coordinates
   domain_without_top_level = var.domain_without_top_level
   top_level_domain         = var.top_level_domain
