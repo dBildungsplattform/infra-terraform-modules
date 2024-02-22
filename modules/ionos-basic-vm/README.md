@@ -1,6 +1,4 @@
-# Usage
-
-<!--- BEGIN_TF_DOCS --->
+<!-- BEGIN_TF_DOCS -->
 
 ## Providers
 
@@ -12,7 +10,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_conventions_coordinates"></a> [conventions\_coordinates](#module\_conventions\_coordinates) | ../../../../terraform-modules/modules/conventions-coordinates | n/a |
+| <a name="module_conventions_coordinates"></a> [conventions\_coordinates](#module\_conventions\_coordinates) | ../conventions-coordinates | n/a |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -37,6 +35,9 @@
 | <a name="input_create_ip_pool"></a> [create\_ip\_pool](#input\_create\_ip\_pool) | If true an IP pool of size 1 will be created, if false a public IP must be provided | `bool` | `true` | no |
 | <a name="input_create_lan"></a> [create\_lan](#input\_create\_lan) | If true a LAN will be created, if false a LAN ID must be provided | `bool` | `true` | no |
 | <a name="input_dns_zone_name_override"></a> [dns\_zone\_name\_override](#input\_dns\_zone\_name\_override) | Name of the DNS zone if it doesn't follow the naming convention (i.e. messenger.schule) | `string` | `""` | no |
+| <a name="input_initial_public_key"></a> [initial\_public\_key](#input\_initial\_public\_key) | The public key of the initial user created via the cloud init script. | `string` | `""` | no |
+| <a name="input_initial_uid"></a> [initial\_uid](#input\_initial\_uid) | The uid of the initial user created via the cloud init script. | `string` | `""` | no |
+| <a name="input_initial_user"></a> [initial\_user](#input\_initial\_user) | The initial user to be created via the cloud init script. | `string` | `""` | no |
 | <a name="input_ip_pool_name"></a> [ip\_pool\_name](#input\_ip\_pool\_name) | Name of the ip pools | `string` | `""` | no |
 | <a name="input_lan_id"></a> [lan\_id](#input\_lan\_id) | Id of the LAN to use (only necessary if create\_lan is false) | `number` | `null` | no |
 | <a name="input_permanent_vm"></a> [permanent\_vm](#input\_permanent\_vm) | Create a permanent VM that mustn't be deleted, if false then a VM that can be deleted and that ignores changes to ram and cpu is created | `bool` | `true` | no |
@@ -49,7 +50,6 @@
 | Name | Description |
 |------|-------------|
 | <a name="output_basic_vm_server_id"></a> [basic\_vm\_server\_id](#output\_basic\_vm\_server\_id) | n/a |
-| <a name="output_basic_vm_server_nicuuid"></a> [basic\_vm\_server\_nicuuid](#output\_basic\_vm\_server\_nicuuid) | n/a |
 | <a name="output_basic_vm_server_public_ip"></a> [basic\_vm\_server\_public\_ip](#output\_basic\_vm\_server\_public\_ip) | n/a |
 ## Requirements
 
@@ -71,6 +71,4 @@
 | [opentelekomcloud_dns_recordset_v2.a_records](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/resources/dns_recordset_v2) | resource |
 | [ionoscloud_datacenter.datacenter](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/datacenter) | data source |
 | [opentelekomcloud_dns_zone_v2.dns_zone](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/data-sources/dns_zone_v2) | data source |
-
-<!--- END_TF_DOCS --->
-
+<!-- END_TF_DOCS -->
