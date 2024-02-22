@@ -8,7 +8,7 @@ resource "ionoscloud_server" "basic_vm_server" {
   image_name        = var.image
   cpu_family        = var.cpu_family
   availability_zone = var.availability_zone
-  ssh_keys          = [ local.technicaluser_key_path ]
+  ssh_keys          = []
 
   # /dev/vda1
   volume {
@@ -45,7 +45,7 @@ resource "ionoscloud_server" "basic_vm_server_not_permanent" {
   image_name        = var.image
   cpu_family        = var.cpu_family
   availability_zone = var.availability_zone
-  ssh_keys          = [local.technicaluser_key_path]
+  ssh_keys          = []
 
   # /dev/vda1
   volume {
