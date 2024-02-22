@@ -117,6 +117,24 @@ variable "user_data_script" {
   default = "user-data-cloud-init.tpl"
 }
 
+variable "initial_user" {
+  type = string
+  description = "The initial user to be created via the cloud init script."
+  default = ""
+}
+
+variable "initial_uid" {
+  type = string
+  description = "The uid of the initial user created via the cloud init script."
+  default = ""
+}
+
+variable "initial_public_key" {
+  type = string
+  description = "The public key of the initial user created via the cloud init script."
+  default = ""
+}
+
 variable "availability_zone" {
   type = string
   description = "Possible Zones: AUTO, ZONE_1, ZONE_2"
