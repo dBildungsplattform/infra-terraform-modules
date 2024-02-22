@@ -50,6 +50,7 @@
 | Name | Description |
 |------|-------------|
 | <a name="output_basic_vm_server_id"></a> [basic\_vm\_server\_id](#output\_basic\_vm\_server\_id) | n/a |
+| <a name="output_basic_vm_server_nicuuid"></a> [basic\_vm\_server\_nicuuid](#output\_basic\_vm\_server\_nicuuid) | n/a |
 | <a name="output_basic_vm_server_public_ip"></a> [basic\_vm\_server\_public\_ip](#output\_basic\_vm\_server\_public\_ip) | n/a |
 ## Requirements
 
