@@ -3,7 +3,7 @@ output "basic_vm_server_id" {
 }
 
 output "basic_vm_server_dns" {
-    value = trim(opentelekomcloud_dns_recordset_v2.a_records.*.name, ".")
+    value = trim(opentelekomcloud_dns_recordset_v2.a_records.name, ".")
 }
 
 output "basic_vm_server_public_ip" {
