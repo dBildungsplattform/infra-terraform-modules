@@ -78,3 +78,11 @@ output "nat_lan_id" {
 output "lan_nat" {
   value = local.lan_nat
 }
+
+output "custom_lans_id" {
+  value = { for name, lan in ionoscloud_lan.custom_lan: name => lan.id }
+}
+
+output "lans_custom" {
+  value = local.lans_custom
+}
