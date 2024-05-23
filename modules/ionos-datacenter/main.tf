@@ -98,6 +98,13 @@ resource "ionoscloud_lan" "postgres_lan" {
   public        = false
 }
 
+resource "ionoscloud_lan" "mariadb_lan" {
+  count         = local.create_mariadb_lan ? 1 : 0
+  name          = "${var.datacenter_name}-mariadb-lan"
+  datacenter_id = ionoscloud_datacenter.datacenter.id
+  public        = false
+}
+
 resource "ionoscloud_lan" "alb_target_lan" {
   count         = local.create_alb_target_lan ? 1 : 0
   name          = "${var.datacenter_name}-alb-target-lan"
