@@ -55,6 +55,14 @@ output "lan_postgres" {
   value = local.lan_postgres
 }
 
+output "mariadb_lan_id" {
+  value = join("", ionoscloud_lan.mariadb_lan.*.id)
+}
+
+output "lan_mariadb" {
+  value = local.lan_mariadb
+}
+
 output "alb_target_lan_id" {
   value = join("", ionoscloud_lan.alb_target_lan.*.id)
 }
