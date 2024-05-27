@@ -161,6 +161,6 @@ variable "additional_ips" {
 
 variable "associated_lans" {
   type        = list(string)
-  description = "List of LAN IDs to associate the virtual machine with"
+  description = "List of LAN IDs to associate the PrivacyIdea VM with"
   default     = []
 }
