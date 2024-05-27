@@ -158,3 +158,9 @@ variable "additional_ips" {
   description = "Additional IPs for the VM (optional)"
   default = []
 }
+
+variable "associated_lans" {
+  type        = list(string)
+  description = "List of LAN IDs to associate the virtual machine with"
+  default     = []
+}
