@@ -28,6 +28,7 @@
 | <a name="input_server_name"></a> [server\_name](#input\_server\_name) | name of the vm | `string` | n/a | yes |
 | <a name="input_top_level_domain"></a> [top\_level\_domain](#input\_top\_level\_domain) | Top-level domain mapping for environments | `map(any)` | n/a | yes |
 | <a name="input_additional_ips"></a> [additional\_ips](#input\_additional\_ips) | Additional IPs for the VM (optional) | `list(string)` | `[]` | no |
+| <a name="input_associated_lans"></a> [associated\_lans](#input\_associated\_lans) | List of LAN IDs to associate the PrivacyIdea VM with | `list(string)` | `[]` | no |
 | <a name="input_availability_zone"></a> [availability\_zone](#input\_availability\_zone) | Possible Zones: AUTO, ZONE\_1, ZONE\_2 | `string` | `"AUTO"` | no |
 | <a name="input_basic_vm_create_second_volume"></a> [basic\_vm\_create\_second\_volume](#input\_basic\_vm\_create\_second\_volume) | n/a | `bool` | `true` | no |
 | <a name="input_basic_vm_second_volume_disk_type"></a> [basic\_vm\_second\_volume\_disk\_type](#input\_basic\_vm\_second\_volume\_disk\_type) | n/a | `string` | `"HDD"` | no |
