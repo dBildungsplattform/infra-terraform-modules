@@ -1,4 +1,3 @@
-#Establish a private network for internal communication between the basic VM and the MariaDB cluster.
 resource "ionoscloud_lan" "private_lan" {
   datacenter_id = var.datacenter_id
   public        = false
@@ -35,22 +34,22 @@ module "basic-vm" {
 }
 
 resource "ionoscloud_mariadb_cluster" "mariadb_cluster" {
-  mariadb_version     = var.mariadb_version
+  mariadb_version      = var.mariadb_version
   instances            = var.instances_count
   cores                = var.cores
   ram                  = var.memory
   storage_size         = var.volume_size
   
   connections {
-    datacenter_id = var.datacenter_id
-    lan_id        = ionoscloud_lan.private_lan.id
-    cidr          =  local.database_ip_cidr
+    datacenter_id      = var.datacenter_id
+    lan_id             = ionoscloud_lan.private_lan.id
+    cidr               =  local.database_ip_cidr
   }
   display_name         = var.display_name
 
   maintenance_window {
-    day_of_the_week = var.maintenance_day
-    time            = format("%02d:00:00", var.maintenance_hour)
+    day_of_the_week    = var.maintenance_day
+    time               = format("%02d:00:00", var.maintenance_hour)
   }
   
   credentials {
