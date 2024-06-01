@@ -84,11 +84,6 @@ variable "create_postgres_lan" {
   type        = bool
   default = false
 }
-variable "create_mariadb_lan" {
-  description = "Specifies whether a private lan to connect Mariadb shall be created."
-  type        = bool
-  default = false
-}
 
 variable "create_alb_target_lan" {
   type = bool
