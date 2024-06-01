@@ -7,3 +7,8 @@ variable "lan_id" {
   type        = string
   description = "ID of the LAN whose IP we want to get"
 }
+
+variable "server_name" {
+  type = string 
+  description = "name of the vm"
+}
