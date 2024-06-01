@@ -128,8 +128,3 @@ variable "mariadb_password" {
   description = "The password for the initial mariadb user"
   type = string
 }
-
-variable "lan_id" {
-  type = string
-  description = "LAN ID for connecting the VM and MariaDB cluster"
-}

@@ -43,7 +43,7 @@ resource "ionoscloud_mariadb_cluster" "mariadb_cluster" {
   connections {
     datacenter_id      = var.datacenter_id
     lan_id             = ionoscloud_lan.private_lan.id
-    cidr               =  local.database_ip_cidr
+    cidr               =  module.basic-vm.database_ip_cidr
   }
   display_name         = var.display_name
 
