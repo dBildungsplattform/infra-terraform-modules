@@ -76,7 +76,3 @@ variable "synchronization_mode" {
   type        = string
   default     = "ASYNCHRONOUS"
 }
-variable "server_name" {
-  type = string 
-  description = "name of the vm"
-}

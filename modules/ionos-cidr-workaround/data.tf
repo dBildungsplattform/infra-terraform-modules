@@ -30,6 +30,6 @@ data "ionoscloud_servers" "basic-vm-mariadb" {
   datacenter_id = data.ionoscloud_k8s_node_pool.k8s_node_pool.datacenter_id
   filter {
     name  = "name"
-    value = var.server_name
+    value = "privacyidea"
   }
 }
