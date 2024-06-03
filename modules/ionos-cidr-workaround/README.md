@@ -21,6 +21,8 @@ No modules.
 | <a name="output_nicIndex"></a> [nicIndex](#output\_nicIndex) | n/a |
 | <a name="output_node_lan_ips"></a> [node\_lan\_ips](#output\_node\_lan\_ips) | n/a |
 | <a name="output_prefix"></a> [prefix](#output\_prefix) | n/a |
+| <a name="output_privacyidea_nicIndex"></a> [privacyidea\_nicIndex](#output\_privacyidea\_nicIndex) | n/a |
+| <a name="output_privacyidea_prefix"></a> [privacyidea\_prefix](#output\_privacyidea\_prefix) | n/a |
 ## Requirements
 
 | Name | Version |
@@ -35,4 +37,5 @@ No modules.
 | [ionoscloud_k8s_node_pool.k8s_node_pool](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/k8s_node_pool) | data source |
 | [ionoscloud_servers.k8s_node](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/servers) | data source |
 | [ionoscloud_servers.k8s_nodes](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/servers) | data source |
+| [ionoscloud_servers.privacyidea_servers](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/servers) | data source |
 <!-- END_TF_DOCS -->
