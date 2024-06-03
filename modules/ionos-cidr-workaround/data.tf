@@ -24,4 +24,3 @@ data "ionoscloud_servers" "k8s_nodes" {
     value = "nodepool"
   }
 }
-
