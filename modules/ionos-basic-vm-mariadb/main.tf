@@ -1,3 +1,4 @@
+# creates a private LAN for connecting the basic VM and MariaDB cluster.
 resource "ionoscloud_lan" "private_lan" {
   datacenter_id = var.datacenter_id
   public        = false
@@ -32,7 +33,7 @@ module "basic-vm" {
   initial_uid        = "2215"
   initial_public_key = "../../../provision/sshkeys/technicaluser.pub"
 }
-
+# creates a new MariaDB cluster and connects it to the private LAN using the CIDR range obtained from the ionos-basic-vm module.
 resource "ionoscloud_mariadb_cluster" "mariadb_cluster" {
   mariadb_version      = var.mariadb_version
   instances            = var.instances_count
