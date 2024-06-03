@@ -128,3 +128,11 @@ variable "mariadb_password" {
   description = "The password for the initial mariadb user"
   type = string
 }
+variable "cluster_lan_id" {
+  type = number
+  description = "ID of the cluster LAN"
+}
+variable "cluster_lan_ip" {
+  type        = string
+  description = "IP of the NFS server on the cluster LAN"
+}
