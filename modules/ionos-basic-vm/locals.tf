@@ -4,7 +4,6 @@ locals {
   dns_zone_name = var.dns_zone_name_override == "" ? module.conventions_coordinates.dns_zone_name : var.dns_zone_name_override
   basic_vm_server = var.permanent_vm ? ionoscloud_server.basic_vm_server[0] : ionoscloud_server.basic_vm_server_not_permanent[0]
 
-
   user_data_vars = {
     "initial_user" = var.initial_user
     "initial_uid" = var.initial_uid
