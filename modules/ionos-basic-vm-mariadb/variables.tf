@@ -1,7 +1,7 @@
-variable "k8s_cluster_id" {
-  description = ""
-  type        = string
-}
+# variable "k8s_cluster_id" {
+#   description = ""
+#   type        = string
+# }
 
 variable "datacenter_id" {
   type = string
@@ -48,12 +48,12 @@ variable "image" {
   description = "Image UUID for the VM"
 }
 
-variable "server_memory" {
+variable "basic_vm_server_memory" {
   type = number
   description = "Memory allocated to the VM"
 }
 
-variable "server_cpu" {
+variable "basic_vm_server_cpu" {
   type = number
   description = "CPU cores allocated to the VM"
 }
@@ -63,17 +63,17 @@ variable "cpu_family" {
   description = "Type of CPU to use"
 }
 
-variable "volume_size" {
+variable "basic_vm_volume_size" {
   type = number
   description = "Size of the primary volume in GB"
 }
 
-variable "second_volume_size" {
+variable "basic_vm_second_volume_size" {
   type = number
   description = "Size of the second volume in GB"
 }
 
-variable "second_volume_disk_type" {
+variable "basic_vm_second_volume_disk_type" {
   type = string
   description = "Disk type of the second volume"
 }
@@ -100,6 +100,11 @@ variable "cores" {
 variable "memory" {
   type = number
   description = "Memory per MariaDB instance in GB"
+}
+
+variable "storage_size" {
+  type = number
+  description = "The amount of storage per instance in gigabytes (GB)"
 }
 
 variable "display_name" {

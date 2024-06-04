@@ -14,11 +14,11 @@ module "basic-vm" {
   datacenter_location               = var.datacenter_location
   cpu_family                        = var.cpu_family
   ip_pool_name                      = var.ip_pool_name
-  basic_vm_server_memory            = var.server_memory
-  basic_vm_server_cpu               = var.server_cpu
-  basic_vm_volume_size              = var.volume_size
-  basic_vm_second_volume_size       = var.second_volume_size
-  basic_vm_second_volume_disk_type  = var.second_volume_disk_type
+  basic_vm_server_memory            = var.basic_vm_server_memory
+  basic_vm_server_cpu               = var.basic_vm_server_cpu
+  basic_vm_volume_size              = var.basic_vm_volume_size
+  basic_vm_second_volume_size       = var.basic_vm_second_volume_size
+  basic_vm_second_volume_disk_type  = var.basic_vm_second_volume_disk_type
   domain_without_top_level          = var.domain_without_top_level
   top_level_domain                  = var.top_level_domain
   image                             = var.image
@@ -39,9 +39,8 @@ module "basic-vm" {
 resource "ionoscloud_nic" "basic_vm_nic" {
   datacenter_id = var.datacenter_id
   server_id     = module.basic-vm.basic_vm_server_id
-  dhcp          = false
+  dhcp          = true
   lan           = ionoscloud_lan.private_lan.id
-  ips           = [local.basic_vm_lan_ip]
   firewall_active = true
 }
 
@@ -51,7 +50,7 @@ resource "ionoscloud_mariadb_cluster" "mariadb_cluster" {
   instances            = var.instances_count
   cores                = var.cores
   ram                  = var.memory
-  storage_size         = var.volume_size
+  storage_size         = var.storage_size
   display_name         = var.display_name
   #the private LAN ID, and the CIDR range for the MariaDB cluster
   #basic VM and the MariaDB cluster are connected to the same private LAN  
