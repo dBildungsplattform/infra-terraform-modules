@@ -10,7 +10,6 @@
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_basic-vm"></a> [basic-vm](#module\_basic-vm) | ../../modules/ionos-basic-vm | n/a |
-| <a name="module_cidr_workaround"></a> [cidr\_workaround](#module\_cidr\_workaround) | ../../modules/ionos-cidr-workaround | n/a |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -64,5 +63,5 @@
 |------|------|
 | [ionoscloud_lan.private_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_mariadb_cluster.mariadb_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/mariadb_cluster) | resource |
-| [ionoscloud_nic.privacyidea_nic](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/nic) | resource |
+| [ionoscloud_nic.basic_vm_nic](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/nic) | resource |
 <!-- END_TF_DOCS -->
