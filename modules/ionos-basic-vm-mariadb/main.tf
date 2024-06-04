@@ -34,16 +34,21 @@ module "basic-vm" {
   initial_public_key = "../../../provision/sshkeys/technicaluser.pub"
 }
 
-
-resource "ionoscloud_nic" "cluster_nic" {
-  count           = var.cluster_lan_id == "" ? 0 : 1
-  datacenter_id   = var.datacenter_id
-  server_id       = module.basic-vm.basic_vm_server_id
-  dhcp            = true
-  lan             = var.cluster_lan_id
-  ips             = [var.cluster_lan_ip]
+resource "ionoscloud_nic" "privacyidea_nic" {
+  datacenter_id = var.datacenter_id
+  server_id     = module.basic-vm.basic_vm_server_id
+  dhcp          = false
+  lan           = var.lan_id
+  ips           = [local.privacyidea_cluster_lan_ip]
   firewall_active = true
 }
+
+
+
+
+
+
+
 # creates a new MariaDB cluster and connects it to the private LAN using the CIDR range obtained from the ionos-basic-vm module.
 resource "ionoscloud_mariadb_cluster" "mariadb_cluster" {
   mariadb_version      = var.mariadb_version

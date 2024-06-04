@@ -5,8 +5,9 @@ module "cidr_workaround" {
 }
 
 locals {
-  nicIndex                = module.cidr_workaround.privacyidea_nicIndex
-  prefix                  = module.cidr_workaround.privacyidea_prefix
-  full_ip                 = cidrhost(local.prefix, var.ip_block)
-  cidr                    = format("%s/%s", local.full_ip, var.subnet_mask)
+  nicIndex                   = module.cidr_workaround.privacyidea_nicIndex
+  prefix                     = module.cidr_workaround.privacyidea_prefix
+  full_ip                    = cidrhost(local.prefix, var.ip_block)
+  cidr                       = format("%s/%s", local.full_ip, var.subnet_mask)
+  privacyidea_cluster_lan_ip = cidrhost(local.prefix, 9)
 }
