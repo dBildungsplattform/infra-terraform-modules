@@ -25,12 +25,12 @@ data "ionoscloud_servers" "k8s_nodes" {
   }
 }
 
-#all servers in the datacenter that include the name "privacyidea" are extracted 
-data "ionoscloud_servers" "privacyidea_servers" {
-  datacenter_id = data.ionoscloud_k8s_node_pool.k8s_node_pool.datacenter_id
+# #all servers in the datacenter that include the name "privacyidea" are extracted 
+# data "ionoscloud_servers" "privacyidea_servers" {
+#   datacenter_id = data.ionoscloud_k8s_node_pool.k8s_node_pool.datacenter_id
 
-  filter {
-    name = "name"
-    value = "privacyidea"
-  }
-}
+#   filter {
+#     name = "name"
+#     value = "privacyidea"
+#   }
+# }

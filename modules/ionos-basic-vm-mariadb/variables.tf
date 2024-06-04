@@ -128,26 +128,7 @@ variable "mariadb_password" {
   description = "The password for the initial mariadb user"
   type = string
 }
-variable "cluster_lan_id" {
-  type = number
-  description = "ID of the cluster LAN"
-}
-variable "cluster_lan_ip" {
-  type        = string
-  description = "IP of the NFS server on the cluster LAN"
-}
 variable "lan_id" {
   type        = string
   description = "ID of the LAN whose IP we want to get"
-}
-
-variable "ip_block" {
-  description = "The number to be set in the last ip block. (Default: 101)"
-  type        = number
-  default     = 101
-}
-variable "subnet_mask" {
-  description = "The subnet mask to use for allowing connections from the LAN. (Default: 16)"
-  type        = string
-  default     = 16
 }
