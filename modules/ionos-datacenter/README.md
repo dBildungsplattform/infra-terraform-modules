@@ -19,7 +19,6 @@ No modules.
 | <a name="input_create_alb_target_lan"></a> [create\_alb\_target\_lan](#input\_create\_alb\_target\_lan) | Specifies whether a private target for the Application Load Balancer shall be created. | `bool` | `false` | no |
 | <a name="input_create_backend_crossconnect"></a> [create\_backend\_crossconnect](#input\_create\_backend\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_create_frontend_crossconnect"></a> [create\_frontend\_crossconnect](#input\_create\_frontend\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
-| <a name="input_create_mariadb_lan"></a> [create\_mariadb\_lan](#input\_create\_mariadb\_lan) | Specifies whether a private lan to connect Mariadb shall be created. | `bool` | `false` | no |
 | <a name="input_create_nat_lan"></a> [create\_nat\_lan](#input\_create\_nat\_lan) | Specifies whether a private lan to connect a NAT gateway shall be created. | `bool` | `false` | no |
 | <a name="input_create_nfs_server_lan"></a> [create\_nfs\_server\_lan](#input\_create\_nfs\_server\_lan) | Specifies whether a private lan to connect an NFS server shall be created. | `bool` | `false` | no |
 | <a name="input_create_nlb_target_lan"></a> [create\_nlb\_target\_lan](#input\_create\_nlb\_target\_lan) | Specifies whether a private target for the Network Load Balancer shall be created. | `bool` | `false` | no |
@@ -46,14 +45,12 @@ No modules.
 | <a name="output_lan_alb_target"></a> [lan\_alb\_target](#output\_lan\_alb\_target) | n/a |
 | <a name="output_lan_backend"></a> [lan\_backend](#output\_lan\_backend) | n/a |
 | <a name="output_lan_frontend"></a> [lan\_frontend](#output\_lan\_frontend) | n/a |
-| <a name="output_lan_mariadb"></a> [lan\_mariadb](#output\_lan\_mariadb) | n/a |
 | <a name="output_lan_nat"></a> [lan\_nat](#output\_lan\_nat) | n/a |
 | <a name="output_lan_nfs_server"></a> [lan\_nfs\_server](#output\_lan\_nfs\_server) | n/a |
 | <a name="output_lan_nlb_target"></a> [lan\_nlb\_target](#output\_lan\_nlb\_target) | n/a |
 | <a name="output_lan_postgres"></a> [lan\_postgres](#output\_lan\_postgres) | n/a |
 | <a name="output_lan_service"></a> [lan\_service](#output\_lan\_service) | n/a |
 | <a name="output_lans_custom"></a> [lans\_custom](#output\_lans\_custom) | n/a |
-| <a name="output_mariadb_lan_id"></a> [mariadb\_lan\_id](#output\_mariadb\_lan\_id) | n/a |
 | <a name="output_nat_lan_id"></a> [nat\_lan\_id](#output\_nat\_lan\_id) | n/a |
 | <a name="output_nfs_server_lan_id"></a> [nfs\_server\_lan\_id](#output\_nfs\_server\_lan\_id) | n/a |
 | <a name="output_nlb_target_lan_id"></a> [nlb\_target\_lan\_id](#output\_nlb\_target\_lan\_id) | n/a |
@@ -74,7 +71,6 @@ No modules.
 | [ionoscloud_lan.backend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.custom_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.frontend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
-| [ionoscloud_lan.mariadb_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.nat_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.nfs_server_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
 | [ionoscloud_lan.nlb_target_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
