@@ -81,22 +81,22 @@ variable "mariadb_version" {
   description = "Version of MariaDB to deploy"
 }
 
-variable "instances_count" {
+variable "mariadb_instances_count" {
   type = number
   description = "Number of instances in the MariaDB cluster"
 }
 
-variable "cores" {
+variable "mariadb_cores" {
   type = number
   description = "Number of CPU cores per MariaDB instance"
 }
 
-variable "memory" {
+variable "mariadb_memory" {
   type = number
   description = "Memory per MariaDB instance in GB"
 }
 
-variable "storage_size" {
+variable "mariadb_storage_size" {
   type = number
   description = "The amount of storage per instance in gigabytes (GB)"
 }
@@ -127,7 +127,9 @@ variable "mariadb_password" {
   description = "The password for the initial mariadb user"
   type = string
 }
-variable "lan_id" {
-  type        = string
-  description = "ID of the LAN whose IP we want to get"
+
+variable "create_lan" {
+  type        = bool
+  description = "If true a LAN will be created, if false a LAN ID must be provided"
+  default     = true
 }

@@ -1,8 +1,8 @@
 # Create a private LAN
-resource "ionoscloud_lan" "private_lan" {
+resource "ionoscloud_lan" "mariadb_lan" {
   datacenter_id = var.datacenter_id
   public        = false
-  name          = "${var.server_name}-private"
+  name          = "${var.server_name}-lan-private"
 }
 
 # Create the basic VM
@@ -24,10 +24,10 @@ module "basic-vm" {
   image                             = var.image
   server_name                       = var.server_name
   ports                             = var.ports
-  create_lan                        = true
+  create_lan                        = var.create_lan
 
 # Ensure the private LAN is created before the basic VM
-  depends_on = [ionoscloud_lan.private_lan]
+  depends_on = [ionoscloud_lan.mariadb_lan]
 
   initial_user       = "technicaluser"
   initial_uid        = "2215"
@@ -35,26 +35,26 @@ module "basic-vm" {
 }
 
 # Create a NIC for the basic VM and connect it to the private LAN
-resource "ionoscloud_nic" "basic_vm_nic" {
+resource "ionoscloud_nic" "privacyidea_vm_nic" {
   datacenter_id = var.datacenter_id
   server_id     = module.basic-vm.basic_vm_server_id
   dhcp          = true
-  lan           = ionoscloud_lan.private_lan.id
+  lan           = ionoscloud_lan.mariadb_lan.id
   firewall_active = true
 }
 
 # Create the MariaDB cluster
 resource "ionoscloud_mariadb_cluster" "mariadb_cluster" {
   mariadb_version      = var.mariadb_version
-  instances            = var.instances_count
-  cores                = var.cores
-  ram                  = var.memory
-  storage_size         = var.storage_size
+  instances            = var.mariadb_instances_count
+  cores                = var.mariadb_cores
+  ram                  = var.mariadb_memory
+  storage_size         = var.mariadb_storage_size
   display_name         = var.display_name
 
   connections {
     datacenter_id = var.datacenter_id
-    lan_id        = ionoscloud_lan.private_lan.id
+    lan_id        = ionoscloud_lan.mariadb_lan.id
     cidr          = local.database_ip_cidr
   }
 
