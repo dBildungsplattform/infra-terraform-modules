@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.3.6 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.14 |
 | <a name="provider_opentelekomcloud"></a> [opentelekomcloud](#provider\_opentelekomcloud) | n/a |
 ## Modules
 
@@ -58,19 +58,19 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.3.6 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.14 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_firewall.range_rule](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/firewall) | resource |
-| [ionoscloud_firewall.rule](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/firewall) | resource |
-| [ionoscloud_ipblock.public_ip](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/ipblock) | resource |
-| [ionoscloud_lan.basic_vm_server_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
-| [ionoscloud_server.basic_vm_server](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/server) | resource |
-| [ionoscloud_server.basic_vm_server_not_permanent](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/server) | resource |
-| [ionoscloud_volume.second_volume](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/volume) | resource |
+| [ionoscloud_firewall.range_rule](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/firewall) | resource |
+| [ionoscloud_firewall.rule](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/firewall) | resource |
+| [ionoscloud_ipblock.public_ip](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/ipblock) | resource |
+| [ionoscloud_lan.basic_vm_server_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/lan) | resource |
+| [ionoscloud_server.basic_vm_server](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/server) | resource |
+| [ionoscloud_server.basic_vm_server_not_permanent](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/server) | resource |
+| [ionoscloud_volume.second_volume](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/volume) | resource |
 | [opentelekomcloud_dns_recordset_v2.a_records](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/resources/dns_recordset_v2) | resource |
-| [ionoscloud_datacenter.datacenter](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/datacenter) | data source |
+| [ionoscloud_datacenter.datacenter](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/data-sources/datacenter) | data source |
 | [opentelekomcloud_dns_zone_v2.dns_zone](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/data-sources/dns_zone_v2) | data source |
 <!-- END_TF_DOCS -->
