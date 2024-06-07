@@ -1,8 +1,3 @@
-# variable "k8s_cluster_id" {
-#   description = ""
-#   type        = string
-# }
-
 variable "datacenter_id" {
   type = string
 }
@@ -15,7 +10,6 @@ variable "domain_without_top_level" {
   type = string
   description = "domain without top level"
 }
-
 
 variable "top_level_domain" {
   type        = map(any)

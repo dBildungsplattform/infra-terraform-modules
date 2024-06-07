@@ -26,7 +26,6 @@ module "basic-vm" {
   ports                             = var.ports
   create_lan                        = true
 
-
 # Ensure the private LAN is created before the basic VM
   depends_on = [ionoscloud_lan.private_lan]
 
@@ -36,6 +35,7 @@ module "basic-vm" {
 }
 
 # Create a NIC for the basic VM and connect it to the private LAN
+# The ionoscloud_nic resource creates a NIC for the basic VM and connects it to the private LAN using dhcp = true.
 resource "ionoscloud_nic" "basic_vm_nic" {
   datacenter_id = var.datacenter_id
   server_id     = module.basic-vm.basic_vm_server_id
@@ -52,12 +52,11 @@ resource "ionoscloud_mariadb_cluster" "mariadb_cluster" {
   ram                  = var.memory
   storage_size         = var.storage_size
   display_name         = var.display_name
-  #the private LAN ID, and the CIDR range for the MariaDB cluster
-  #basic VM and the MariaDB cluster are connected to the same private LAN  
+
   connections {
     datacenter_id = var.datacenter_id
     lan_id        = ionoscloud_lan.private_lan.id
-    cidr          = local.mariadb_cluster_lan_cidr
+    cidr          = local.database_ip_cidr
   }
 
   maintenance_window {
