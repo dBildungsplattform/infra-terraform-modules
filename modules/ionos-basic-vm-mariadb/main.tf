@@ -35,7 +35,6 @@ module "basic-vm" {
 }
 
 # Create a NIC for the basic VM and connect it to the private LAN
-# The ionoscloud_nic resource creates a NIC for the basic VM and connects it to the private LAN using dhcp = true.
 resource "ionoscloud_nic" "basic_vm_nic" {
   datacenter_id = var.datacenter_id
   server_id     = module.basic-vm.basic_vm_server_id
