@@ -101,7 +101,7 @@ variable "mariadb_storage_size" {
   description = "The amount of storage per instance in gigabytes (GB)"
 }
 
-variable "display_name" {
+variable "mariadb_display_name" {
   type = string
   description = "Display name for the MariaDB cluster"
 }

@@ -50,7 +50,7 @@ resource "ionoscloud_mariadb_cluster" "mariadb_cluster" {
   cores                = var.mariadb_cores
   ram                  = var.mariadb_memory
   storage_size         = var.mariadb_storage_size
-  display_name         = var.display_name
+  display_name         = var.mariadb_display_name
 
   connections {
     datacenter_id = var.datacenter_id
