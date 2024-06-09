@@ -4,7 +4,6 @@ module "cidr_workaround" {
   lan_id         = var.lan_id
 }
 
-
 locals {
   nicIndex = module.cidr_workaround.nicIndex
   prefix   = module.cidr_workaround.prefix
