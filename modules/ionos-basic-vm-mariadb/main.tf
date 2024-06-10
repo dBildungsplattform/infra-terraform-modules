@@ -2,7 +2,7 @@
 resource "ionoscloud_lan" "basic_vm_mariadb_lan" {
   datacenter_id = var.datacenter_id
   public        = false
-  name          = "${var.server_name}-lan-private"
+  name          = "${var.server_name}-privacyidea-mariadb-lan"
 }
 
 # Create the basic VM
