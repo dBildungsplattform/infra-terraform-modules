@@ -29,9 +29,9 @@ module "basic-vm" {
 # Ensure the private LAN is created before the basic VM
   depends_on = [ionoscloud_lan.basic_vm_mariadb_lan]
 
-  initial_user       = "technicaluser"
-  initial_uid        = "2215"
-  initial_public_key = "../../../provision/sshkeys/technicaluser.pub"
+  initial_user       = var.initial_user
+  initial_uid        = var.initial_uid
+  initial_public_key = var.initial_public_key
 }
 
 # Create a NIC for the basic VM and connect it to the private LAN

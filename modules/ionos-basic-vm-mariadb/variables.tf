@@ -133,3 +133,21 @@ variable "create_lan" {
   description = "If true a LAN will be created, if false a LAN ID must be provided"
   default     = true
 }
+
+variable "initial_user" {
+  type = string
+  description = "The initial user to be created via the cloud init script."
+  default = ""
+}
+
+variable "initial_uid" {
+  type = string
+  description = "The uid of the initial user created via the cloud init script."
+  default = ""
+}
+
+variable "initial_public_key" {
+  type = string
+  description = "The public key of the initial user created via the cloud init script."
+  default = ""
+}
