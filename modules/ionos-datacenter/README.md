@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.14 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.18 |
 ## Modules
 
 No modules.
@@ -61,27 +61,27 @@ No modules.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.14 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.18 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_datacenter.datacenter](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/datacenter) | resource |
-| [ionoscloud_lan.alb_target_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/lan) | resource |
-| [ionoscloud_lan.backend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/lan) | resource |
-| [ionoscloud_lan.custom_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/lan) | resource |
-| [ionoscloud_lan.frontend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/lan) | resource |
-| [ionoscloud_lan.nat_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/lan) | resource |
-| [ionoscloud_lan.nfs_server_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/lan) | resource |
-| [ionoscloud_lan.nlb_target_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/lan) | resource |
-| [ionoscloud_lan.postgres_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/lan) | resource |
-| [ionoscloud_lan.public_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/lan) | resource |
-| [ionoscloud_lan.service_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/lan) | resource |
-| [ionoscloud_private_crossconnect.backend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/private_crossconnect) | resource |
-| [ionoscloud_private_crossconnect.frontend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/private_crossconnect) | resource |
-| [ionoscloud_private_crossconnect.service_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/private_crossconnect) | resource |
-| [ionoscloud_share.backend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/share) | resource |
-| [ionoscloud_share.datacenter_permissions](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/share) | resource |
-| [ionoscloud_share.frontend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/share) | resource |
-| [ionoscloud_share.service_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/share) | resource |
+| [ionoscloud_datacenter.datacenter](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/datacenter) | resource |
+| [ionoscloud_lan.alb_target_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_lan.backend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_lan.custom_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_lan.frontend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_lan.nat_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_lan.nfs_server_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_lan.nlb_target_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_lan.postgres_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_lan.public_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_lan.service_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_private_crossconnect.backend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/private_crossconnect) | resource |
+| [ionoscloud_private_crossconnect.frontend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/private_crossconnect) | resource |
+| [ionoscloud_private_crossconnect.service_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/private_crossconnect) | resource |
+| [ionoscloud_share.backend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/share) | resource |
+| [ionoscloud_share.datacenter_permissions](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/share) | resource |
+| [ionoscloud_share.frontend_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/share) | resource |
+| [ionoscloud_share.service_cc](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/share) | resource |
 <!-- END_TF_DOCS -->

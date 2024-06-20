@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.14 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.18 |
 ## Modules
 
 | Name | Source | Version |
@@ -42,10 +42,10 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.14 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.18 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_pg_cluster.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/pg_cluster) | resource |
+| [ionoscloud_pg_cluster.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/pg_cluster) | resource |
 <!-- END_TF_DOCS -->

@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.14 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.18 |
 ## Modules
 
 No modules.
@@ -50,13 +50,13 @@ No modules.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.14 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.18 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_ipblock.ippools](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/ipblock) | resource |
-| [ionoscloud_k8s_cluster.cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/k8s_cluster) | resource |
-| [ionoscloud_k8s_node_pool.nodepool_legacy](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/k8s_node_pool) | resource |
-| [ionoscloud_k8s_node_pool.nodepool_scaling](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.14/docs/resources/k8s_node_pool) | resource |
+| [ionoscloud_ipblock.ippools](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/ipblock) | resource |
+| [ionoscloud_k8s_cluster.cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/k8s_cluster) | resource |
+| [ionoscloud_k8s_node_pool.nodepool_legacy](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/k8s_node_pool) | resource |
+| [ionoscloud_k8s_node_pool.nodepool_scaling](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/k8s_node_pool) | resource |
 <!-- END_TF_DOCS -->
