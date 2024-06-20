@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.3.6 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.18 |
 | <a name="provider_opentelekomcloud"></a> [opentelekomcloud](#provider\_opentelekomcloud) | n/a |
 ## Modules
 
@@ -43,19 +43,19 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.3.6 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.18 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_firewall.firewallping](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/firewall) | resource |
-| [ionoscloud_firewall.firewallssh](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/firewall) | resource |
-| [ionoscloud_lan.cluster_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
-| [ionoscloud_lan.crossconnect_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
-| [ionoscloud_lan.public_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
-| [ionoscloud_nic.cluster_nic](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/nic) | resource |
-| [ionoscloud_nic.crossconnect_nic](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/nic) | resource |
-| [ionoscloud_server.server](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/server) | resource |
-| [ionoscloud_private_crossconnect.crossconnect](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/data-sources/private_crossconnect) | data source |
+| [ionoscloud_firewall.firewallping](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/firewall) | resource |
+| [ionoscloud_firewall.firewallssh](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/firewall) | resource |
+| [ionoscloud_lan.cluster_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_lan.crossconnect_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_lan.public_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_nic.cluster_nic](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/nic) | resource |
+| [ionoscloud_nic.crossconnect_nic](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/nic) | resource |
+| [ionoscloud_server.server](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/server) | resource |
+| [ionoscloud_private_crossconnect.crossconnect](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/data-sources/private_crossconnect) | data source |
 | [opentelekomcloud_dns_zone_v2.dns_zone](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/data-sources/dns_zone_v2) | data source |
 <!-- END_TF_DOCS -->

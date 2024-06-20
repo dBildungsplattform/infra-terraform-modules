@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.3.6 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.18 |
 ## Modules
 
 | Name | Source | Version |
@@ -34,13 +34,13 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.3.6 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.18 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_ipblock.nlb](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/ipblock) | resource |
-| [ionoscloud_lan.nlb_listener_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/lan) | resource |
-| [ionoscloud_networkloadbalancer.nlb](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/networkloadbalancer) | resource |
-| [ionoscloud_networkloadbalancer_forwardingrule.forward_k8](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.3.6/docs/resources/networkloadbalancer_forwardingrule) | resource |
+| [ionoscloud_ipblock.nlb](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/ipblock) | resource |
+| [ionoscloud_lan.nlb_listener_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
+| [ionoscloud_networkloadbalancer.nlb](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/networkloadbalancer) | resource |
+| [ionoscloud_networkloadbalancer_forwardingrule.forward_k8](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/networkloadbalancer_forwardingrule) | resource |
 <!-- END_TF_DOCS -->
