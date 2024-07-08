@@ -15,6 +15,7 @@ resource ionoscloud_mongo_cluster "mongo_cluster" {
   }
 
   template_id = var.resource_template == null ? null : data.ionoscloud_mongo_template.mongo_template[0].id
+  edition     = var.resource_template == null ? "enterprise" : null
 
   maintenance_window {
     day_of_the_week = var.maintenance_day
