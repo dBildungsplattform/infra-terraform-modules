@@ -1,6 +1,7 @@
 resource ionoscloud_mongo_cluster "mongo_cluster" {
   mongodb_version      = var.mongo_version
   instances            = var.instances_count
+  shards               = var.shards_count
   cores                = var.cores
   ram                  = var.memory
   storage_size         = var.volume_size
