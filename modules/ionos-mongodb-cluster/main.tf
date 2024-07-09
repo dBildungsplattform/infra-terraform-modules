@@ -26,11 +26,15 @@ resource ionoscloud_mongo_cluster "mongo_cluster" {
 }
 
 resource "ionoscloud_mongo_user" "initial_mongo_user" {
+  for_each   = var.users
   cluster_id = ionoscloud_mongo_cluster.mongo_cluster.id
-  username = var.username
-  password = var.password
-  roles {
-    role = var.role
-    database = "admin"
+  username   = each.key
+  password   = each.value.password
+  dynamic "roles" {
+    for_each = each.value.roles
+    content {
+      role = roles.value["role"]
+      database = roles.value["db"]
+    }
   }
 }

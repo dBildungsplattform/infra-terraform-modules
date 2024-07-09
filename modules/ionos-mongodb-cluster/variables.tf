@@ -73,18 +73,10 @@ variable "ip_block_start" {
   type        = number
   default     = 101
 }
-variable "username" {
-  description = "The username for the initial mongo user"
-  type        = string
-}
-variable "password" {
-  description = "The password for the initial mongo user"
-  type        = string
-}
-variable "role" {
-  description = "The role of the initial mongo user (Default: dbAdminAnyDatabase)"
-  type        = string
-  default     = "dbAdminAnyDatabase"
+variable "users" {
+  description = "Map of users and their roles. Example: {admin: {password: \"1234\", roles: [{db: \"admin\", role: \"dbAdminAnyDatabase\"}]}}"
+  default     = {}
+  type        = map(object({password=string, roles=set(object({db=string, role=string}))}))
 }
 variable "maintenance_day" {
   description = "The day of the week for the 4 hour-long maintenance window (Default: Sunday)"
