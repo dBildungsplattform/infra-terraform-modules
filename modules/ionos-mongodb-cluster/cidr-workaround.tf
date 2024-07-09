@@ -1,5 +1,5 @@
 module "cidr_workaround" {
-  count          = var.ip_prefix == null ? 1 : 0
+  count          = var.k8s_cluster_id == null ? 0 : 1
   source         = "../../modules/ionos-cidr-workaround"
   k8s_cluster_id = var.k8s_cluster_id
   lan_id         = var.lan_id
