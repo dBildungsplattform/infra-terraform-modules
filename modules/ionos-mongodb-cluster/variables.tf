@@ -50,12 +50,18 @@ variable "datacenter_location" {
 }
 # TODO: Connection to VMs
 variable "k8s_cluster_id" {
-  description = ""
+  description = "ID of the kubernetes cluster to connect to. (Used to generate matching IPs, alternativly you can set ip_prefix directly)"
   type        = string
+  default     = null
 }
 variable "lan_id" {
   description = "The LAN to connect your cluster to."
   type        = string
+}
+variable "ip_prefix" {
+  description = "Prefix for the used IPs (e.g. 10.0.4.1/24, required if k8s_cluster_id is not defined)"
+  type        = string
+  default     = null
 }
 variable "subnet_mask" {
   description = "The subnet mask to use for allowing connections from the LAN (Default: 24)"
