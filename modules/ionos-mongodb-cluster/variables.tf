@@ -1,5 +1,5 @@
 variable "display_name" {
-  description = "Display Name of an existing cluster that you want to search for."
+  description = "Name of the MongoDB Cluster"
   type        = string
 }
 variable "mongo_version" {
@@ -48,7 +48,6 @@ variable "datacenter_location" {
   description = "The physical location where the cluster will be created. This will be where all of your instances live."
   type        = string
 }
-# TODO: Connection to VMs
 variable "k8s_cluster_id" {
   description = "ID of the kubernetes cluster to connect to. (Used to generate matching IPs, alternativly you can set ip_prefix directly)"
   type        = string
@@ -76,7 +75,14 @@ variable "ip_block_start" {
 variable "users" {
   description = "Map of users and their roles. Example: {admin: {password: \"1234\", roles: [{db: \"admin\", role: \"dbAdminAnyDatabase\"}]}}"
   default     = {}
-  type        = map(object({password=string, roles=set(object({db=string, role=string}))}))
+  type        = map(
+                  object({
+                    password=string,
+                    roles=set(
+                      object({
+                        db=string,
+                        role=string
+                }))}))
 }
 variable "maintenance_day" {
   description = "The day of the week for the 4 hour-long maintenance window (Default: Sunday)"
