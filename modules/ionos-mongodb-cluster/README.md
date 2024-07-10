@@ -17,7 +17,7 @@
 | <a name="input_datacenter_id"></a> [datacenter\_id](#input\_datacenter\_id) | The datacenter to connect your cluster to. | `string` | n/a | yes |
 | <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | The physical location where the cluster will be created. This will be where all of your instances live. | `string` | n/a | yes |
 | <a name="input_display_name"></a> [display\_name](#input\_display\_name) | Name of the MongoDB Cluster | `string` | n/a | yes |
-| <a name="input_instances_count"></a> [instances\_count](#input\_instances\_count) | The total number of instances (1 master, n-1 fallbacks) in the cluster. Options: 1, 3 (Business) 3, 5, 7 (Enterprise) | `number` | n/a | yes |
+| <a name="input_instances_count"></a> [instances\_count](#input\_instances\_count) | The total number of instances (1 master, n-1 fallbacks) in the cluster. Options(Business): 1, 3; Options(Enterprise): 3, 5, 7 | `number` | n/a | yes |
 | <a name="input_lan_id"></a> [lan\_id](#input\_lan\_id) | The LAN to connect your cluster to. | `string` | n/a | yes |
 | <a name="input_mongo_version"></a> [mongo\_version](#input\_mongo\_version) | The MongoDB version of your cluster. | `string` | n/a | yes |
 | <a name="input_cores"></a> [cores](#input\_cores) | The number of CPU cores per node (Enterprise only) | `number` | `null` | no |
