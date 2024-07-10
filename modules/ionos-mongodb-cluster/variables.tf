@@ -7,7 +7,7 @@ variable "mongo_version" {
   type        = string
 }
 variable "instances_count" {
-  description = "The total number of instances (1 master, n-1 fallbacks) in the cluster. Options: 1, 3 (Business) 3, 5, 7 (Enterprise)"
+  description = "The total number of instances (1 master, n-1 fallbacks) in the cluster. Options(Business): 1, 3; Options(Enterprise): 3, 5, 7"
   type        = number
 }
 variable "shards_count" {
