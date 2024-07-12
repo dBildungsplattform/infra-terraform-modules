@@ -3,6 +3,6 @@ output "connection_string" {
   value       = ionoscloud_mongo_cluster.mongo_cluster.connection_string
 }
 output "uuid" {
-  description = "The URL pointing to your cluster."
+  description = "The UUID of the cluster."
   value       = ionoscloud_mongo_cluster.mongo_cluster.id
 }
