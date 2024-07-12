@@ -38,6 +38,7 @@
 | Name | Description |
 |------|-------------|
 | <a name="output_connection_string"></a> [connection\_string](#output\_connection\_string) | The URL pointing to your cluster. |
+| <a name="output_uuid"></a> [uuid](#output\_uuid) | The UUID of the cluster. |
 ## Requirements
 
 | Name | Version |
