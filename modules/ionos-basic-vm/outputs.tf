@@ -13,3 +13,7 @@ output "basic_vm_server_public_ip" {
 output "basic_vm_server_nicuuid" {
   value = local.basic_vm_server.nic[*].id
 }
+
+output "basic_vm_server_name" {
+  value = var.server_name
+}
