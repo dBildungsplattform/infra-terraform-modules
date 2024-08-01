@@ -16,6 +16,7 @@ No modules.
 | <a name="input_name"></a> [name](#input\_name) | The name given for the module | `string` | n/a | yes |
 | <a name="input_ports"></a> [ports](#input\_ports) | List of Ports toprovided to rule | `list` | n/a | yes |
 | <a name="input_server_id"></a> [server\_id](#input\_server\_id) | The Server id for the lan | `string` | n/a | yes |
+| <a name="input_dhcp_enabled"></a> [dhcp\_enabled](#input\_dhcp\_enabled) | The DHCP is used (true) or not (false) | `bool` | `true` | no |
 | <a name="input_is_public"></a> [is\_public](#input\_is\_public) | The Type of lan is public (true) or private (false) | `bool` | `false` | no |
 ## Outputs
 
