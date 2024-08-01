@@ -2,17 +2,16 @@
  resource "ionoscloud_lan" "lan" {
    datacenter_id = var.datacenter_id
    public        = var.is_public
-   name          = format( "%s-%s",var.name,"intern-connection-lan")
+   name          = format( "%s-%s-%x",var.name,var.is_public? "public":"private","-connection-lan")
  }
 
 # Create a NIC for the basic VM and connect it to the LAN
 resource "ionoscloud_nic" "nic" {
   datacenter_id   = var.datacenter_id
   server_id       = var.server_id
-  dhcp            = true
+  dhcp            = var.dhcp_enabled
   lan             = ionoscloud_lan.lan.id
   firewall_active = true
-
 }
 
 # Add The Ports The VM

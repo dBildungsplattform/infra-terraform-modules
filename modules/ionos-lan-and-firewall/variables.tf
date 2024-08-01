@@ -23,3 +23,9 @@ variable "is_public" {
   type = bool
   default = false
 }
+
+variable "dhcp_enabled" {
+  description = "The DHCP is used (true) or not (false)"
+  type = bool
+  default = true
+}
