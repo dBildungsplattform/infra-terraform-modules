@@ -14,7 +14,7 @@ output "nodepool_zone2_id" {
   value = []
 }
 output "nodepool_zone1_ips" {
-  value = concat(values(ionoscloud_k8s_node_pool.nodepool_legacy)[*].public_ips,values(ionoscloud_k8s_node_pool.nodepool_scaling)[*].id)
+  value = concat(values(ionoscloud_k8s_node_pool.nodepool_legacy)[*].public_ips,values(ionoscloud_k8s_node_pool.nodepool_scaling)[*].public_ips)
 }
 output "nodepool_zone2_ips" {
   value = []

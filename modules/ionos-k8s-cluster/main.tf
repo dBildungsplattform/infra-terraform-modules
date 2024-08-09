@@ -76,7 +76,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   for_each = {for np in local.nodepool_per_zone_creator : "${np.availability_zone}-${np.purpose}-${np.nodepool_index}" => np if np.auto_scaling == false}
   availability_zone = each.value.availability_zone
   #The name needs to be changed, not only legacy pools have auto_scaling= false and thus we need an additional check
-  name              = each.value.purpose != "legacy" ? each.key : lower("${local.cluster_name}-${replace(each.value.availability_zone, "_", "")}-nodepool-${each.value.nodepool_index}")
+  name              = each.value.purpose != "legacy" ? lower("${local.cluster_name}-${replace(each.value.availability_zone, "_", "")}-${length(each.value.name) > 0 ? "${each.value.name}-" : ""}nodepool-${each.value.nodepool_index}") : lower("${local.cluster_name}-${replace(each.value.availability_zone, "_", "")}-nodepool-${each.value.nodepool_index}")
   k8s_version       = ionoscloud_k8s_cluster.cluster.k8s_version
   allow_replace     = each.value.allow_node_pool_replacement
   # the lans are created as a dynamic block - they help to dynamically construct repeatable nested blocks
@@ -100,6 +100,10 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
     }
   }
 
+  labels = {
+    "purpose" = each.value.purpose == "legacy" ? "" : each.value.purpose
+  }
+  
   maintenance_window {
     day_of_the_week = (each.value.maintenance_hour + 1 + 1 * 4) < 24 ? each.value.maintenance_day : lookup({ "Monday" = "Tuesday", "Tuesday" = "Wednesday", "Wednesday" = "Thursday", "Thursday" = "Friday", "Friday" = "Saturday", "Saturday" = "Sunday", "Sunday" = "Monday" }, each.value.maintenance_day, null)
     time            = format("%02d:00:00Z", (each.value.maintenance_hour + 1 + each.value.nodepool_index * 4) % 24)
