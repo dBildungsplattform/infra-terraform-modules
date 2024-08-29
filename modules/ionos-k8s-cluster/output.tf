@@ -19,3 +19,8 @@ output "nodepool_zone1_ips" {
 output "nodepool_zone2_ips" {
   value = []
 }
+output "nodes_ionoscloud_ipblock_all_ips" {
+  value = toset(flatten([
+    for ipblock in ionoscloud_ipblock.ippools : ipblock.ips if length(ipblock.ips) > 0
+  ]))
+}
