@@ -30,7 +30,7 @@ resource "ionoscloud_networkloadbalancer" "nlb" {
 resource "ionoscloud_networkloadbalancer_forwardingrule" "forward_k8" {
     count                       = length(var.crossconnects)
     datacenter_id               = var.datacenter_id
-    networkloadbalancer_id      = ionoscloud_networkloadbalancer.nlb.id[count.index]
+    networkloadbalancer_id      = ionoscloud_networkloadbalancer.nlb[count.index].id
     name                        = "forward-logs-and-metrics"
     algorithm                   = "ROUND_ROBIN"
     protocol                    = "TCP"
