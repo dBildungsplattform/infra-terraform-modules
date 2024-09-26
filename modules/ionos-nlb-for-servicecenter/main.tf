@@ -21,7 +21,7 @@ resource "ionoscloud_networkloadbalancer" "nlb" {
     datacenter_id         = var.datacenter_id
     name                  = "${module.conventions_coordinates.global_identifier}-nlb-${count.index}"
     listener_lan          = ionoscloud_lan.crossconnect_lan[0].id
-    ips                   = var.listener_ips[count.index]
+    ips                   = [var.listener_ips[count.index]]
     target_lan            = var.nlb_target_lan_id
     lb_private_ips        = [ "${local.node_ip_part}.225/24" ]
 
@@ -34,7 +34,7 @@ resource "ionoscloud_networkloadbalancer_forwardingrule" "forward_k8" {
     name                        = "forward-logs-and-metrics"
     algorithm                   = "ROUND_ROBIN"
     protocol                    = "TCP"
-    listener_ip                 = var.listener_ips[count.index]
+    listener_ip                 = [var.listener_ips[count.index]]
     listener_port               = var.nlb_listener_port
     dynamic "targets" {
       for_each = var.node_nlb_lan_ips
