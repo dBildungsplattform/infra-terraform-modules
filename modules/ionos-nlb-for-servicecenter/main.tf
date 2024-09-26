@@ -34,7 +34,7 @@ resource "ionoscloud_networkloadbalancer_forwardingrule" "forward_k8" {
     name                        = "forward-logs-and-metrics"
     algorithm                   = "ROUND_ROBIN"
     protocol                    = "TCP"
-    listener_ip                 = [var.listener_ips[count.index]]
+    listener_ip                 = var.listener_ips[count.index]
     listener_port               = var.nlb_listener_port
     dynamic "targets" {
       for_each = var.node_nlb_lan_ips
