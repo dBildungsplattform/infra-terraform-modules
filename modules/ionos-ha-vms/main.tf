@@ -84,9 +84,9 @@ module "ha_backup_vms" {
 
   depends_on = [ ionoscloud_lan.lan_public, ionoscloud_ipfailover.failover ]
 
-  initial_user = "technicaluser"
-  initial_uid = "2215"
-  initial_public_key = "../../../provision/sshkeys/technicaluser.pub"
+  initial_user = var.initial_user
+  initial_uid = var.initial_uid
+  initial_public_key = file(var.initial_public_key)
 }
 
 resource "ionoscloud_nic" "private_nic_backup_vms" {
