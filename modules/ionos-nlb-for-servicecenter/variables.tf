@@ -33,7 +33,7 @@ variable "domain_without_top_level" {
 }
 
 variable "node_nlb_lan_ips" {
-  type        = list
+  type        = list(any)
   description = "List of node and network loadbalancer lan ips"
 }
 
