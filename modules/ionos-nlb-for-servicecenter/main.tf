@@ -20,11 +20,10 @@ resource "ionoscloud_networkloadbalancer" "nlb" {
     count                 = length(var.crossconnects)
     datacenter_id         = var.datacenter_id
     name                  = "${module.conventions_coordinates.global_identifier}-nlb-${count.index}"
-    listener_lan          = ionoscloud_lan.crossconnect_lan[0].id
+    listener_lan          = ionoscloud_lan.crossconnect_lan[count.index].id
     ips                   = [var.listener_ips[count.index]]
     target_lan            = var.nlb_target_lan_id
-    lb_private_ips        = [ "${local.node_ip_part}.225/24" ]
-
+    #lb_private_ips        = [ "${local.node_ip_part}.${count.index}/24" ] # ${local.node_ip_part}.255/24 will be used vor all nlb, but Ionos somehow does not allow to code 255 here for all nlb
 }
 
 resource "ionoscloud_networkloadbalancer_forwardingrule" "forward_k8" {
