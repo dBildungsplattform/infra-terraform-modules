@@ -29,7 +29,10 @@
 | <a name="input_nlb_target_health_check_timeout"></a> [nlb\_target\_health\_check\_timeout](#input\_nlb\_target\_health\_check\_timeout) | The maximum time in milliseconds to wait for the client to acknowledge or send data | `string` | `6000` | no |
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_cluster_node_ip_range"></a> [cluster\_node\_ip\_range](#output\_cluster\_node\_ip\_range) | n/a |
+| <a name="output_service_cluster_node_ips"></a> [service\_cluster\_node\_ips](#output\_service\_cluster\_node\_ips) | n/a |
 ## Requirements
 
 | Name | Version |
