@@ -53,14 +53,8 @@ variable "nlb_target_health_check_timeout" {
   default     = 6000
 }
 
-variable "listener_ips" {
-  type        = list(string)
-  description = "List of listener ips which should be assigned to nlb listener ip list"
+variable "crossconnects_nlb" {
+   type        = map(string)
+   description = "A map of all crossconnects containing (multiple) <crossconnectsname>: <nlb listener ip>"
 }
-
-variable "crossconnects" {
-  type        = list(string)
-  description = "List of crossconnects which should connect to backend haproxy"
-}
-
 
