@@ -15,12 +15,11 @@
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_coordinates"></a> [coordinates](#input\_coordinates) | n/a | `map(any)` | n/a | yes |
-| <a name="input_crossconnects"></a> [crossconnects](#input\_crossconnects) | List of crossconnects which should connect to backend haproxy | `list(string)` | n/a | yes |
+| <a name="input_crossconnects_nlb"></a> [crossconnects\_nlb](#input\_crossconnects\_nlb) | A map of all crossconnects containing (multiple) <crossconnectsname>: <nlb listener ip> | `map(string)` | n/a | yes |
 | <a name="input_datacenter_id"></a> [datacenter\_id](#input\_datacenter\_id) | ID of datacenter cluster shall be created in | `string` | n/a | yes |
 | <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | Location of datacenter cluster shall be created in | `string` | n/a | yes |
 | <a name="input_datacenter_name"></a> [datacenter\_name](#input\_datacenter\_name) | Name of datacenter cluster shall be created in | `string` | n/a | yes |
 | <a name="input_domain_without_top_level"></a> [domain\_without\_top\_level](#input\_domain\_without\_top\_level) | Domain without top level | `string` | n/a | yes |
-| <a name="input_listener_ips"></a> [listener\_ips](#input\_listener\_ips) | List of listener ips which should be assigned to nlb listener ip list | `list(string)` | n/a | yes |
 | <a name="input_nlb_listener_port"></a> [nlb\_listener\_port](#input\_nlb\_listener\_port) | Listening (inbound) port number | `number` | n/a | yes |
 | <a name="input_nlb_target_lan_id"></a> [nlb\_target\_lan\_id](#input\_nlb\_target\_lan\_id) | The LAN to connect your Network Loadbalancer to | `string` | n/a | yes |
 | <a name="input_nlb_target_port"></a> [nlb\_target\_port](#input\_nlb\_target\_port) | The port of the balanced target service; valid range is 1 to 65535 used in target group | `string` | n/a | yes |
