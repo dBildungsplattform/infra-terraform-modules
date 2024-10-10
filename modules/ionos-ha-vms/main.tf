@@ -41,7 +41,7 @@ module "ha_main_vm" {
 
   initial_user = var.initial_user
   initial_uid = var.initial_uid
-  initial_public_key = file(var.initial_public_key)
+  initial_public_key = var.initial_public_key
 }
 
 resource "ionoscloud_nic" "private_nic_main_vm" {
@@ -86,7 +86,7 @@ module "ha_backup_vms" {
 
   initial_user = var.initial_user
   initial_uid = var.initial_uid
-  initial_public_key = file(var.initial_public_key)
+  initial_public_key = var.initial_public_key
 }
 
 resource "ionoscloud_nic" "private_nic_backup_vms" {
