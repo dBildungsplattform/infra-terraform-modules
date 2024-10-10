@@ -2,6 +2,10 @@ output "ha_internal_lan_id" {
   value = ionoscloud_lan.lan_internal.id
 }
 
+output "ha_public_lan_id" {
+  value = ionoscloud_lan.lan_public.id
+}
+
 output "ha_dns_name" {
   value = opentelekomcloud_dns_recordset_v2.a_records.name
 }
