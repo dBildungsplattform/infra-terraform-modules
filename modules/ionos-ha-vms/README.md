@@ -1,6 +1,4 @@
-# Usage
-
-<!--- BEGIN_TF_DOCS --->
+<!-- BEGIN_TF_DOCS -->
 
 ## Providers
 
@@ -12,9 +10,9 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_conventions_coordinates"></a> [conventions\_coordinates](#module\_conventions\_coordinates) | ../../../../terraform-modules/modules/conventions-coordinates | n/a |
-| <a name="module_ha_backup_vms"></a> [ha\_backup\_vms](#module\_ha\_backup\_vms) | ../../../../terraform-modules/modules/ionos-basic-vm/ | n/a |
-| <a name="module_ha_main_vm"></a> [ha\_main\_vm](#module\_ha\_main\_vm) | ../../../../terraform-modules/modules/ionos-basic-vm/ | n/a |
+| <a name="module_conventions_coordinates"></a> [conventions\_coordinates](#module\_conventions\_coordinates) | ../conventions-coordinates | n/a |
+| <a name="module_ha_backup_vms"></a> [ha\_backup\_vms](#module\_ha\_backup\_vms) | ../ionos-basic-vm/ | n/a |
+| <a name="module_ha_main_vm"></a> [ha\_main\_vm](#module\_ha\_main\_vm) | ../ionos-basic-vm/ | n/a |
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -33,6 +31,9 @@
 | <a name="input_volume_size"></a> [volume\_size](#input\_volume\_size) | volume size for vm | `number` | n/a | yes |
 | <a name="input_create_second_volume"></a> [create\_second\_volume](#input\_create\_second\_volume) | n/a | `bool` | `true` | no |
 | <a name="input_ha_node_count"></a> [ha\_node\_count](#input\_ha\_node\_count) | Number of VMs/Nodes in the HA Cluster | `number` | `2` | no |
+| <a name="input_initial_public_key"></a> [initial\_public\_key](#input\_initial\_public\_key) | The public key of the initial user created via the cloud init script. | `string` | `""` | no |
+| <a name="input_initial_uid"></a> [initial\_uid](#input\_initial\_uid) | The uid of the initial user created via the cloud init script. | `string` | `""` | no |
+| <a name="input_initial_user"></a> [initial\_user](#input\_initial\_user) | The initial user to be created via the cloud init script. | `string` | `""` | no |
 | <a name="input_permanent_vm"></a> [permanent\_vm](#input\_permanent\_vm) | Create a permanent VM that mustn't be deleted, if false then a VM that can be deleted and that ignores changes to ram and cpu is created | `bool` | `true` | no |
 | <a name="input_port_ranges"></a> [port\_ranges](#input\_port\_ranges) | port rangs to open in the IONOS firewall provided as objects in a list [{protocol = ???, name = ???, port\_start = ???, port\_end, source\_ip = ???}], source\_ip is optional. | `list` | `[]` | no |
 | <a name="input_ports"></a> [ports](#input\_ports) | ports to open in the IONOS firewall provided as objects in a list [{protocol = ???, name = ???, port = ???, source\_ip = ???}], source\_ip is optional. | `list` | `[]` | no |
@@ -41,7 +42,13 @@
 | <a name="input_user_data_script"></a> [user\_data\_script](#input\_user\_data\_script) | Decide which user-data.sh script to use | `string` | `"user-data-cloud-init.tpl"` | no |
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_ha_common_address"></a> [ha\_common\_address](#output\_ha\_common\_address) | n/a |
+| <a name="output_ha_dns_name"></a> [ha\_dns\_name](#output\_ha\_dns\_name) | n/a |
+| <a name="output_ha_internal_lan_id"></a> [ha\_internal\_lan\_id](#output\_ha\_internal\_lan\_id) | n/a |
+| <a name="output_ha_public_lan_id"></a> [ha\_public\_lan\_id](#output\_ha\_public\_lan\_id) | n/a |
+| <a name="output_ha_vms_server_id"></a> [ha\_vms\_server\_id](#output\_ha\_vms\_server\_id) | n/a |
 ## Requirements
 
 | Name | Version |
@@ -61,6 +68,4 @@ No outputs.
 | [ionoscloud_nic.private_nic_main_vm](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/nic) | resource |
 | [opentelekomcloud_dns_recordset_v2.a_records](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/resources/dns_recordset_v2) | resource |
 | [opentelekomcloud_dns_zone_v2.dns_zone](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/data-sources/dns_zone_v2) | data source |
-
-<!--- END_TF_DOCS --->
-
+<!-- END_TF_DOCS -->
