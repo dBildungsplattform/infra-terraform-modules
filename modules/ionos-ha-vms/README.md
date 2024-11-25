@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.18 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.4 |
 | <a name="provider_opentelekomcloud"></a> [opentelekomcloud](#provider\_opentelekomcloud) | n/a |
 ## Modules
 
@@ -54,18 +54,18 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.18 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.4 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_ipblock.floating_ip](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/ipblock) | resource |
-| [ionoscloud_ipblock.node_ips](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/ipblock) | resource |
-| [ionoscloud_ipfailover.failover](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/ipfailover) | resource |
-| [ionoscloud_lan.lan_internal](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
-| [ionoscloud_lan.lan_public](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
-| [ionoscloud_nic.private_nic_backup_vms](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/nic) | resource |
-| [ionoscloud_nic.private_nic_main_vm](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/nic) | resource |
+| [ionoscloud_ipblock.floating_ip](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/ipblock) | resource |
+| [ionoscloud_ipblock.node_ips](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/ipblock) | resource |
+| [ionoscloud_ipfailover.failover](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/ipfailover) | resource |
+| [ionoscloud_lan.lan_internal](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/lan) | resource |
+| [ionoscloud_lan.lan_public](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/lan) | resource |
+| [ionoscloud_nic.private_nic_backup_vms](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/nic) | resource |
+| [ionoscloud_nic.private_nic_main_vm](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/nic) | resource |
 | [opentelekomcloud_dns_recordset_v2.a_records](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/resources/dns_recordset_v2) | resource |
 | [opentelekomcloud_dns_zone_v2.dns_zone](https://registry.terraform.io/providers/opentelekomcloud/opentelekomcloud/latest/docs/data-sources/dns_zone_v2) | data source |
 <!-- END_TF_DOCS -->

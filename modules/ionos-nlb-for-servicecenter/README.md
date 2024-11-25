@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.18 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.4 |
 ## Modules
 
 | Name | Source | Version |
@@ -36,13 +36,13 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.18 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.4 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_lan.crossconnect_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
-| [ionoscloud_networkloadbalancer.nlb](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/networkloadbalancer) | resource |
-| [ionoscloud_networkloadbalancer_forwardingrule.forward_k8](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/networkloadbalancer_forwardingrule) | resource |
-| [ionoscloud_private_crossconnect.crossconnect](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/data-sources/private_crossconnect) | data source |
+| [ionoscloud_lan.crossconnect_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/lan) | resource |
+| [ionoscloud_networkloadbalancer.nlb](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/networkloadbalancer) | resource |
+| [ionoscloud_networkloadbalancer_forwardingrule.forward_k8](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/networkloadbalancer_forwardingrule) | resource |
+| [ionoscloud_private_crossconnect.crossconnect](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/data-sources/private_crossconnect) | data source |
 <!-- END_TF_DOCS -->

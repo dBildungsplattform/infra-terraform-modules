@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.18 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.4 |
 ## Modules
 
 | Name | Source | Version |
@@ -36,12 +36,12 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.18 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.4 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_ipblock.natgateway](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/ipblock) | resource |
-| [ionoscloud_natgateway.natgateway](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/natgateway) | resource |
-| [ionoscloud_natgateway_rule.natgateway_rule](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/natgateway_rule) | resource |
+| [ionoscloud_ipblock.natgateway](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/ipblock) | resource |
+| [ionoscloud_natgateway.natgateway](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/natgateway) | resource |
+| [ionoscloud_natgateway_rule.natgateway_rule](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/natgateway_rule) | resource |
 <!-- END_TF_DOCS -->
