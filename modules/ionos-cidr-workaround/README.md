@@ -18,9 +18,10 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_nicIndex"></a> [nicIndex](#output\_nicIndex) | n/a |
-| <a name="output_node_lan_ips"></a> [node\_lan\_ips](#output\_node\_lan\_ips) | n/a |
-| <a name="output_prefix"></a> [prefix](#output\_prefix) | n/a |
+| <a name="output_nicIndex"></a> [nicIndex](#output\_nicIndex) | Index of the NIC used by the provided LAN in the Kubernetes nodes. |
+| <a name="output_node_lan_ips"></a> [node\_lan\_ips](#output\_node\_lan\_ips) | List of the IPs assigned to the currently deployed Kubernetes nodes. When using this keep in mind that some of the IPs will change during maintenance. |
+| <a name="output_nodes_full_ip_range"></a> [nodes\_full\_ip\_range](#output\_nodes\_full\_ip\_range) | List of all the IPs in the range used by the Kubernetes cluster (IPs 10 to 255 in the prefix CIDR block). |
+| <a name="output_prefix"></a> [prefix](#output\_prefix) | CIDR block used by the Kubernetes cluster, for example '10.0.0.0/24'. |
 ## Requirements
 
 | Name | Version |
