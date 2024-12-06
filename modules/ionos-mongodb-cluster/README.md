@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.18 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.4 |
 | <a name="provider_null"></a> [null](#provider\_null) | n/a |
 ## Modules
 
@@ -45,13 +45,13 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.18 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.4 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_mongo_cluster.mongo_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/mongo_cluster) | resource |
-| [ionoscloud_mongo_user.initial_mongo_user](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/mongo_user) | resource |
-| [ionoscloud_mongo_template.mongo_template](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/data-sources/mongo_template) | data source |
+| [ionoscloud_mongo_cluster.mongo_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/mongo_cluster) | resource |
+| [ionoscloud_mongo_user.initial_mongo_user](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/mongo_user) | resource |
+| [ionoscloud_mongo_template.mongo_template](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/data-sources/mongo_template) | data source |
 | [null_data_source.template_workaround](https://registry.terraform.io/providers/hashicorp/null/latest/docs/data-sources/data_source) | data source |
 <!-- END_TF_DOCS -->

@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | 6.4.18 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.4 |
 ## Modules
 
 No modules.
@@ -28,12 +28,12 @@ No modules.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | 6.4.18 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.4 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_firewall.rule](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/firewall) | resource |
-| [ionoscloud_lan.lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/lan) | resource |
-| [ionoscloud_nic.nic](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/6.4.18/docs/resources/nic) | resource |
+| [ionoscloud_firewall.rule](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/firewall) | resource |
+| [ionoscloud_lan.lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/lan) | resource |
+| [ionoscloud_nic.nic](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/nic) | resource |
 <!-- END_TF_DOCS -->

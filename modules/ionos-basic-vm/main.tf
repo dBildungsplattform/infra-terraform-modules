@@ -15,7 +15,7 @@ resource "ionoscloud_lan" "basic_vm_server_lan" {
 resource "opentelekomcloud_dns_recordset_v2" "a_records" {
   zone_id = data.opentelekomcloud_dns_zone_v2.dns_zone.id
   name    = "${var.fulldomainname}"
-  ttl     = 3600
+  ttl     = 300
   type    = "A"
   records = [local.public_ip]
   
