@@ -32,6 +32,7 @@
 
 | Name | Description |
 |------|-------------|
+| <a name="output_alb_id"></a> [alb\_id](#output\_alb\_id) | n/a |
 | <a name="output_alb_ip"></a> [alb\_ip](#output\_alb\_ip) | n/a |
 ## Requirements
 
