@@ -56,7 +56,7 @@ variable "k8s_cluster_id" {
 variable "k8s_cluster_cidr_workaround" {
   description = "Switch to enable/disable the Kubernetes CIDR workaround to prevent issues when the Kubernetes cluster doesn't exist yet and ID is unknown."
   type        = bool
-  default     = var.k8s_cluster_id != null
+  default     = null
 }
 variable "lan_id" {
   description = "The LAN to connect your cluster to."
