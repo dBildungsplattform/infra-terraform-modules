@@ -24,7 +24,7 @@
 | <a name="input_cores"></a> [cores](#input\_cores) | The number of CPU cores per node (Enterprise only) | `number` | `null` | no |
 | <a name="input_ip_block_start"></a> [ip\_block\_start](#input\_ip\_block\_start) | The starting number to be set in the last ip block (Default: 101) | `number` | `101` | no |
 | <a name="input_ip_prefix"></a> [ip\_prefix](#input\_ip\_prefix) | Prefix for the used IPs (e.g. 10.0.4.1/24, required if k8s\_cluster\_id is not defined) | `string` | `null` | no |
-| <a name="input_k8s_cluster_cidr_workaround"></a> [k8s\_cluster\_cidr\_workaround](#input\_k8s\_cluster\_cidr\_workaround) | Switch to enable/disable the Kubernetes CIDR workaround to prevent issues when the Kubernetes cluster doesn't exist yet and ID is unknown. | `bool` | `null` | no |
+| <a name="input_k8s_cluster_cidr_workaround"></a> [k8s\_cluster\_cidr\_workaround](#input\_k8s\_cluster\_cidr\_workaround) | Switch to enable/disable the Kubernetes CIDR workaround to prevent issues when the Kubernetes cluster doesn't exist yet and ID is unknown. | `bool` | `true` | no |
 | <a name="input_k8s_cluster_id"></a> [k8s\_cluster\_id](#input\_k8s\_cluster\_id) | ID of the kubernetes cluster to connect to. (Used to generate matching IPs, alternativly you can set ip\_prefix directly) | `string` | `null` | no |
 | <a name="input_maintenance_day"></a> [maintenance\_day](#input\_maintenance\_day) | The day of the week for the 4 hour-long maintenance window (Default: Sunday) | `string` | `"Sunday"` | no |
 | <a name="input_maintenance_hour"></a> [maintenance\_hour](#input\_maintenance\_hour) | The time of the day when the 4 hour-long maintenance window may start. (Default: 3) | `number` | `3` | no |
