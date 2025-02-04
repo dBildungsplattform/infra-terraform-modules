@@ -50,6 +50,7 @@ resource "ionoscloud_target_group" "k8s_node_pools" {
     name                      = "${module.conventions_coordinates.global_identifier}-k8s" 
     algorithm                 = "ROUND_ROBIN"
     protocol                  = "HTTP"  
+    protocol_version          = "HTTP1"
     dynamic "targets" {
       for_each = var.node_alb_lan_ips
       content { 
