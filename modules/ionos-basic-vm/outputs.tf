@@ -17,3 +17,12 @@ output "basic_vm_server_nicuuid" {
 output "basic_vm_server_name" {
   value = var.server_name
 }
+
+output "basic_vm_root_volume_id" {
+  value = var.permanent_vm ? {
+    value = ionoscloud_server.basic_vm_server[0].inline_volume_ids  
+  }:{
+    value = ionoscloud_server.basic_vm_server_not_permanent[0].inline_volume_ids
+  }
+  description = "The ID of the root volume attached to the basic VM server."
+}
