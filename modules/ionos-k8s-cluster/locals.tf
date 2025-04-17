@@ -64,4 +64,11 @@ locals {
 
   # nodepool_per_zone_creator this duplicates the objects in each availability zone to the amount of nodepool_per_zone_count
   nodepool_per_zone_creator = toset(flatten([for n in local.custom_nodepools : [for x in range(0, n.nodepool_per_zone_count) : merge(n,{nodepool_index = x})] ]))
+  zone_adjustment = {
+    "ZONE_1" = 0,
+    "ZONE_2" = 2,
+    "ZONE_3" = 4,
+  }
+
 }
+
