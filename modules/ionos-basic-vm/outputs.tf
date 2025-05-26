@@ -24,5 +24,4 @@ output "boot_volume_id" {
 
 output "inline_volume_ids" {
   value = var.permanent_vm ? ionoscloud_server.basic_vm_server[0].inline_volume_ids : ionoscloud_server.basic_vm_server_not_permanent[0].inline_volume_ids
-  description = "The ID of the root volume attached to the basic VM server."
 }
