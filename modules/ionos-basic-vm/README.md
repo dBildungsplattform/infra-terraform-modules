@@ -54,6 +54,8 @@
 | <a name="output_basic_vm_server_name"></a> [basic\_vm\_server\_name](#output\_basic\_vm\_server\_name) | n/a |
 | <a name="output_basic_vm_server_nicuuid"></a> [basic\_vm\_server\_nicuuid](#output\_basic\_vm\_server\_nicuuid) | n/a |
 | <a name="output_basic_vm_server_public_ip"></a> [basic\_vm\_server\_public\_ip](#output\_basic\_vm\_server\_public\_ip) | n/a |
+| <a name="output_boot_volume_id"></a> [boot\_volume\_id](#output\_boot\_volume\_id) | n/a |
+| <a name="output_inline_volume_ids"></a> [inline\_volume\_ids](#output\_inline\_volume\_ids) | n/a |
 ## Requirements
 
 | Name | Version |
