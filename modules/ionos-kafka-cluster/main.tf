@@ -1,3 +1,6 @@
+
+
+
 resource "ionoscloud_lan" "kafka_lan" {
   datacenter_id = var.datacenter_id
   public        = false
@@ -7,12 +10,12 @@ resource "ionoscloud_lan" "kafka_lan" {
 resource "ionoscloud_kafka_cluster" "example" {
   name     = "kafka-cluster"
   location = var.datacenter_location
-  version  = "3.9.0"
-  size     = "S"
+  version  = var.kafka_version
+  size     = var.kafka_cluster_size
   connections {
     datacenter_id = var.datacenter_id
     lan_id = ionoscloud_lan.kafka_lan.id
-    broker_addresses = data.ionoscloud_kafka_cluster.broker_addresses
+    broker_addresses = data.ionoscloud_kafka_cluster.broker_addresses.broker_addresses
   }
 }
 

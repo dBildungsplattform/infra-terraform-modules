@@ -36,3 +36,14 @@ variable "segment_bytes" {
   description = "Segment file size for the log in bytes. Larger value = fewer but larger files."
   default     = 1073741824 
 }
+variable "kafka_version" {
+  type        = string
+  description = "Version of the Kafka Cluster. Possible values: '3.8.0'."
+  default     = "3.9.0"
+}
+
+variable "kafka_cluster_size" {
+  type        = string
+  description = "Size of the Kafka Cluster. Possible values: 'XS', 'S'."
+  default     = "S"
+}
