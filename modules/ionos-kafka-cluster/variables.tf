@@ -13,8 +13,26 @@ variable "datacenter_name" {
   description = "Name of datacenter cluster shall be created in"
 }
 
-variable "kafka_cluster_broker_ips_cidr" {
-  type = list
-  description = "IP address and port of cluster brokers"
-  default = []
+variable "replication_factor" {
+  type        = number
+  description = "The replication factor determines how many copies of the topic are stored on different brokers."
+  default     = 3
+}
+
+variable "number_of_partitions" {
+  type        = number
+  description = "The number of partitions of the topic. Partition count must be >= replication factor."
+  default     = 3
+}
+
+variable "retention_time" {
+  type        = number
+  description = "Maximum time (ms) to retain logs; if -1, no time limit is applied."
+  default     = 604800000
+}
+
+variable "segment_bytes" {
+  type        = number
+  description = "Segment file size for the log in bytes. Larger value = fewer but larger files."
+  default     = 1073741824 
 }
