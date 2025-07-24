@@ -47,3 +47,13 @@ variable "kafka_cluster_size" {
   description = "Size of the Kafka Cluster. Possible values: 'XS', 'S'."
   default     = "S"
 }
+variable "broker_addresses" {
+  type = list(string)
+  description = "Liste der IP-Adressen mit Subnetz für Kafka-Broker"
+}
+
+
+variable "kafka_lan_id" {
+  type        = string
+  description = "ID of the LAN whose IP we want to get"
+}

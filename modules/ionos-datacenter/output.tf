@@ -86,3 +86,7 @@ output "custom_lans_id" {
 output "lans_custom" {
   value = local.lans_custom
 }
+
+output "kafka_lan" {
+  value = local.lan_kafka
+}

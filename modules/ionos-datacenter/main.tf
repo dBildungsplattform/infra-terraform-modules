@@ -125,3 +125,9 @@ resource "ionoscloud_lan" "custom_lan" {
   datacenter_id = ionoscloud_datacenter.datacenter.id
   public        = false
 }
+
+resource "ionoscloud_lan" "kafka_lan" {
+  datacenter_id = ionoscloud_datacenter.datacenter.id
+  public        = false
+  name          = "${var.datacenter_name}-kafka-lan"
+}
