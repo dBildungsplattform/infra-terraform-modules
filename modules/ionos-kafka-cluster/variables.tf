@@ -2,7 +2,6 @@ variable "datacenter_id" {
   type        = string
   description = "ID of datacenter cluster shall be created in"
 }
-
 variable "datacenter_location" {
   type        = string
   description = "Location of datacenter cluster shall be created in"
@@ -12,7 +11,15 @@ variable "datacenter_name" {
   type        = string
   description = "Name of datacenter cluster shall be created in"
 }
+variable "kafka_cluster_name" {
+  type        = string
+  description = "Name of the Kafka Cluster"
+}
 
+variable "kafka_cluster_topic" {
+  type        = string
+  description = "Name of the Kafka Cluster topic"
+}
 variable "replication_factor" {
   type        = number
   description = "The replication factor determines how many copies of the topic are stored on different brokers."
@@ -28,7 +35,7 @@ variable "number_of_partitions" {
 variable "retention_time" {
   type        = number
   description = "Maximum time (ms) to retain logs; if -1, no time limit is applied."
-  default     = 604800000
+  default     = 604800000 # 7 Tage
 }
 
 variable "segment_bytes" {
@@ -38,7 +45,7 @@ variable "segment_bytes" {
 }
 variable "kafka_version" {
   type        = string
-  description = "Version of the Kafka Cluster. Possible values: '3.8.0'."
+  description = "Version of the Kafka Cluster."
   default     = "3.9.0"
 }
 
@@ -56,4 +63,10 @@ variable "broker_addresses" {
 variable "kafka_lan_id" {
   type        = string
   description = "ID of the LAN whose IP we want to get"
+}
+
+variable "kafka_topics" {
+  description = "Liste der Kafka-Topics"
+  type        = list(string)
+  default     = []
 }

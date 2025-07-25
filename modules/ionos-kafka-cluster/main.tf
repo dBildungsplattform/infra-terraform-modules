@@ -2,7 +2,7 @@
 
 #https://docs.ionos.com/cloud/data-analytics/kafka/overview/cluster-sizes
 resource "ionoscloud_kafka_cluster" "kafka_cluster" {
-  name     = "kafka-cluster"
+  name     = var.kafka_cluster_name
   location = var.datacenter_location
   version  = var.kafka_version
   size     = var.kafka_cluster_size
@@ -14,8 +14,9 @@ resource "ionoscloud_kafka_cluster" "kafka_cluster" {
 }
 
 resource "ionoscloud_kafka_cluster_topic" "kafka_cluster_topic" {
+  for_each             = toset(var.kafka_topics)
   cluster_id           = ionoscloud_kafka_cluster.kafka_cluster.id
-  name                 = "kafka-cluster-topic"
+  name                 = each.value
   location             = var.datacenter_location
   replication_factor   = var.replication_factor
   number_of_partitions = var.number_of_partitions
