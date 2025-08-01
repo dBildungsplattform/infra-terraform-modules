@@ -15,17 +15,17 @@ variable "kafka_cluster_name" {
 variable "kafka_version" {
   type        = string
   description = "Version of the Kafka Cluster."
-  default     = "3.9.0"
+  default = null
 }
 
 variable "kafka_cluster_size" {
   type        = string
-  description = "Size of the Kafka Cluster. Possible values: 'XS', 'S'."
-  default     = "S"
+  description = "Required. Size of the Kafka Cluster. Possible values: 'XS', 'S'.'M','L','XL'"
+  default = null
 }
 variable "broker_addresses" {
   type = list(string)
-  description = "Liste der IP-Adressen mit Subnetz für Kafka-Broker"
+  description = "IP addresses and subnet of cluster brokers"
 }
 
 
