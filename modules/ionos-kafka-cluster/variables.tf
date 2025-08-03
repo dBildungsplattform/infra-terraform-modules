@@ -28,7 +28,6 @@ variable "broker_addresses" {
   description = "IP addresses and subnet of cluster brokers"
 }
 
-
 variable "kafka_lan_id" {
   type        = string
   description = "ID of the LAN whose IP we want to get"

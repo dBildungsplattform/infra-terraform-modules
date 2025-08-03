@@ -90,3 +90,6 @@ output "lans_custom" {
 output "kafka_lan" {
   value = local.lan_kafka
 }
+output "kafka_lan_cidr" {
+  value = ionoscloud_lan.kafka_lan[0].ipv4_cidr_block
+}
