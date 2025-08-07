@@ -103,6 +103,12 @@ variable "create_nat_lan" {
   default = false
 }
 
+variable "create_kafka_lan" {
+  type = bool
+  description = "Specifies whether a private lan to connect a Kafka shall be created."
+  default = false
+}
+
 variable "custom_lans_to_create" {
   description = "Map of for private LANs to be created. The key is used for the output. The value is used for the name: <datacenter name>-<value>"
   type        = map(string)

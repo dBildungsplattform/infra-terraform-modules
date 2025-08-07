@@ -19,6 +19,7 @@ No modules.
 | <a name="input_create_alb_target_lan"></a> [create\_alb\_target\_lan](#input\_create\_alb\_target\_lan) | Specifies whether a private target for the Application Load Balancer shall be created. | `bool` | `false` | no |
 | <a name="input_create_backend_crossconnect"></a> [create\_backend\_crossconnect](#input\_create\_backend\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
 | <a name="input_create_frontend_crossconnect"></a> [create\_frontend\_crossconnect](#input\_create\_frontend\_crossconnect) | Specifies whether crossconnect shall be created. Default: false. | `bool` | `false` | no |
+| <a name="input_create_kafka_lan"></a> [create\_kafka\_lan](#input\_create\_kafka\_lan) | Specifies whether a private lan to connect a Kafka shall be created. | `bool` | `false` | no |
 | <a name="input_create_nat_lan"></a> [create\_nat\_lan](#input\_create\_nat\_lan) | Specifies whether a private lan to connect a NAT gateway shall be created. | `bool` | `false` | no |
 | <a name="input_create_nfs_server_lan"></a> [create\_nfs\_server\_lan](#input\_create\_nfs\_server\_lan) | Specifies whether a private lan to connect an NFS server shall be created. | `bool` | `false` | no |
 | <a name="input_create_nlb_target_lan"></a> [create\_nlb\_target\_lan](#input\_create\_nlb\_target\_lan) | Specifies whether a private target for the Network Load Balancer shall be created. | `bool` | `false` | no |
@@ -42,6 +43,8 @@ No modules.
 | <a name="output_datacenter_name"></a> [datacenter\_name](#output\_datacenter\_name) | n/a |
 | <a name="output_frontend_crossconnect_id"></a> [frontend\_crossconnect\_id](#output\_frontend\_crossconnect\_id) | n/a |
 | <a name="output_frontend_lan_id"></a> [frontend\_lan\_id](#output\_frontend\_lan\_id) | n/a |
+| <a name="output_kafka_lan"></a> [kafka\_lan](#output\_kafka\_lan) | n/a |
+| <a name="output_kafka_lan_cidr"></a> [kafka\_lan\_cidr](#output\_kafka\_lan\_cidr) | n/a |
 | <a name="output_lan_alb_target"></a> [lan\_alb\_target](#output\_lan\_alb\_target) | n/a |
 | <a name="output_lan_backend"></a> [lan\_backend](#output\_lan\_backend) | n/a |
 | <a name="output_lan_frontend"></a> [lan\_frontend](#output\_lan\_frontend) | n/a |
@@ -71,6 +74,7 @@ No modules.
 | [ionoscloud_lan.backend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/lan) | resource |
 | [ionoscloud_lan.custom_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/lan) | resource |
 | [ionoscloud_lan.frontend_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/lan) | resource |
+| [ionoscloud_lan.kafka_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/lan) | resource |
 | [ionoscloud_lan.nat_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/lan) | resource |
 | [ionoscloud_lan.nfs_server_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/lan) | resource |
 | [ionoscloud_lan.nlb_target_lan](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/lan) | resource |

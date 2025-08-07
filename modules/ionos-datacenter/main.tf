@@ -119,9 +119,17 @@ resource "ionoscloud_lan" "nat_lan" {
   public        = false
 }
 
+resource "ionoscloud_lan" "kafka_lan" {
+  count         = local.create_kafka_lan ? 1 : 0
+  name          = "${var.datacenter_name}-kafka-lan"
+  datacenter_id = ionoscloud_datacenter.datacenter.id
+  public        = false
+}
+
 resource "ionoscloud_lan" "custom_lan" {
   for_each      = local.custom_lans_to_create
   name          = "${var.datacenter_name}-${each.value}"
   datacenter_id = ionoscloud_datacenter.datacenter.id
   public        = false
 }
+
