@@ -32,6 +32,7 @@
 | <a name="input_basic_vm_create_second_volume"></a> [basic\_vm\_create\_second\_volume](#input\_basic\_vm\_create\_second\_volume) | n/a | `bool` | `true` | no |
 | <a name="input_basic_vm_second_volume_disk_type"></a> [basic\_vm\_second\_volume\_disk\_type](#input\_basic\_vm\_second\_volume\_disk\_type) | n/a | `string` | `"HDD"` | no |
 | <a name="input_basic_vm_second_volume_size"></a> [basic\_vm\_second\_volume\_size](#input\_basic\_vm\_second\_volume\_size) | size of the second volume | `string` | `100` | no |
+| <a name="input_basic_vm_volume_disk_type"></a> [basic\_vm\_volume\_disk\_type](#input\_basic\_vm\_volume\_disk\_type) | volume disk type for vm | `string` | `"SSD Standard"` | no |
 | <a name="input_create_ip_pool"></a> [create\_ip\_pool](#input\_create\_ip\_pool) | If true an IP pool of size 1 will be created, if false a public IP must be provided | `bool` | `true` | no |
 | <a name="input_create_lan"></a> [create\_lan](#input\_create\_lan) | If true a LAN will be created, if false a LAN ID must be provided | `bool` | `true` | no |
 | <a name="input_dns_zone_name_override"></a> [dns\_zone\_name\_override](#input\_dns\_zone\_name\_override) | Name of the DNS zone if it doesn't follow the naming convention (i.e. messenger.schule) | `string` | `""` | no |
