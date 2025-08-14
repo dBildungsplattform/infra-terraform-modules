@@ -44,7 +44,7 @@ variable "basic_vm_volume_size" {
 }
 
 variable "basic_vm_volume_disk_type" {
-  type        = number
+  type        = string
   description = "volume disk type for vm"
   default     = "SSD Standard"
 }
