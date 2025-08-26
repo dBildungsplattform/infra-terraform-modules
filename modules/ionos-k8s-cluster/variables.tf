@@ -6,17 +6,19 @@ variable "cluster_name" {
 variable "k8s_version" {
   type        = string
   description = "Kubernetes version"
-  default     = "1.24.15"
+  default     = null
 }
 
 variable "core_count" {
   type        = number
   description = "This value overwrites pre-defined environment specific k8s cluster sizing"
+  default = null
 }
 
 variable "ram_size" {
   type        = number
   description = "This value overwrites pre-defined environment specific k8s cluster sizing"
+ default = null
 }
 
 variable "cpu_family" {
@@ -47,6 +49,7 @@ variable "datacenter_location" {
 variable "node_count" {
   type        = number
   description = "This value overwrites specific k8s cluster sizing"
+  default = null
 }
 
 variable "nodepool_per_zone_count" {
