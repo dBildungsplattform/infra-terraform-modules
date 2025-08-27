@@ -22,7 +22,7 @@ variable "datacenter_id" {
 
 variable "datacenter_location" {
   type        = string
-  description = ""
+  description = "The location of the datacenter"
 }
 
 variable "allow_node_pool_replacement" {
@@ -43,7 +43,7 @@ variable "maintenance_hour" {
   default     = 3
 }
 
-# Define the legacy Kubernetes Cluster, not custom node pool list #########
+###### These values define the legacy Kubernetes Node Pool, not the custom node pool list #########
 variable "core_count" {
   type        = number
   description = "This value overwrites pre-defined environment specific k8s cluster sizing"
@@ -77,6 +77,31 @@ variable "node_count" {
   default = null
 }
 
+variable "create_public_ip_pools" {
+  type    = bool
+  default = false
+}
+
+variable "storage_type" {
+  type    = string
+  description = "The type of the Nodes volume. Can be SSD or HDD"
+  default = "SSD"
+}
+
+variable "storage_size" {
+  type    = number
+  description = "The size of the Nodes volume"
+  default = 100
+
+}
+################################################################
+
+variable "api_subnet_allow_list" {
+  type    = list(string)
+  description = "Access to the K8s API Server is restricted to these CIDSs. If no allow list is specified, access is not restricted."
+  default = null
+}
+
 variable "public_ip_pool_zone1" {
   type    = list(list(string))
   default = null
@@ -87,40 +112,11 @@ variable "public_ip_pool_zone2" {
   default = null
 }
 
-variable "create_public_ip_pools" {
-  type    = bool
-  default = false
-}
 
-variable "storage_type" {
-  type    = string
-  default = "SSD"
-}
-
-variable "storage_size" {
-  type    = number
-  default = 100
-}
-####################################################
-
-
-
-variable "api_subnet_allow_list" {
-  type    = list(string)
-  default = null
-}
-
-#Not needed anymore, we work with a list of zones now
-variable "availability_zone" {
-  type    = string
-  default = null
-}
-
-
-#Determins if both should be used, otherwise only one will be used where custom_nodepools overwrite legacy ones
 variable "enable_legacy_and_scaling" {
   type = bool
   default = false
+  description = "Defines whether the legacy Node Pools are used and the Custom Node Pool list. Custom Node Pool list overwrites legacy Node Pool "
 }
 
 #It is required to define each resource per availability zone on it's own (One definition for zone 1 and one definition for zone 2)
