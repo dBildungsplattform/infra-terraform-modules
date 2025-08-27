@@ -9,31 +9,10 @@ variable "k8s_version" {
   default     = null
 }
 
-variable "core_count" {
-  type        = number
-  description = "This value overwrites pre-defined environment specific k8s cluster sizing"
-  default = null
-}
-
-variable "ram_size" {
-  type        = number
-  description = "This value overwrites pre-defined environment specific k8s cluster sizing"
- default = null
-}
-
 variable "cpu_family" {
   type        = string
   description = "Valid cpu family"
   default     = "INTEL_SKYLAKE"
-}
-
-variable "associated_lans" {
-  description = "The lans as objects in a list [{lan[0] with id and routes_list, lan[1] with id and routes_list}, ...]"
-  type = list(object({
-    id          = number
-    routes_list = list(any)
-  }))
-  default = []
 }
 
 variable "datacenter_id" {
@@ -44,33 +23,6 @@ variable "datacenter_id" {
 variable "datacenter_location" {
   type        = string
   description = ""
-}
-
-variable "node_count" {
-  type        = number
-  description = "This value overwrites specific k8s cluster sizing"
-  default = null
-}
-
-variable "nodepool_per_zone_count" {
-  type        = number
-  description = ""
-  default     = 0
-}
-
-variable "public_ip_pool_zone1" {
-  type    = list(list(string))
-  default = null
-}
-
-variable "public_ip_pool_zone2" {
-  type    = list(list(string))
-  default = null
-}
-
-variable "create_public_ip_pools" {
-  type    = bool
-  default = false
 }
 
 variable "allow_node_pool_replacement" {
@@ -91,15 +43,53 @@ variable "maintenance_hour" {
   default     = 3
 }
 
-variable "api_subnet_allow_list" {
-  type    = list(string)
+# Define the legacy Kubernetes Cluster, not custom node pool list #########
+variable "core_count" {
+  type        = number
+  description = "This value overwrites pre-defined environment specific k8s cluster sizing"
   default = null
 }
 
-#Not needed anymore, we work with a list of zones now
-variable "availability_zone" {
-  type    = string
-  default = "ZONE_1"
+variable "ram_size" {
+  type        = number
+  description = "This value overwrites pre-defined environment specific k8s cluster sizing"
+ default = null
+}
+
+variable "associated_lans" {
+  description = "The lans as objects in a list [{lan[0] with id and routes_list, lan[1] with id and routes_list}, ...]"
+  type = list(object({
+    id          = number
+    routes_list = list(any)
+  }))
+  default = []
+}
+
+variable "nodepool_per_zone_count" {
+  type        = number
+  description = ""
+  default     = 0
+}
+
+variable "node_count" {
+  type        = number
+  description = "This value overwrites specific k8s cluster sizing"
+  default = null
+}
+
+variable "public_ip_pool_zone1" {
+  type    = list(list(string))
+  default = null
+}
+
+variable "public_ip_pool_zone2" {
+  type    = list(list(string))
+  default = null
+}
+
+variable "create_public_ip_pools" {
+  type    = bool
+  default = false
 }
 
 variable "storage_type" {
@@ -111,6 +101,21 @@ variable "storage_size" {
   type    = number
   default = 100
 }
+####################################################
+
+
+
+variable "api_subnet_allow_list" {
+  type    = list(string)
+  default = null
+}
+
+#Not needed anymore, we work with a list of zones now
+variable "availability_zone" {
+  type    = string
+  default = null
+}
+
 
 #Determins if both should be used, otherwise only one will be used where custom_nodepools overwrite legacy ones
 variable "enable_legacy_and_scaling" {
@@ -130,7 +135,7 @@ variable "custom_nodepools" {
     ram_size      = number
     core_count    = number
     purpose       = string
-    availability_zones = list(string)
+    availability_zones = optional(list(string), ["ZONE_1","ZONE_2"])
     allow_node_pool_replacement = bool
     associated_lans = list(object({
       id          = number
@@ -138,11 +143,11 @@ variable "custom_nodepools" {
     }))
     maintenance_day = string
     maintenance_hour = number
-    storage_type = string
-    storage_size = number
-    cpu_family = string
+    storage_type = optional(string, "SSD")
+    storage_size = optional(number, 100)
+    cpu_family = optional(string, "INTEL_SKYLAKE")
     create_public_ip_pools = bool
-    public_ips = map(list(list(string)))
+    public_ips = optional(map(list(list(string))), {ZONE_1=[[""]], ZONE_2=[[""]]})
     })
   )
   description = "This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources."
