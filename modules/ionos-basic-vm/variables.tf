@@ -43,6 +43,12 @@ variable "basic_vm_volume_size" {
   description = "volume size for vm"
 }
 
+variable "basic_vm_volume_disk_type" {
+  type        = string
+  description = "volume disk type for vm"
+  default     = "SSD Standard"
+}
+
 variable "basic_vm_create_second_volume" {
   type = bool
   default = true
