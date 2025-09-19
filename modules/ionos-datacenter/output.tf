@@ -91,12 +91,12 @@ output "kafka_lan" {
   value = local.lan_kafka
 }
 output "kafka_test_lan" {
-  value = local.lan_kafka_test
+  value = ionoscloud_lan.custom_lan["kafka_test"].id
 }
 output "kafka_lan_cidr" {
   value       = var.create_kafka_lan ? ionoscloud_lan.kafka_lan[0].ipv4_cidr_block : null
 }
 
 output "kafka_test_lan_cidr" {
-  value       = var.create_kafka_test_lan ? ionoscloud_lan.kafka_test_lan[0].ipv4_cidr_block : null
+  value = contains(keys(ionoscloud_lan.custom_lan), "kafka_test") ? ionoscloud_lan.custom_lan["kafka_test"].ipv4_cidr_block : null
 }
