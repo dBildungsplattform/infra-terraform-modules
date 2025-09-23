@@ -45,6 +45,7 @@ No modules.
 | <a name="output_frontend_lan_id"></a> [frontend\_lan\_id](#output\_frontend\_lan\_id) | n/a |
 | <a name="output_kafka_lan"></a> [kafka\_lan](#output\_kafka\_lan) | n/a |
 | <a name="output_kafka_lan_cidr"></a> [kafka\_lan\_cidr](#output\_kafka\_lan\_cidr) | n/a |
+| <a name="output_kafka_test_lan_cidr"></a> [kafka\_test\_lan\_cidr](#output\_kafka\_test\_lan\_cidr) | n/a |
 | <a name="output_lan_alb_target"></a> [lan\_alb\_target](#output\_lan\_alb\_target) | n/a |
 | <a name="output_lan_backend"></a> [lan\_backend](#output\_lan\_backend) | n/a |
 | <a name="output_lan_frontend"></a> [lan\_frontend](#output\_lan\_frontend) | n/a |
