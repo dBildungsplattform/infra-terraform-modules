@@ -125,7 +125,6 @@ resource "ionoscloud_lan" "kafka_lan" {
   datacenter_id = ionoscloud_datacenter.datacenter.id
   public        = false
 }
-
 resource "ionoscloud_lan" "custom_lan" {
   for_each      = local.custom_lans_to_create
   name          = "${var.datacenter_name}-${each.value}"
