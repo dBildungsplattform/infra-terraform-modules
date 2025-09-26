@@ -8,6 +8,7 @@ resource "ionoscloud_pg_cluster" "pg_cluster" {
   display_name         = var.display_name
   location             = var.datacenter_location
   synchronization_mode = var.synchronization_mode
+  allow_replace        = false
 
   connections {
     datacenter_id = var.datacenter_id
