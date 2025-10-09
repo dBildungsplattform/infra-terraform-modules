@@ -14,7 +14,7 @@ resource "ionoscloud_server" "basic_vm_server" {
   volume {
     name       = "root-volume-ssd"
     size       = var.basic_vm_volume_size
-    disk_type  = "SSD Standard"
+    disk_type  = var.basic_vm_volume_disk_type
     user_data  = local.user_data
   }
 
@@ -51,7 +51,7 @@ resource "ionoscloud_server" "basic_vm_server_not_permanent" {
   volume {
     name       = "root-volume-ssd"
     size       = var.basic_vm_volume_size
-    disk_type  = "SSD Standard"
+    disk_type  = var.basic_vm_volume_disk_type
     user_data  = local.user_data
   }
 
