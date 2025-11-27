@@ -2,7 +2,7 @@ terraform {
   required_providers {
     ionoscloud = {
       source  = "ionos-cloud/ionoscloud"
-      version = "~>6.4"
+      version = "~>6.7"
     }
     opentelekomcloud = {
       source = "opentelekomcloud/opentelekomcloud"
