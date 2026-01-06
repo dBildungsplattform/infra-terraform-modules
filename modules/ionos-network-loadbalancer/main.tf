@@ -6,9 +6,9 @@ module "conventions_coordinates" {
 }
 
 resource "ionoscloud_lan" "nlb_listener_lan" {
-    datacenter_id         = var.datacenter_id
-    public                = true
-    name                  = "${var.datacenter_name}-nlb-listener-lan"
+  datacenter_id         = var.datacenter_id
+  public                = true
+  name                  = "${var.datacenter_name}-nlb-listener-lan"
 }
 
 
@@ -19,33 +19,38 @@ resource "ionoscloud_ipblock" "nlb" {
 }
 
 resource "ionoscloud_networkloadbalancer" "nlb" {
-    datacenter_id         = var.datacenter_id
-    name                  = "${module.conventions_coordinates.global_identifier}-nlb"
-    listener_lan          = ionoscloud_lan.nlb_listener_lan.id
-    ips                   = [ionoscloud_ipblock.nlb.ips[0]]
-    target_lan            = var.nlb_target_lan_id
-    lb_private_ips        = [ "${local.node_ip_part}.225/24" ]
+  datacenter_id         = var.datacenter_id
+  name                  = "${module.conventions_coordinates.global_identifier}-nlb"
+  listener_lan          = ionoscloud_lan.nlb_listener_lan.id
+  ips                   = [ionoscloud_ipblock.nlb.ips[0]]
+  target_lan            = var.nlb_target_lan_id
+  lb_private_ips        = [ "${local.node_ip_part}.225/24" ]
 
+  lifecycle {
+    ignore_changes = [
+      logging_format
+    ]
+  }
 }
 
 resource "ionoscloud_networkloadbalancer_forwardingrule" "forward_k8" {
-    datacenter_id               = var.datacenter_id
-    networkloadbalancer_id      = ionoscloud_networkloadbalancer.nlb.id
-    name                        = "forward-k8s"
-    algorithm                   = "ROUND_ROBIN"
-    protocol                    = "TCP"
-    listener_ip                 = ionoscloud_ipblock.nlb.ips[0]
-    listener_port               = var.nlb_listener_port
-    dynamic "targets" {
-      for_each = var.node_nlb_lan_ips
-      content { 
-        ip                    = "${targets.value}"
-        port                  = var.nlb_target_port
-        weight                = "1"
-        health_check {
-             check              = true
-             check_interval     = var.nlb_target_health_check_timeout
-        }
+  datacenter_id               = var.datacenter_id
+  networkloadbalancer_id      = ionoscloud_networkloadbalancer.nlb.id
+  name                        = "forward-k8s"
+  algorithm                   = "ROUND_ROBIN"
+  protocol                    = "TCP"
+  listener_ip                 = ionoscloud_ipblock.nlb.ips[0]
+  listener_port               = var.nlb_listener_port
+  dynamic "targets" {
+    for_each = var.node_nlb_lan_ips
+    content { 
+      ip                    = "${targets.value}"
+      port                  = var.nlb_target_port
+      weight                = "1"
+      health_check {
+            check              = true
+            check_interval     = var.nlb_target_health_check_timeout
+      }
     }
-}
+  }
 }

@@ -23,6 +23,12 @@ resource "ionoscloud_networkloadbalancer" "nlb" {
   listener_lan  = ionoscloud_lan.crossconnect_lan[each.key].id
   ips           = [each.value]
   target_lan    = var.nlb_target_lan_id
+
+  lifecycle {
+    ignore_changes = [
+      logging_format
+    ]
+  }
 }
 
 resource "ionoscloud_networkloadbalancer_forwardingrule" "forward_k8" {
