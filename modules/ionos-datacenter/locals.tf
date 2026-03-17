@@ -30,14 +30,15 @@ locals {
   #     ]),
   # })
   # if no routes_map is provided, a default value of [{}] is given (just empty), to comply with type requirements in further processing
-  lan_service     = flatten([ for id in ionoscloud_lan.service_lan.*.id: { id = id, routes_list = [{}] }])
-  lan_backend     = flatten([ for id in ionoscloud_lan.backend_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
-  lan_frontend    = flatten([ for id in ionoscloud_lan.frontend_lan.*.id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }])
-  lan_nfs_server  = flatten([ for id in ionoscloud_lan.nfs_server_lan.*.id: { id = id, routes_list = [{}] }])
-  lan_postgres    = flatten([ for id in ionoscloud_lan.postgres_lan.*.id: { id = id, routes_list = [{}] }])
-  lan_alb_target  = flatten([ for id in ionoscloud_lan.alb_target_lan.*.id: { id = id, routes_list =[{}] }])
-  lan_nlb_target  = flatten([ for id in ionoscloud_lan.nlb_target_lan.*.id: { id = id, routes_list =[{}] }])
-  lan_nat         = flatten([ for id in ionoscloud_lan.nat_lan.*.id: { id = id, routes_list = [{}] }])
+  lan_service     = [ for id in ionoscloud_lan.service_lan[*].id: { id = id, routes_list = [{}] }]
+  lan_backend     = [ for id in ionoscloud_lan.backend_lan[*].id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }]
+  lan_frontend    = [ for id in ionoscloud_lan.frontend_lan[*].id: { id = id, routes_list = lookup(local.routes_map, id , [{}]) }]
+  lan_nfs_server  = [ for id in ionoscloud_lan.nfs_server_lan[*].id: { id = id, routes_list = [{}] }]
+  lan_postgres    = [ for id in ionoscloud_lan.postgres_lan[*].id: { id = id, routes_list = [{}] }]
+  lan_alb_target  = [ for id in ionoscloud_lan.alb_target_lan[*].id: { id = id, routes_list =[{}] }]
+  lan_nlb_target  = [ for id in ionoscloud_lan.nlb_target_lan[*].id: { id = id, routes_list =[{}] }]
+  lan_nat         = [ for id in ionoscloud_lan.nat_lan[*].id: { id = id, routes_list = [{}] }]
   lans_custom     = { for name, lan in ionoscloud_lan.custom_lan: name => { id = lan.id, routes_list = [{}] }}
-  lan_kafka       = flatten([ for id in ionoscloud_lan.kafka_lan.*.id: { id = id, routes_list = [{}] }])
+  lan_kafka       = [ for id in ionoscloud_lan.kafka_lan[*].id: { id = id, routes_list = [{}] }]
 }
+
