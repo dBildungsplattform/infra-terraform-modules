@@ -10,10 +10,10 @@ variable "datacenter_location" {
 }
 
 variable "datacenter_shares" {
-  type        = list(object({
-    group  = string
-    edit   = optional(bool, false)
-    share  = optional(bool, false)
+  type = list(object({
+    group = string
+    edit  = optional(bool, false)
+    share = optional(bool, false)
   }))
   description = "Which groups have access to the datacenter"
   default     = []
@@ -68,45 +68,45 @@ variable "crossconnect_shared_group_ids" {
 }
 
 variable "routes_map" {
-  type = any
+  type        = any
   description = "map which links based on the lan id to a list in which the routes in form of an object ('network'='###' and 'gateway_ip'='###') are saved"
-  default = {}
+  default     = {}
 }
 
 variable "create_nfs_server_lan" {
-  type = bool
+  type        = bool
   description = "Specifies whether a private lan to connect an NFS server shall be created."
-  default = false
+  default     = false
 }
 
 variable "create_postgres_lan" {
   description = "Specifies whether a private lan to connect Postgres shall be created."
   type        = bool
-  default = false
+  default     = false
 }
 
 variable "create_alb_target_lan" {
-  type = bool
+  type        = bool
   description = "Specifies whether a private target for the Application Load Balancer shall be created."
-  default = false
+  default     = false
 }
 
 variable "create_nlb_target_lan" {
-  type = bool
+  type        = bool
   description = "Specifies whether a private target for the Network Load Balancer shall be created."
-  default = false
+  default     = false
 }
 
 variable "create_nat_lan" {
-  type = bool
+  type        = bool
   description = "Specifies whether a private lan to connect a NAT gateway shall be created."
-  default = false
+  default     = false
 }
 
 variable "create_kafka_lan" {
-  type = bool
+  type        = bool
   description = "Specifies whether a private lan to connect a Kafka shall be created."
-  default = false
+  default     = false
 }
 
 variable "custom_lans_to_create" {
