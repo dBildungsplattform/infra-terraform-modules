@@ -30,6 +30,7 @@ locals {
   #     ]),
   # })
   # if no routes_map is provided, a default value of [{}] is given (just empty), to comply with type requirements in further processing
+  # could also use https://developer.hashicorp.com/terraform/language/functions/one but could break depending artefacts
   lan_service    = [for lan in ionoscloud_lan.service_lan : { id = lan.id, routes_list = [{}] }]
   lan_backend    = [for lan in ionoscloud_lan.backend_lan : { id = lan.id, routes_list = lookup(local.routes_map, lan.id, [{}]) }]
   lan_frontend   = [for lan in ionoscloud_lan.frontend_lan : { id = lan.id, routes_list = lookup(local.routes_map, lan.id, [{}]) }]
