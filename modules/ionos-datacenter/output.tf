@@ -80,7 +80,7 @@ output "lan_nat" {
 }
 
 output "custom_lans_id" {
-  value = { for name, lan in ionoscloud_lan.custom_lan: name => lan.id }
+  value = { for name, lan in ionoscloud_lan.custom_lan : name => lan.id }
 }
 
 output "lans_custom" {
@@ -92,7 +92,7 @@ output "kafka_lan" {
 }
 
 output "kafka_lan_cidr" {
-  value       = var.create_kafka_lan ? ionoscloud_lan.kafka_lan[0].ipv4_cidr_block : null
+  value = var.create_kafka_lan ? ionoscloud_lan.kafka_lan[0].ipv4_cidr_block : null
 }
 
 output "kafka_test_lan_cidr" {

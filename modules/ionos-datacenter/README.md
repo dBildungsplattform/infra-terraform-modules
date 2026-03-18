@@ -29,7 +29,7 @@ No modules.
 | <a name="input_crossconnect_shared_group_ids"></a> [crossconnect\_shared\_group\_ids](#input\_crossconnect\_shared\_group\_ids) | Specifies which groups crossconnect shall be shared with. Default: []. | `list(string)` | `[]` | no |
 | <a name="input_custom_lans_to_create"></a> [custom\_lans\_to\_create](#input\_custom\_lans\_to\_create) | Map of for private LANs to be created. The key is used for the output. The value is used for the name: <datacenter name>-<value> | `map(string)` | `{}` | no |
 | <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | n/a | `string` | `"de/txl"` | no |
-| <a name="input_datacenter_shares"></a> [datacenter\_shares](#input\_datacenter\_shares) | Which groups have access to the datacenter | <pre>list(object({<br>    group  = string<br>    edit   = optional(bool, false)<br>    share  = optional(bool, false)<br>  }))</pre> | `[]` | no |
+| <a name="input_datacenter_shares"></a> [datacenter\_shares](#input\_datacenter\_shares) | Which groups have access to the datacenter | <pre>list(object({<br>    group = string<br>    edit  = optional(bool, false)<br>    share = optional(bool, false)<br>  }))</pre> | `[]` | no |
 | <a name="input_routes_map"></a> [routes\_map](#input\_routes\_map) | map which links based on the lan id to a list in which the routes in form of an object ('network'='###' and 'gateway\_ip'='###') are saved | `any` | `{}` | no |
 ## Outputs
 
