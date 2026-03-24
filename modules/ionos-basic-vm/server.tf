@@ -31,7 +31,8 @@ resource "ionoscloud_server" "basic_vm_server" {
     prevent_destroy = true
     ignore_changes = [
         volume[0].user_data,
-        ssh_keys
+        ssh_keys,
+        image_name
     ]
   }
 }
