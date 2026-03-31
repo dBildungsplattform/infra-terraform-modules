@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.4 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.7 |
 ## Modules
 
 No modules.
@@ -24,15 +24,20 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_kafka_cluster_id"></a> [kafka\_cluster\_id](#output\_kafka\_cluster\_id) | n/a |
+| <a name="output_kafka_user_credentials_certificate"></a> [kafka\_user\_credentials\_certificate](#output\_kafka\_user\_credentials\_certificate) | n/a |
+| <a name="output_kafka_user_credentials_certificate_authority"></a> [kafka\_user\_credentials\_certificate\_authority](#output\_kafka\_user\_credentials\_certificate\_authority) | n/a |
+| <a name="output_kafka_user_credentials_private_key"></a> [kafka\_user\_credentials\_private\_key](#output\_kafka\_user\_credentials\_private\_key) | n/a |
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.4 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.7 |
 ## Resources
 
 | Name | Type |
 |------|------|
 | [ionoscloud_kafka_cluster.kafka_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/kafka_cluster) | resource |
+| [ionoscloud_kafka_user_credentials.kafka_user_credentials_ds](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/data-sources/kafka_user_credentials) | data source |
+| [ionoscloud_kafka_users.kafka_users_ds](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/data-sources/kafka_users) | data source |
 <!-- END_TF_DOCS -->
