@@ -26,7 +26,7 @@ No modules.
 | <a name="output_kafka_cluster_id"></a> [kafka\_cluster\_id](#output\_kafka\_cluster\_id) | n/a |
 | <a name="output_kafka_user_credentials_certificate"></a> [kafka\_user\_credentials\_certificate](#output\_kafka\_user\_credentials\_certificate) | n/a |
 | <a name="output_kafka_user_credentials_certificate_authority"></a> [kafka\_user\_credentials\_certificate\_authority](#output\_kafka\_user\_credentials\_certificate\_authority) | n/a |
-| <a name="output_kafka_user_credentials_private_key"></a> [kafka\_user\_credentials\_private\_key](#output\_kafka\_user\_credentials\_private\_key) | n/a |
+| <a name="output_kafka_user_credentials_private_key"></a> [kafka\_user\_credentials\_private\_key](#output\_kafka\_user\_credentials\_private\_key) | todo: directly write to secret store instead when terraform module is available |
 ## Requirements
 
 | Name | Version |
