@@ -10,6 +10,8 @@ output "kafka_user_credentials_certificate" {
   value = data.ionoscloud_kafka_user_credentials.kafka_user_credentials_ds.certificate
 }
 
+# todo: directly write to secret store when terraform module is available
 output "kafka_user_credentials_private_key" {
   value = data.ionoscloud_kafka_user_credentials.kafka_user_credentials_ds.private_key
+  sensitive = true
 }
