@@ -23,6 +23,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_kafka_cluster_broker_addresses"></a> [kafka\_cluster\_broker\_addresses](#output\_kafka\_cluster\_broker\_addresses) | n/a |
 | <a name="output_kafka_cluster_certificate"></a> [kafka\_cluster\_certificate](#output\_kafka\_cluster\_certificate) | n/a |
 | <a name="output_kafka_cluster_certificate_authority"></a> [kafka\_cluster\_certificate\_authority](#output\_kafka\_cluster\_certificate\_authority) | n/a |
 | <a name="output_kafka_cluster_id"></a> [kafka\_cluster\_id](#output\_kafka\_cluster\_id) | n/a |
