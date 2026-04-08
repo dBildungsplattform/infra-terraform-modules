@@ -7,8 +7,9 @@ locals {
   index                = var.coordinates.index
   minus_index_or_empty = "${local.index == "" ? "" : "-"}${local.index}"
 
-  # Output calculatin
+  # Output calculation
   global_identifier = "${local.project}${local.minus_stage_or_empty}${local.minus_scope_or_empty}${local.minus_index_or_empty}"
+  unindexed_indentifier = "${local.project}${local.minus_stage_or_empty}${local.minus_scope_or_empty}"
   cluster_name      = local.global_identifier
   datacenter_name   = local.global_identifier
   top_level_domain  = var.top_level_domain[local.stage]
