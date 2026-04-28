@@ -23,6 +23,7 @@ No modules.
 | <a name="output_dns_zone_name"></a> [dns\_zone\_name](#output\_dns\_zone\_name) | n/a |
 | <a name="output_global_identifier"></a> [global\_identifier](#output\_global\_identifier) | <project><-stage><-scope><-index> |
 | <a name="output_top_level_domain"></a> [top\_level\_domain](#output\_top\_level\_domain) | n/a |
+| <a name="output_unindexed_identifier"></a> [unindexed\_identifier](#output\_unindexed\_identifier) | <project><-stage><-scope> |
 ## Requirements
 
 No requirements.

@@ -1,8 +1,3 @@
-output "nicIndex" {
-  value = local.nicIndex
-  description = "Index of the NIC used by the provided LAN in the Kubernetes nodes."
-}
-
 output "prefix" {
   value = local.prefix
   description = "CIDR block used by the Kubernetes cluster, for example '10.0.0.0/24'."

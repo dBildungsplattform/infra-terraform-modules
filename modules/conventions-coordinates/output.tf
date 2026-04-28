@@ -3,6 +3,11 @@ output "global_identifier" {
   value = local.global_identifier
 }
 
+# <project><-stage><-scope>
+output "unindexed_identifier" {
+  value = local.unindexed_indentifier
+}
+
 output "cluster_name" {
   value = local.cluster_name
 }
