@@ -7,7 +7,7 @@ terraform {
     }
     ionoscloud = {
       source  = "ionos-cloud/ionoscloud"
-      version = "~>6.7"
+      version = "~>6.4"
     }
   }
 }
