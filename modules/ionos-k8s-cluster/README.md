@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.4 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.7 |
 ## Modules
 
 No modules.
@@ -21,7 +21,7 @@ No modules.
 | <a name="input_core_count"></a> [core\_count](#input\_core\_count) | This value overwrites pre-defined environment specific k8s cluster sizing | `number` | `null` | no |
 | <a name="input_cpu_family"></a> [cpu\_family](#input\_cpu\_family) | Valid cpu family | `string` | `"INTEL_SKYLAKE"` | no |
 | <a name="input_create_public_ip_pools"></a> [create\_public\_ip\_pools](#input\_create\_public\_ip\_pools) | n/a | `bool` | `false` | no |
-| <a name="input_custom_nodepools"></a> [custom\_nodepools](#input\_custom\_nodepools) | This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources. | <pre>list(object({<br>    name          = string<br>    auto_scaling  = optional(bool, false)<br>    node_count = number<br>    nodepool_per_zone_count = number<br>    min_node_count= optional(number, null)<br>    max_node_count= optional(number, null)<br>    ram_size      = number<br>    core_count    = number<br>    purpose       = string<br>    availability_zones = optional(list(string), ["ZONE_1","ZONE_2"])<br>    allow_node_pool_replacement = bool<br>    associated_lans = list(object({<br>      id          = number<br>      routes_list = list(any)<br>    }))<br>    maintenance_day = string<br>    maintenance_hour = number<br>    storage_type = optional(string, "SSD")<br>    storage_size = optional(number, 100)<br>    cpu_family = optional(string, "INTEL_SKYLAKE")<br>    create_public_ip_pools = bool<br>    public_ips = optional(map(list(list(string))), {ZONE_1=[[""]], ZONE_2=[[""]]})<br>    })<br>  )</pre> | <pre>[<br>  {<br>    "allow_node_pool_replacement": null,<br>    "associated_lans": null,<br>    "auto_scaling": false,<br>    "availability_zones": [<br>      "ZONE_1",<br>      "ZONE_2"<br>    ],<br>    "core_count": null,<br>    "cpu_family": null,<br>    "create_public_ip_pools": null,<br>    "maintenance_day": null,<br>    "maintenance_hour": null,<br>    "max_node_count": null,<br>    "min_node_count": null,<br>    "name": "Legacy",<br>    "node_count": null,<br>    "nodepool_per_zone_count": null,<br>    "public_ips": {<br>      "ZONE_1": [<br>        [<br>          ""<br>        ]<br>      ],<br>      "ZONE_2": [<br>        [<br>          ""<br>        ]<br>      ]<br>    },<br>    "purpose": "legacy",<br>    "ram_size": null,<br>    "storage_size": null,<br>    "storage_type": null<br>  }<br>]</pre> | no |
+| <a name="input_custom_nodepools"></a> [custom\_nodepools](#input\_custom\_nodepools) | This object describes nodepool configurations for dynamic creation of nodepools with a specific purpose and resources. | <pre>list(object({<br>    name          = string<br>    auto_scaling  = optional(bool, false)<br>    node_count = number<br>    nodepool_per_zone_count = number<br>    min_node_count= optional(number, null)<br>    max_node_count= optional(number, null)<br>    ram_size      = number<br>    core_count    = number<br>    purpose       = string<br>    availability_zones = optional(list(string), ["ZONE_1","ZONE_2"])<br>    allow_node_pool_replacement = bool<br>    associated_lans = list(object({<br>      id          = number<br>      routes_list = list(any)<br>    }))<br>    maintenance_day = string<br>    maintenance_hour = number<br>    storage_type = optional(string, "SSD")<br>    storage_size = optional(number, 100)<br>    cpu_family = optional(string, "INTEL_SKYLAKE")<br>    server_type = optional(string, "DedicatedCore")<br>    create_public_ip_pools = bool<br>    public_ips = optional(map(list(list(string))), {ZONE_1=[[""]], ZONE_2=[[""]]})<br>    })<br>  )</pre> | <pre>[<br>  {<br>    "allow_node_pool_replacement": null,<br>    "associated_lans": null,<br>    "auto_scaling": false,<br>    "availability_zones": [<br>      "ZONE_1",<br>      "ZONE_2"<br>    ],<br>    "core_count": null,<br>    "cpu_family": null,<br>    "create_public_ip_pools": null,<br>    "maintenance_day": null,<br>    "maintenance_hour": null,<br>    "max_node_count": null,<br>    "min_node_count": null,<br>    "name": "Legacy",<br>    "node_count": null,<br>    "nodepool_per_zone_count": null,<br>    "public_ips": {<br>      "ZONE_1": [<br>        [<br>          ""<br>        ]<br>      ],<br>      "ZONE_2": [<br>        [<br>          ""<br>        ]<br>      ]<br>    },<br>    "purpose": "legacy",<br>    "ram_size": null,<br>    "server_type": null,<br>    "storage_size": null,<br>    "storage_type": null<br>  }<br>]</pre> | no |
 | <a name="input_enable_legacy_and_scaling"></a> [enable\_legacy\_and\_scaling](#input\_enable\_legacy\_and\_scaling) | Defines whether the legacy Node Pools are used and the Custom Node Pool list. Custom Node Pool list overwrites legacy Node Pool | `bool` | `false` | no |
 | <a name="input_k8s_version"></a> [k8s\_version](#input\_k8s\_version) | Kubernetes version | `string` | `null` | no |
 | <a name="input_maintenance_day"></a> [maintenance\_day](#input\_maintenance\_day) | On which day to do the maintenance | `string` | `"Saturday"` | no |
@@ -31,6 +31,7 @@ No modules.
 | <a name="input_public_ip_pool_zone1"></a> [public\_ip\_pool\_zone1](#input\_public\_ip\_pool\_zone1) | n/a | `list(list(string))` | `null` | no |
 | <a name="input_public_ip_pool_zone2"></a> [public\_ip\_pool\_zone2](#input\_public\_ip\_pool\_zone2) | n/a | `list(list(string))` | `null` | no |
 | <a name="input_ram_size"></a> [ram\_size](#input\_ram\_size) | This value overwrites pre-defined environment specific k8s cluster sizing | `number` | `null` | no |
+| <a name="input_server_type"></a> [server\_type](#input\_server\_type) | Valid server type | `string` | `"DedicatedCore"` | no |
 | <a name="input_storage_size"></a> [storage\_size](#input\_storage\_size) | The size of the Nodes volume | `number` | `100` | no |
 | <a name="input_storage_type"></a> [storage\_type](#input\_storage\_type) | The type of the Nodes volume. Can be SSD or HDD | `string` | `"SSD"` | no |
 ## Outputs
@@ -49,7 +50,7 @@ No modules.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.4 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.7 |
 ## Resources
 
 | Name | Type |
