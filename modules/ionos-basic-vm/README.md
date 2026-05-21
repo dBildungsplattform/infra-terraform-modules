@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.4 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | >= 6.7.21 |
 | <a name="provider_opentelekomcloud"></a> [opentelekomcloud](#provider\_opentelekomcloud) | n/a |
 ## Modules
 
@@ -45,6 +45,7 @@
 | <a name="input_port_ranges"></a> [port\_ranges](#input\_port\_ranges) | port rangs to open in the IONOS firewall provided as objects in a list [{protocol = ???, name = ???, port\_start = ???, port\_end = ???, source\_ip = ???}], source\_ip is optional. | `list` | `[]` | no |
 | <a name="input_ports"></a> [ports](#input\_ports) | ports to open in the IONOS firewall provided as objects in a list [{protocol = ???, name = ???, port = ???, source\_ip = ???}], source\_ip is optional. | `list` | `[]` | no |
 | <a name="input_public_ip"></a> [public\_ip](#input\_public\_ip) | n/a | `string` | `""` | no |
+| <a name="input_uefi"></a> [uefi](#input\_uefi) | Sets requireLegacyBios to select uefi boot | `bool` | `null` | no |
 | <a name="input_user_data_script"></a> [user\_data\_script](#input\_user\_data\_script) | Decide which user-data.sh script to use | `string` | `"user-data-cloud-init.tpl"` | no |
 ## Outputs
 
@@ -62,7 +63,7 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.4 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | >= 6.7.21 |
 ## Resources
 
 | Name | Type |
