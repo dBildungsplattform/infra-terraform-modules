@@ -12,10 +12,11 @@ resource "ionoscloud_server" "basic_vm_server" {
 
   # /dev/vda1
   volume {
-    name       = "root-volume-ssd"
-    size       = var.basic_vm_volume_size
-    disk_type  = var.basic_vm_volume_disk_type
-    user_data  = local.user_data
+    name                = "root-volume-ssd"
+    size                = var.basic_vm_volume_size
+    disk_type           = var.basic_vm_volume_disk_type
+    user_data           = local.user_data
+    require_legacy_bios = var.uefi
   }
 
   nic {
@@ -50,10 +51,11 @@ resource "ionoscloud_server" "basic_vm_server_not_permanent" {
 
   # /dev/vda1
   volume {
-    name       = "root-volume-ssd"
-    size       = var.basic_vm_volume_size
-    disk_type  = var.basic_vm_volume_disk_type
-    user_data  = local.user_data
+    name                = "root-volume-ssd"
+    size                = var.basic_vm_volume_size
+    disk_type           = var.basic_vm_volume_disk_type
+    user_data           = local.user_data
+    require_legacy_bios = var.uefi
   }
 
   nic {
