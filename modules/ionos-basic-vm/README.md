@@ -30,6 +30,7 @@
 | <a name="input_additional_ips"></a> [additional\_ips](#input\_additional\_ips) | Additional IPs for the VM (optional) | `list(string)` | `[]` | no |
 | <a name="input_availability_zone"></a> [availability\_zone](#input\_availability\_zone) | Possible Zones: AUTO, ZONE\_1, ZONE\_2 | `string` | `"AUTO"` | no |
 | <a name="input_basic_vm_create_second_volume"></a> [basic\_vm\_create\_second\_volume](#input\_basic\_vm\_create\_second\_volume) | n/a | `bool` | `true` | no |
+| <a name="input_basic_vm_require_legacy_bios"></a> [basic\_vm\_require\_legacy\_bios](#input\_basic\_vm\_require\_legacy\_bios) | Set to false to use uefi boot | `bool` | `null` | no |
 | <a name="input_basic_vm_second_volume_disk_type"></a> [basic\_vm\_second\_volume\_disk\_type](#input\_basic\_vm\_second\_volume\_disk\_type) | n/a | `string` | `"HDD"` | no |
 | <a name="input_basic_vm_second_volume_size"></a> [basic\_vm\_second\_volume\_size](#input\_basic\_vm\_second\_volume\_size) | size of the second volume | `string` | `100` | no |
 | <a name="input_basic_vm_volume_disk_type"></a> [basic\_vm\_volume\_disk\_type](#input\_basic\_vm\_volume\_disk\_type) | volume disk type for vm | `string` | `"SSD Standard"` | no |
@@ -45,7 +46,6 @@
 | <a name="input_port_ranges"></a> [port\_ranges](#input\_port\_ranges) | port rangs to open in the IONOS firewall provided as objects in a list [{protocol = ???, name = ???, port\_start = ???, port\_end = ???, source\_ip = ???}], source\_ip is optional. | `list` | `[]` | no |
 | <a name="input_ports"></a> [ports](#input\_ports) | ports to open in the IONOS firewall provided as objects in a list [{protocol = ???, name = ???, port = ???, source\_ip = ???}], source\_ip is optional. | `list` | `[]` | no |
 | <a name="input_public_ip"></a> [public\_ip](#input\_public\_ip) | n/a | `string` | `""` | no |
-| <a name="input_uefi"></a> [uefi](#input\_uefi) | Sets requireLegacyBios to select uefi boot | `bool` | `null` | no |
 | <a name="input_user_data_script"></a> [user\_data\_script](#input\_user\_data\_script) | Decide which user-data.sh script to use | `string` | `"user-data-cloud-init.tpl"` | no |
 ## Outputs
 
