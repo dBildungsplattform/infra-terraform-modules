@@ -165,8 +165,8 @@ variable "additional_ips" {
   default = []
 }
 
-variable "uefi" {
+variable "basic_vm_require_legacy_bios" {
   type = bool
-  description = "Sets requireLegacyBios to select uefi boot"
+  description = "Set to false to use uefi boot"
   default = null
 }
