@@ -55,7 +55,7 @@ resource "ionoscloud_server" "basic_vm_server_not_permanent" {
     size                = var.basic_vm_volume_size
     disk_type           = var.basic_vm_volume_disk_type
     user_data           = local.user_data
-    require_legacy_bios = var.uefi
+    require_legacy_bios = var.basic_vm_require_legacy_bios
   }
 
   nic {
