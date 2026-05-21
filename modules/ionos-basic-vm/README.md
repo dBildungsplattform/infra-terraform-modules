@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.4 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | >= 6.7.21 |
 | <a name="provider_opentelekomcloud"></a> [opentelekomcloud](#provider\_opentelekomcloud) | n/a |
 ## Modules
 
@@ -30,6 +30,7 @@
 | <a name="input_additional_ips"></a> [additional\_ips](#input\_additional\_ips) | Additional IPs for the VM (optional) | `list(string)` | `[]` | no |
 | <a name="input_availability_zone"></a> [availability\_zone](#input\_availability\_zone) | Possible Zones: AUTO, ZONE\_1, ZONE\_2 | `string` | `"AUTO"` | no |
 | <a name="input_basic_vm_create_second_volume"></a> [basic\_vm\_create\_second\_volume](#input\_basic\_vm\_create\_second\_volume) | n/a | `bool` | `true` | no |
+| <a name="input_basic_vm_require_legacy_bios"></a> [basic\_vm\_require\_legacy\_bios](#input\_basic\_vm\_require\_legacy\_bios) | Set to false to use uefi boot | `bool` | `null` | no |
 | <a name="input_basic_vm_second_volume_disk_type"></a> [basic\_vm\_second\_volume\_disk\_type](#input\_basic\_vm\_second\_volume\_disk\_type) | n/a | `string` | `"HDD"` | no |
 | <a name="input_basic_vm_second_volume_size"></a> [basic\_vm\_second\_volume\_size](#input\_basic\_vm\_second\_volume\_size) | size of the second volume | `string` | `100` | no |
 | <a name="input_basic_vm_volume_disk_type"></a> [basic\_vm\_volume\_disk\_type](#input\_basic\_vm\_volume\_disk\_type) | volume disk type for vm | `string` | `"SSD Standard"` | no |
@@ -62,7 +63,7 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.4 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | >= 6.7.21 |
 ## Resources
 
 | Name | Type |

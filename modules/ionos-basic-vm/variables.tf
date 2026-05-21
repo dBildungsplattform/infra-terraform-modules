@@ -164,3 +164,9 @@ variable "additional_ips" {
   description = "Additional IPs for the VM (optional)"
   default = []
 }
+
+variable "basic_vm_require_legacy_bios" {
+  type = bool
+  description = "Set to false to use uefi boot"
+  default = null
+}
