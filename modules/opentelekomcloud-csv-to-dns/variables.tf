@@ -9,7 +9,7 @@ variable "zone_id" {
 }
 
 variable "ttl" {
-  type = number
-  description = "Default value for TTL if TTL column is not set in CSV"
-  default = 300
+    type = number
+    description = "Default value for TTL if TTL column is not set in CSV."
+    default = 300
 }
