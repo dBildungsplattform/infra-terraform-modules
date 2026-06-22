@@ -4,8 +4,8 @@ resource "opentelekomcloud_dns_recordset_v2" "records" {
 
   zone_id = var.zone_id
   name    = lower(each.value.domain)
-  # fallback for both empty ("") and undefined values
-  ttl     = coalesce(lookup(each.value, "ttl", var.ttl), var.ttl)
+  # Fallback for missing/empty/non-numeric TTL values in the CSV.
+  ttl     = try(tonumber(each.value.ttl), var.ttl)
   type    = each.value.type
   # txt records have a max length of 255 characters
   records = [ for record in split("|", each.value.record) : replace(record, "/(.{255})/", "$1\" \"")]
