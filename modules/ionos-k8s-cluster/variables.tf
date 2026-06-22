@@ -15,6 +15,12 @@ variable "cpu_family" {
   default     = "INTEL_SKYLAKE"
 }
 
+variable "server_type" {
+  type        = string
+  description = "Valid server type"
+  default     = "DedicatedCore"
+}
+
 variable "datacenter_id" {
   type        = string
   description = "ID of datacenter cluster shall be created in"
@@ -142,6 +148,7 @@ variable "custom_nodepools" {
     storage_type = optional(string, "SSD")
     storage_size = optional(number, 100)
     cpu_family = optional(string, "INTEL_SKYLAKE")
+    server_type = optional(string, "DedicatedCore")
     create_public_ip_pools = bool
     public_ips = optional(map(list(list(string))), {ZONE_1=[[""]], ZONE_2=[[""]]})
     })
@@ -165,6 +172,7 @@ variable "custom_nodepools" {
     storage_type = null
     storage_size = null
     cpu_family = null
+    server_type = null
     create_public_ip_pools = null
     public_ips = {ZONE_1=[[""]], ZONE_2=[[""]]}
   }]

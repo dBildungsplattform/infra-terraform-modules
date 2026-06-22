@@ -47,6 +47,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_scaling" {
   datacenter_id  = var.datacenter_id
   k8s_cluster_id = ionoscloud_k8s_cluster.cluster.id
   cpu_family     = local.cpu_family
+  server_type    = each.value.server_type
   storage_type   = each.value.storage_type
   node_count     = each.value.node_count
   cores_count    = each.value.core_count
@@ -112,6 +113,7 @@ resource "ionoscloud_k8s_node_pool" "nodepool_legacy" {
   datacenter_id  = var.datacenter_id
   k8s_cluster_id = ionoscloud_k8s_cluster.cluster.id
   cpu_family     = local.cpu_family
+  server_type    = each.value.server_type
   storage_type   = each.value.storage_type
   node_count     = each.value.node_count
   cores_count    = each.value.core_count

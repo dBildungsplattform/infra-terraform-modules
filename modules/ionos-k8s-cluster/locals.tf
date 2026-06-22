@@ -25,6 +25,7 @@ locals {
     storage_type = null
     storage_size = null
     cpu_family = null
+    server_type = null
     create_public_ip_pools = null
     public_ips = {ZONE_1=[[]], ZONE_2=[[]]}
   }])
@@ -57,6 +58,7 @@ locals {
       storage_type = np.storage_type != null ? np.storage_type : var.storage_type
       storage_size = np.storage_size != null ? np.storage_size : var.storage_size
       cpu_family = np.cpu_family != null ? np.cpu_family : var.cpu_family
+      server_type = np.server_type != null ? np.server_type : var.server_type
       create_public_ip_pools = np.create_public_ip_pools != null ? np.create_public_ip_pools : var.create_public_ip_pools
       public_ips = np.create_public_ip_pools == true ? [[]] : np.purpose == "legacy" ? (np.availability_zone == "ZONE_1" ? var.public_ip_pool_zone1 : var.public_ip_pool_zone2) : np.public_ips[np.availability_zone]
     }  
