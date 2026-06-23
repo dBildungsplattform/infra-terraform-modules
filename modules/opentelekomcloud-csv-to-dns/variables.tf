@@ -7,3 +7,9 @@ variable "zone_id" {
     type = string
     description = "OTC DNS zone ID."
 }
+
+variable "ttl" {
+    type = number
+    description = "Default value for TTL if TTL column is not set in CSV."
+    default = 300
+}
