@@ -16,7 +16,7 @@ resource ionoscloud_mongo_cluster "mongo_cluster" {
     cidr_list     = local.cidrs
   }
 
-  template_id = data.null_data_source.template_workaround.outputs["mongo_template_id"]
+  template_id = local.mongo_template_id
   edition     = var.resource_template == null ? "enterprise" : null
 
   maintenance_window {
