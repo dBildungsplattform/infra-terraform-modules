@@ -31,14 +31,14 @@ locals {
   # })
   # if no routes_map is provided, a default value of [{}] is given (just empty), to comply with type requirements in further processing
   # could also use https://developer.hashicorp.com/terraform/language/functions/one but could break depending artefacts
-  lan_service    = [for lan in ionoscloud_lan.service_lan : { id = lan.id, routes_list = [{}] }]
-  lan_backend    = [for lan in ionoscloud_lan.backend_lan : { id = lan.id, routes_list = lookup(local.routes_map, lan.id, [{}]) }]
-  lan_frontend   = [for lan in ionoscloud_lan.frontend_lan : { id = lan.id, routes_list = lookup(local.routes_map, lan.id, [{}]) }]
-  lan_nfs_server = [for lan in ionoscloud_lan.nfs_server_lan : { id = lan.id, routes_list = [{}] }]
-  lan_postgres   = [for lan in ionoscloud_lan.postgres_lan : { id = lan.id, routes_list = [{}] }]
-  lan_alb_target = [for lan in ionoscloud_lan.alb_target_lan : { id = lan.id, routes_list = [{}] }]
-  lan_nlb_target = [for lan in ionoscloud_lan.nlb_target_lan : { id = lan.id, routes_list = [{}] }]
-  lan_nat        = [for lan in ionoscloud_lan.nat_lan : { id = lan.id, routes_list = [{}] }]
-  lans_custom    = { for name, lan in ionoscloud_lan.custom_lan : name => { id = lan.id, routes_list = [{}] } }
-  lan_kafka      = [for lan in ionoscloud_lan.kafka_lan : { id = lan.id, routes_list = [{}] }]
+  lan_service    = [for lan in ionoscloud_lan.service_lan : { id = lan.id, routes_list = [{}], ipv4_cidr_block = lan.ipv4_cidr_block }]
+  lan_backend    = [for lan in ionoscloud_lan.backend_lan : { id = lan.id, routes_list = lookup(local.routes_map, lan.id, [{}]), ipv4_cidr_block = lan.ipv4_cidr_block }]
+  lan_frontend   = [for lan in ionoscloud_lan.frontend_lan : { id = lan.id, routes_list = lookup(local.routes_map, lan.id, [{}]), ipv4_cidr_block = lan.ipv4_cidr_block }]
+  lan_nfs_server = [for lan in ionoscloud_lan.nfs_server_lan : { id = lan.id, routes_list = [{}], ipv4_cidr_block = lan.ipv4_cidr_block }]
+  lan_postgres   = [for lan in ionoscloud_lan.postgres_lan : { id = lan.id, routes_list = [{}], ipv4_cidr_block = lan.ipv4_cidr_block }]
+  lan_alb_target = [for lan in ionoscloud_lan.alb_target_lan : { id = lan.id, routes_list = [{}], ipv4_cidr_block = lan.ipv4_cidr_block }]
+  lan_nlb_target = [for lan in ionoscloud_lan.nlb_target_lan : { id = lan.id, routes_list = [{}], ipv4_cidr_block = lan.ipv4_cidr_block }]
+  lan_nat        = [for lan in ionoscloud_lan.nat_lan : { id = lan.id, routes_list = [{}], ipv4_cidr_block = lan.ipv4_cidr_block }]
+  lans_custom    = { for name, lan in ionoscloud_lan.custom_lan : name => { id = lan.id, routes_list = [{}], ipv4_cidr_block = lan.ipv4_cidr_block } }
+  lan_kafka      = [for lan in ionoscloud_lan.kafka_lan : { id = lan.id, routes_list = [{}], ipv4_cidr_block = lan.ipv4_cidr_block }]
 }
