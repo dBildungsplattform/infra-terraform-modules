@@ -83,6 +83,12 @@ variable "dns_zone_name_override" {
   default = ""
 }
 
+variable "dns_zone_id" {
+  type        = string
+  description = "Optional DNS zone ID to use instead of looking up the zone by name. If set, the zone is not looked up via datasource."
+  default     = ""
+}
+
 variable "image" {
   type = string
   description = "image of the vm"

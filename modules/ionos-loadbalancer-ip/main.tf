@@ -20,7 +20,7 @@ resource "time_sleep" "crip_destroy_wait" {
 
 resource "opentelekomcloud_dns_recordset_v2" "dnsentry" {
   count   = var.ingress_mode == "sclb" ? 1 : 0
-  zone_id = data.opentelekomcloud_dns_zone_v2.dns_zone.id
+  zone_id = local.zone_id
   name    = lower("${module.conventions.cluster_dns}.")
   ttl     = 300
   type    = "A"

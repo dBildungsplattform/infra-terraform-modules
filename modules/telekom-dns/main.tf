@@ -8,7 +8,7 @@ module "conventions_coordinates" {
 # Registers the given external_ip for the service in DNS. 
 resource "opentelekomcloud_dns_recordset_v2" "dnsentry" {
   count   = 1
-  zone_id = data.opentelekomcloud_dns_zone_v2.dns_zone.id
+  zone_id = local.zone_id
   name    = local.dns_a_entry
   ttl     = 300
   type    = "CNAME"
@@ -21,7 +21,7 @@ resource "opentelekomcloud_dns_recordset_v2" "dnsentry" {
 
 resource "opentelekomcloud_dns_recordset_v2" "dnsaliases" {
   count   = length(var.dns_aliases)
-  zone_id = data.opentelekomcloud_dns_zone_v2.dns_zone.id
+  zone_id = local.zone_id
   name    = lower(var.dns_aliases[count.index])
   ttl     = 300
   type    = "CNAME"

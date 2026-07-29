@@ -21,7 +21,7 @@ variable "datacenter_location" {
 # sclb:
 # - schul-cloud load balancer.
 # nodeport:
-# - The ingress controller provides a nodeport on each node. 
+# - The ingress controller provides a nodeport on each node.
 #   This is the classic configuration used in sc-prod-schulcloud, where an external
 #   haproxy connects to each node round robin.
 # Default: sclb
@@ -29,5 +29,11 @@ variable "ingress_mode" {
   type        = string
   description = "Set to one of 'sclb' or 'nodeport'."
   default     = "sclb"
+}
+
+variable "dns_zone_id" {
+  type        = string
+  description = "Optional DNS zone ID to use instead of looking up the zone by name. If set, the zone is not looked up via datasource."
+  default     = ""
 }
 
