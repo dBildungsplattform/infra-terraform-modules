@@ -49,6 +49,5 @@
 
 | Name | Type |
 |------|------|
-| [ionoscloud_pg_cluster.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/pg_cluster) | resource |
 | [ionoscloud_pg_cluster_v2.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/pg_cluster_v2) | resource |
 <!-- END_TF_DOCS -->
