@@ -1,8 +1,3 @@
-import {
-  to = ionoscloud_pg_cluster_v2.pg_cluster
-  id = "${var.datacenter_location}:${var.cluster_uuid}"
-}
-
 resource "ionoscloud_pg_cluster_v2" "pg_cluster" {
   name             = var.display_name
   version          = var.postgres_version

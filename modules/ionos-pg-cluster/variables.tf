@@ -75,9 +75,6 @@ variable "synchronization_mode" {
   type        = string
   default     = "ASYNCHRONOUS"
 }
-variable "cluster_uuid" {
-  type        = string
-}
 variable "backup_location" {
   type        = string
   default     = "eu-central-3"
