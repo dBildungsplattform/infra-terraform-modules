@@ -3,6 +3,7 @@ resource "ionoscloud_pg_cluster_v2" "pg_cluster" {
   version          = var.postgres_version
   location         = var.datacenter_location
   replication_mode = var.synchronization_mode
+  metrics_enabled  = var.metrics_enabled
 
   backup = {
     location       = var.backup_location

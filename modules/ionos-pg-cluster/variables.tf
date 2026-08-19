@@ -83,3 +83,7 @@ variable "backup_retention_days" {
   type        = number
   default     = 7
 }
+variable "metrics_enabled" {
+  type        = bool
+  default     = true
+}
