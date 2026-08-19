@@ -87,3 +87,7 @@ variable "metrics_enabled" {
   type        = bool
   default     = true
 }
+variable "database" {
+  type        = string
+  default     = "postgres"
+}

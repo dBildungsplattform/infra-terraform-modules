@@ -27,7 +27,7 @@ resource "ionoscloud_pg_cluster_v2" "pg_cluster" {
     username         = var.username
     password         = var.password
     password_version = "1"
-    database         = var.username
+    database         = var.database
   }
 
   maintenance_window = {
