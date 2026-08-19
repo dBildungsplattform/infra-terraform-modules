@@ -3,7 +3,6 @@ resource "ionoscloud_pg_cluster_v2" "pg_cluster" {
   version          = var.postgres_version
   location         = var.datacenter_location
   replication_mode = var.synchronization_mode
-  allow_replace    = false
 
   backup = {
     location       = var.backup_location
@@ -53,6 +52,7 @@ resource "ionoscloud_pg_cluster" "pg_cluster" {
   display_name         = var.display_name
   location             = var.datacenter_location
   synchronization_mode = var.synchronization_mode
+  allow_replace        = false
 
   connections {
     datacenter_id = var.datacenter_id
