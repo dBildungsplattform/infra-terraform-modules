@@ -43,7 +43,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.12 |
 | <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~> 6.7.33 |
 ## Resources
 
