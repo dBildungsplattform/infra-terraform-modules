@@ -77,9 +77,9 @@ variable "synchronization_mode" {
 }
 variable "backup_location" {
   type        = string
-  default     = "eu-central-3"
+  default     = "eu-central-4"
 }
 variable "backup_retention_days" {
   type        = number
-  default     = 1
+  default     = 7
 }
