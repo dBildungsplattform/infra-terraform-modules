@@ -14,7 +14,6 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cluster_uuid"></a> [cluster\_uuid](#input\_cluster\_uuid) | n/a | `string` | n/a | yes |
 | <a name="input_cores"></a> [cores](#input\_cores) | The number of CPU cores per replica. | `number` | n/a | yes |
 | <a name="input_datacenter_id"></a> [datacenter\_id](#input\_datacenter\_id) | The datacenter to connect your cluster to. | `string` | n/a | yes |
 | <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | The physical location where the cluster will be created. This will be where all of your instances live. | `any` | n/a | yes |
