@@ -70,9 +70,19 @@ variable "maintenance_hour" {
   type        = number
   default     = 3
 }
-
 variable "synchronization_mode" {
   description = "Represents different modes of replication. Can have one of the following values: ASYNCHRONOUS, SYNCHRONOUS, STRICTLY_SYNCHRONOUS. This attribute is immutable(disallowed in update requests). (Default: ASYNCHRONOUS)"
   type        = string
   default     = "ASYNCHRONOUS"
+}
+variable "cluster_uuid" {
+  type        = string
+}
+variable "backup_location" {
+  type        = string
+  default     = "eu-central-3"
+}
+variable "backup_retention_days" {
+  type        = number
+  default     = 1
 }
