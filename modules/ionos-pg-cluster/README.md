@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.4 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~> 6.7.33 |
 ## Modules
 
 | Name | Source | Version |
@@ -14,6 +14,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_cluster_uuid"></a> [cluster\_uuid](#input\_cluster\_uuid) | n/a | `string` | n/a | yes |
 | <a name="input_cores"></a> [cores](#input\_cores) | The number of CPU cores per replica. | `number` | n/a | yes |
 | <a name="input_datacenter_id"></a> [datacenter\_id](#input\_datacenter\_id) | The datacenter to connect your cluster to. | `string` | n/a | yes |
 | <a name="input_datacenter_location"></a> [datacenter\_location](#input\_datacenter\_location) | The physical location where the cluster will be created. This will be where all of your instances live. | `any` | n/a | yes |
@@ -26,6 +27,8 @@
 | <a name="input_postgres_version"></a> [postgres\_version](#input\_postgres\_version) | The PostgreSQL version of your cluster. | `string` | n/a | yes |
 | <a name="input_username"></a> [username](#input\_username) | The username for the initial postgres user. | `string` | n/a | yes |
 | <a name="input_volume_size"></a> [volume\_size](#input\_volume\_size) | The amount of storage per instance in MB. | `number` | n/a | yes |
+| <a name="input_backup_location"></a> [backup\_location](#input\_backup\_location) | n/a | `string` | `"eu-central-3"` | no |
+| <a name="input_backup_retention_days"></a> [backup\_retention\_days](#input\_backup\_retention\_days) | n/a | `number` | `1` | no |
 | <a name="input_ip_block"></a> [ip\_block](#input\_ip\_block) | The number to be set in the last ip block. (Default: 101) | `number` | `101` | no |
 | <a name="input_maintenance_day"></a> [maintenance\_day](#input\_maintenance\_day) | The day of the week for the 4 hour-long maintenance window. (Default: Sunday) | `string` | `"Sunday"` | no |
 | <a name="input_maintenance_hour"></a> [maintenance\_hour](#input\_maintenance\_hour) | The time of the day when the 4 hour-long maintenance window may start. (Default: 3) | `number` | `3` | no |
@@ -42,10 +45,11 @@
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.4 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~> 6.7.33 |
 ## Resources
 
 | Name | Type |
 |------|------|
 | [ionoscloud_pg_cluster.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/pg_cluster) | resource |
+| [ionoscloud_pg_cluster_v2.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/pg_cluster_v2) | resource |
 <!-- END_TF_DOCS -->
