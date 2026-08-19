@@ -35,3 +35,10 @@ resource "ionoscloud_pg_cluster_v2" "pg_cluster" {
     day_of_the_week = var.maintenance_day
   }
 }
+
+removed {
+  from = ionoscloud_pg_cluster.pg_cluster
+  lifecycle {
+    destroy = false
+  }
+}
