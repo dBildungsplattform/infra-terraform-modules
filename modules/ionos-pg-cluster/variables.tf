@@ -89,5 +89,5 @@ variable "metrics_enabled" {
 }
 variable "database" {
   type        = string
-  default     = "postgres"
+  default     = var.username
 }
