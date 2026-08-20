@@ -89,5 +89,5 @@ variable "metrics_enabled" {
 }
 variable "database" {
   type        = string
-  default     = var.username
+  default     = "dbadmin"
 }
