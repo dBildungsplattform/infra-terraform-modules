@@ -28,7 +28,7 @@
 | <a name="input_volume_size"></a> [volume\_size](#input\_volume\_size) | The amount of storage per instance in MB. | `number` | n/a | yes |
 | <a name="input_backup_location"></a> [backup\_location](#input\_backup\_location) | n/a | `string` | `"eu-central-4"` | no |
 | <a name="input_backup_retention_days"></a> [backup\_retention\_days](#input\_backup\_retention\_days) | n/a | `number` | `7` | no |
-| <a name="input_database"></a> [database](#input\_database) | n/a | `string` | `"postgres"` | no |
+| <a name="input_database"></a> [database](#input\_database) | n/a | `string` | `"dbadmin"` | no |
 | <a name="input_ip_block"></a> [ip\_block](#input\_ip\_block) | The number to be set in the last ip block. (Default: 101) | `number` | `101` | no |
 | <a name="input_maintenance_day"></a> [maintenance\_day](#input\_maintenance\_day) | The day of the week for the 4 hour-long maintenance window. (Default: Sunday) | `string` | `"Sunday"` | no |
 | <a name="input_maintenance_hour"></a> [maintenance\_hour](#input\_maintenance\_hour) | The time of the day when the 4 hour-long maintenance window may start. (Default: 3) | `number` | `3` | no |
