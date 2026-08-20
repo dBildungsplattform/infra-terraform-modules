@@ -91,3 +91,7 @@ variable "database" {
   type        = string
   default     = "dbadmin"
 }
+variable "password_version" {
+  type        = string
+  default     = "1"
+}

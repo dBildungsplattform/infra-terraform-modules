@@ -26,7 +26,7 @@ resource "ionoscloud_pg_cluster_v2" "pg_cluster" {
   credentials = {
     username         = var.username
     password         = var.password
-    password_version = "1"
+    password_version = var.password_version
     database         = var.username
   }
 
