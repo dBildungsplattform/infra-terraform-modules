@@ -2,8 +2,8 @@ terraform {
   required_providers {
     ionoscloud = {
       source  = "ionos-cloud/ionoscloud"
-      version = "~>6.4"
+      version = "~> 6.7.33"
     }
   }
-  required_version = ">= 0.13"
+  required_version = "~> 1.12"
 }

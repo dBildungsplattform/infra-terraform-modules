@@ -4,7 +4,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~>6.4 |
+| <a name="provider_ionoscloud"></a> [ionoscloud](#provider\_ionoscloud) | ~> 6.7.33 |
 ## Modules
 
 | Name | Source | Version |
@@ -26,9 +26,14 @@
 | <a name="input_postgres_version"></a> [postgres\_version](#input\_postgres\_version) | The PostgreSQL version of your cluster. | `string` | n/a | yes |
 | <a name="input_username"></a> [username](#input\_username) | The username for the initial postgres user. | `string` | n/a | yes |
 | <a name="input_volume_size"></a> [volume\_size](#input\_volume\_size) | The amount of storage per instance in MB. | `number` | n/a | yes |
+| <a name="input_backup_location"></a> [backup\_location](#input\_backup\_location) | n/a | `string` | `"eu-central-4"` | no |
+| <a name="input_backup_retention_days"></a> [backup\_retention\_days](#input\_backup\_retention\_days) | n/a | `number` | `7` | no |
+| <a name="input_database"></a> [database](#input\_database) | n/a | `string` | `"dbadmin"` | no |
 | <a name="input_ip_block"></a> [ip\_block](#input\_ip\_block) | The number to be set in the last ip block. (Default: 101) | `number` | `101` | no |
 | <a name="input_maintenance_day"></a> [maintenance\_day](#input\_maintenance\_day) | The day of the week for the 4 hour-long maintenance window. (Default: Sunday) | `string` | `"Sunday"` | no |
 | <a name="input_maintenance_hour"></a> [maintenance\_hour](#input\_maintenance\_hour) | The time of the day when the 4 hour-long maintenance window may start. (Default: 3) | `number` | `3` | no |
+| <a name="input_metrics_enabled"></a> [metrics\_enabled](#input\_metrics\_enabled) | n/a | `bool` | `true` | no |
+| <a name="input_password_version"></a> [password\_version](#input\_password\_version) | n/a | `string` | `"1"` | no |
 | <a name="input_subnet_mask"></a> [subnet\_mask](#input\_subnet\_mask) | The subnet mask to use for allowing connections from the LAN. (Default: 16) | `string` | `16` | no |
 | <a name="input_synchronization_mode"></a> [synchronization\_mode](#input\_synchronization\_mode) | Represents different modes of replication. Can have one of the following values: ASYNCHRONOUS, SYNCHRONOUS, STRICTLY\_SYNCHRONOUS. This attribute is immutable(disallowed in update requests). (Default: ASYNCHRONOUS) | `string` | `"ASYNCHRONOUS"` | no |
 | <a name="input_volume_disk_type"></a> [volume\_disk\_type](#input\_volume\_disk\_type) | The storage type used in your cluster. (Default: SSD) | `string` | `"SSD"` | no |
@@ -41,11 +46,11 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~>6.4 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.12 |
+| <a name="requirement_ionoscloud"></a> [ionoscloud](#requirement\_ionoscloud) | ~> 6.7.33 |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [ionoscloud_pg_cluster.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/pg_cluster) | resource |
+| [ionoscloud_pg_cluster_v2.pg_cluster](https://registry.terraform.io/providers/ionos-cloud/ionoscloud/latest/docs/resources/pg_cluster_v2) | resource |
 <!-- END_TF_DOCS -->
