@@ -32,7 +32,7 @@
 | <a name="input_resource_template"></a> [resource\_template](#input\_resource\_template) | Name of the IONOS Template to use for resources (except for Enterprise) | `string` | `null` | no |
 | <a name="input_shards_count"></a> [shards\_count](#input\_shards\_count) | Number of MongoDB shards (Enterprise only) | `number` | `null` | no |
 | <a name="input_subnet_mask"></a> [subnet\_mask](#input\_subnet\_mask) | The subnet mask to use for allowing connections from the LAN (Default: 24) | `string` | `24` | no |
-| <a name="input_users"></a> [users](#input\_users) | Map of users and their roles. Example: {admin: {password: "1234", roles: [{db: "admin", role: "dbAdminAnyDatabase"}]}} | <pre>map(<br>                  object({<br>                    password=string,<br>                    roles=set(<br>                      object({<br>                        db=string,<br>                        role=string<br>                }))}))</pre> | `{}` | no |
+| <a name="input_users"></a> [users](#input\_users) | Map of users and their roles. Example: {admin: {password: "1234", roles: [{db: "admin", role: "dbAdminAnyDatabase"}]}} | <pre>map(<br/>                  object({<br/>                    password=string,<br/>                    roles=set(<br/>                      object({<br/>                        db=string,<br/>                        role=string<br/>                }))}))</pre> | `{}` | no |
 | <a name="input_volume_disk_type"></a> [volume\_disk\_type](#input\_volume\_disk\_type) | The storage type used in your cluster (Enterprise only) | `string` | `null` | no |
 | <a name="input_volume_size"></a> [volume\_size](#input\_volume\_size) | The amount of storage in MB per node (Enterprise only) | `number` | `null` | no |
 ## Outputs
