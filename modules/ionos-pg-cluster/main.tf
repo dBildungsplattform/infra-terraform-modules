@@ -36,9 +36,7 @@ resource "ionoscloud_pg_cluster_v2" "pg_cluster" {
   }
 }
 
-removed {
+moved {
   from = ionoscloud_pg_cluster.pg_cluster
-  lifecycle {
-    destroy = false
-  }
+  to   = ionoscloud_pg_cluster_v2.pg_cluster
 }
