@@ -34,9 +34,9 @@
 | <a name="input_maintenance_hour"></a> [maintenance\_hour](#input\_maintenance\_hour) | The time of the day when the 4 hour-long maintenance window may start. (Default: 3) | `number` | `3` | no |
 | <a name="input_metrics_enabled"></a> [metrics\_enabled](#input\_metrics\_enabled) | n/a | `bool` | `true` | no |
 | <a name="input_password_version"></a> [password\_version](#input\_password\_version) | n/a | `string` | `"1"` | no |
+| <a name="input_prevent_destroy"></a> [prevent\_destroy](#input\_prevent\_destroy) | n/a | `bool` | `true` | no |
 | <a name="input_subnet_mask"></a> [subnet\_mask](#input\_subnet\_mask) | The subnet mask to use for allowing connections from the LAN. (Default: 16) | `string` | `16` | no |
 | <a name="input_synchronization_mode"></a> [synchronization\_mode](#input\_synchronization\_mode) | Represents different modes of replication. Can have one of the following values: ASYNCHRONOUS, SYNCHRONOUS, STRICTLY\_SYNCHRONOUS. This attribute is immutable(disallowed in update requests). (Default: ASYNCHRONOUS) | `string` | `"ASYNCHRONOUS"` | no |
-| <a name="input_volume_disk_type"></a> [volume\_disk\_type](#input\_volume\_disk\_type) | The storage type used in your cluster. (Default: SSD) | `string` | `"SSD"` | no |
 ## Outputs
 
 | Name | Description |
