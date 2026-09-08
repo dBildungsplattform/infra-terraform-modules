@@ -34,6 +34,10 @@ resource "ionoscloud_pg_cluster_v2" "pg_cluster" {
     time            = format("%02d:00:00", var.maintenance_hour)
     day_of_the_week = var.maintenance_day
   }
+
+  lifecycle {
+    prevent_destroy = var.prevent_destroy
+  }
 }
 
 removed {
