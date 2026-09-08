@@ -22,11 +22,6 @@ variable "volume_size" {
   description = "The amount of storage per instance in MB."
   type        = number
 }
-variable "volume_disk_type" {
-  description = "The storage type used in your cluster. (Default: SSD)"
-  type        = string
-  default     = "SSD"
-}
 variable "datacenter_id" {
   description = "The datacenter to connect your cluster to."
   type        = string
@@ -94,4 +89,8 @@ variable "database" {
 variable "password_version" {
   type        = string
   default     = "1"
+}
+variable "prevent_destroy" {
+  type        = bool
+  default     = true
 }
